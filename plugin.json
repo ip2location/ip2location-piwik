@@ -1,0 +1,13 @@
+{
+ "name": "IP2Location",
+ "version": "1.0.0",
+ "description": "Use IP2Location geolocation database to lookup for accurate visitor location in Piwik.",
+ "theme": false,
+ "authors": [
+     {
+         "name": "IP2Location",
+         "email": "support@ip2location.com",
+         "homepage": "http://www.ip2location.com"
+     }
+ ]
+}

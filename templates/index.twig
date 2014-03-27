@@ -1,0 +1,74 @@
+{% extends 'admin.twig' %}
+
+{% block content %}
+{% import 'macros.twig' as piwik %}
+{% if isSuperUser %}
+
+	<h2>{{'IP2Location_Settings'|translate}}</h2>
+	<p>{{'IP2Location_PluginDescription'|translate}}</p>
+
+	{% if dbNotFound %}
+		<div style="border:2px solid #cc0000;background:#ffffcc;padding:10px;color:#cc3300">
+			<h5>{{'IP2Location_DatabaseNotFound'|translate}}</h5>
+			<p>
+				{{'IP2Location_DownloadDatabase'|translate}} <a href="http://lite.ip2location.com/r=piwik">http://lite.ip2location.com</a>
+				<br />
+				{{'IP2Location_Instructions'|translate}}
+			</p>
+		</div>
+	{% endif %}
+
+	{% if dbOutDated %}
+		<div style="border:2px solid #ff6600;background:#ffffcc;padding:10px;color:#ff6600">
+			<h5>{{'IP2Location_DatabaseOutDated'|translate}}</h5>
+			<p>
+				{{'IP2Location_RedownloadDatabase'|translate}} <a href="http://lite.ip2location.com/r=piwik">http://lite.ip2location.com</a>
+				<br />
+				{{'IP2Location_Instructions'|translate}}
+			</p>
+		</div>
+	{% else %}
+		<div style="border:2px solid #009900;background:#fff;padding:10px;color:#006600">
+			<h5>{{'IP2Location_Database'|translate}}</h5>
+			<p>
+				<b>{{'IP2Location_FileName'|translate}}:</b> {{ fileName }}
+				<br />
+				<b>{{'IP2Location_Date'|translate}}:</b> {{ date }}
+			</p>
+		</div>
+	{% endif %}
+
+	{% if dbNotFound == false %}
+		<p>
+			<form method="post" action="{{ {'action':'index', 'token_auth':token_auth} | urlRewriteWithParameters }}">
+				{{'IP2Location_EnterIPAddress'|translate}}<br />
+				{% if showResults %}
+					<table style="border:2px solid #0066cc;padding:10px;margin:10px 0 0 0">
+					<col width="100">
+					<col width="400">
+					<tr>
+						<td><b>Country</b></td>
+						<td>{{ country }}</td>
+					</tr>
+					<tr>
+						<td><b>Region</b></td>
+						<td>{{ regionName }}</td>
+					</tr>
+					<tr>
+						<td><b>City</b></td>
+						<td>{{ cityName }}</td>
+					</tr>
+					<tr>
+						<td><b>Position</b></td>
+						<td>{{ position }}</td>
+					</tr>
+					</table>
+				{% endif %}
+				<label style="font-weight:bold">{{'IP2Location_IPAddress'|translate}}:</label>
+				<input type="text" name="ipAddress" value="{{ ipAddress }}" maxlength="15" />
+				<input type="submit" value="{{'IP2Location_Lookup'|translate}}" name="submit" class="submit" />
+			</form>
+		</p>
+	{% endif %}
+{% endif %}
+{% endblock %}
