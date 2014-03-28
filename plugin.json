@@ -1,13 +1,19 @@
 {
- "name": "IP2Location",
- "version": "1.0.0",
- "description": "Use IP2Location geolocation database to lookup for accurate visitor location in Piwik.",
- "theme": false,
- "authors": [
-     {
-         "name": "IP2Location",
-         "email": "support@ip2location.com",
-         "homepage": "http://www.ip2location.com"
-     }
- ]
+    "name": "IP2Location",
+    "version": "2.0.0",
+    "keywords": ["IP2Location"],
+    "homepage": "http://www.ip2location.com/developers/piwik",
+    "description": "Use IP2Location geolocation database to lookup for accurate visitor location in Piwik.",
+    "license": "GPL 3.0",    
+    "authors": [
+        {
+            "name": "IP2Location",
+            "email": "support@ip2location.com",
+            "homepage": "http://www.ip2location.com"
+        }
+    ],
+    "require": {
+         "piwik": "2.0.1", 
+         "php": "5.3.20" 
+    }
 }
