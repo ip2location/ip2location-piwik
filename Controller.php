@@ -39,8 +39,21 @@ class Controller extends \Piwik\Plugin\Controller
 		$view->notifications = NotificationManager::getAllNotificationsToDisplay();
 		$view->phpVersion = phpversion();
 		$view->phpIsNewEnough = version_compare($view->phpVersion, '5.3.0', '>=');
+
 		$view->assign('dbNotFound', false);
 		$view->assign('dbOutDated', false);
+		$view->assign('showResults', false);
+
+		$view->assign('fileName', '-');
+		$view->assign('date', '-');
+
+		$view->assign('country', '');
+		$view->assign('regionName', '');
+		$view->assign('cityName', '');
+		$view->assign('position', '');
+
+		$ipAddress = trim(Common::getRequestVar('ipAddress', $_SERVER['REMOTE_ADDR']));
+		$view->assign('ipAddress', $ipAddress);
 
 		$dbPath = PIWIK_INCLUDE_PATH . '/plugins/IP2Location/data/';
 		$dbFile = '';
@@ -55,16 +68,14 @@ class Controller extends \Piwik\Plugin\Controller
 		if(!$dbFile) $view->assign('dbNotFound', true);
 
 		if($dbFile){
-			if(filemtime($dbFile) < strtotime('-2 months')) $view->assign('dbOutDated', true);
+			$view->assign('fileName', $file);
+
+			if(filemtime($dbFile) < strtotime('-2 months')){
+				$view->assign('dbOutDated', true);
+			}
 			else{
-				$view->assign('fileName', $file);
 				$view->assign('date', date('d M, Y', filemtime($dbFile)));
 			}
-
-			$ipAddress = trim(Common::getRequestVar('ipAddress', $_SERVER['REMOTE_ADDR']));
-			$view->assign('ipAddress', $ipAddress);
-
-			$view->assign('showResults', false);
 
 			if(!empty($_POST)){
 				$view->assign('showResults', true);
