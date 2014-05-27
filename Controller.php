@@ -27,7 +27,7 @@ class Controller extends \Piwik\Plugin\Controller
 
     public function index()
     {
-		Piwik::checkUserIsSuperUser();
+		Piwik::checkUserHasSuperUserAccess();
 
 		$view = new View('@IP2Location/index');
 		$view->language = LanguagesManager::getLanguageCodeForCurrentUser();
