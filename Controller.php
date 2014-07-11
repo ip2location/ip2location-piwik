@@ -18,6 +18,7 @@ use Piwik\Plugins\IP2Location\API as IP2LocationAPI;
 use Piwik\Menu\MenuAdmin;
 use Piwik\Menu\MenuTop;
 use Piwik\Menu\MenuMain;
+use Piwik\Menu\MenuUser;
 
 /**
  *
@@ -37,6 +38,7 @@ class Controller extends \Piwik\Plugin\Controller
 		$view->adminMenu = MenuAdmin::getInstance()->getMenu();
 		$view->topMenu = MenuTop::getInstance()->getMenu();
 		$view->notifications = NotificationManager::getAllNotificationsToDisplay();
+		$view->userMenu = MenuUser::getInstance()->getMenu();
 		$view->phpVersion = phpversion();
 		$view->phpIsNewEnough = version_compare($view->phpVersion, '5.3.0', '>=');
 
