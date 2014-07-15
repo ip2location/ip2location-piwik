@@ -40,6 +40,7 @@ class Controller extends \Piwik\Plugin\Controller
 		$view->phpVersion = phpversion();
 		$view->phpIsNewEnough = version_compare($view->phpVersion, '5.3.0', '>=');
 
+		$view->assign('userMenu', 'IP2Location');
 		$view->assign('dbNotFound', false);
 		$view->assign('dbOutDated', false);
 		$view->assign('showResults', false);
@@ -58,11 +59,14 @@ class Controller extends \Piwik\Plugin\Controller
 		$dbPath = PIWIK_INCLUDE_PATH . '/plugins/IP2Location/data/';
 		$dbFile = '';
 
-		foreach(array('IP2LOCATION-LITE-DB1.BIN', 'IP2LOCATION-LITE-DB3.BIN' ,'IP2LOCATION-LITE-DB5.BIN', 'IP2LOCATION-LITE-DB9.BIN', 'IP2LOCATION-LITE-DB11.BIN') as $file){
-			if(file_exists($dbPath . $file)){
-				$dbFile = $dbPath . $file;
-				break;
+		if ($handle = opendir($dbPath)) {
+			while (false !== ($file = readdir($handle))){
+				if(strtoupper(substr($file, -4)) == '.BIN'){
+					$dbFile = $dbPath . $file;
+					break;
+				}
 			}
+			closedir($handle);
 		}
 
 		if(!$dbFile) $view->assign('dbNotFound', true);
