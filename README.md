@@ -14,6 +14,9 @@ See http://piwik.org/faq/plugins/#faq_21
 
 ## Changelog
 
+__2.1.0__
+* updated to IP2Location 7.0.0 library
+
 __2.0.0__
 * first release for Piwik 2.0
 
