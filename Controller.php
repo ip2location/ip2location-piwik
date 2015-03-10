@@ -33,7 +33,6 @@ class Controller extends \Piwik\Plugin\Controller
 		$view->language = LanguagesManager::getLanguageCodeForCurrentUser();
 
 		$this->setBasicVariablesView($view);
-		$view->currentAdminMenuName = MenuAdmin::getInstance()->getCurrentAdminMenuName();
 		$view->adminMenu = MenuAdmin::getInstance()->getMenu();
 		$view->topMenu = MenuTop::getInstance()->getMenu();
 		$view->notifications = NotificationManager::getAllNotificationsToDisplay();
