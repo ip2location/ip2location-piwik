@@ -73,12 +73,14 @@ class IP2Location extends \Piwik\Plugin
 
 	public function addConfigMenu()
 	{
-		MenuAdmin::addEntry(
+		if (Piwik::isUserHasSomeAdminAccess()) {
+			MenuAdmin::getInstance()->addItem(
+				'General_Settings',
 				'IP2Location',
 				array('module' => 'IP2Location', 'action' => 'index'),
-				Piwik::isUserHasSomeAdminAccess(),
 				$order = 9
-		);
+			);
+		}
 	}
 
 	protected function getRegionCode($countryCode, $regionName)
