@@ -1,6 +1,6 @@
 {
     "name": "IP2Location",
-    "version": "2.1.1",
+    "version": "2.1.3",
     "keywords": ["IP2Location"],
     "homepage": "http://www.ip2location.com/developers/piwik",
     "description": "Use IP2Location geolocation database to lookup for accurate visitor location in Piwik.",
@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-         "piwik": "2.0.1", 
+         "piwik": "2.12.0", 
          "php": "5.3.20" 
     }
 }
