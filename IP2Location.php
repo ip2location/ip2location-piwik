@@ -52,7 +52,7 @@ class IP2Location extends \Piwik\Plugin
 
 		if($dbFile){
 			$privacyConfig = new PrivacyManagerConfig();
-			$ipAddress = IP::N2P($privacyConfig->useAnonymizedIpForVisitEnrichment ? $visitorInfo['location_ip'] : $request->getIp());
+			$ipAddress = IPUtils::binaryToStringIP($privacyConfig->useAnonymizedIpForVisitEnrichment ? $visitorInfo['location_ip'] : $request->getIp());
 
 			$result = IP2LocationAPI::lookup($ipAddress, $dbFile);
 
