@@ -18,7 +18,7 @@ use Piwik\Plugins\PrivacyManager\Config as PrivacyManagerConfig;
 use Piwik\Menu\MenuAdmin;
 use Piwik\Piwik;
 use Piwik\Tracker;
-use Piwik\IP;
+use Piwik\Network\IPUtils;
 
 /**
  */
