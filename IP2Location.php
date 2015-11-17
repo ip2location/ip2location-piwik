@@ -4303,7 +4303,7 @@ class IP2Location extends \Piwik\Plugin
 		if(!isset($regions[$countryCode])) return false;
 
 		foreach($regions[$countryCode] as $regionCode=>$region){
-			if($region == $regionName) return $regionCode;
+			if(strtolower($region) == strtolower($regionName)) return $regionCode;
 		}
 		return false;
 	}
