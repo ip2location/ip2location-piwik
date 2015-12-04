@@ -58,7 +58,7 @@ class IP2Location extends \Piwik\Plugin
 
 			$countryCode = ($result['countryCode'] != '-') ? strtolower($result['countryCode']) : null;
 			$regionName = ($result['regionName'] != '-') ? $result['regionName'] : null;
-			$regionCode = $this->getRegionCode(strtoupper($countryCode), $regionName);
+			$regionCode = $this->getRegionCode(strtoupper($countryCode), strtoupper($regionName));
 			$cityName = (!preg_match('/not supported/', $result['cityName']) && $result['cityName'] != '-') ? $result['cityName'] : null;
 			$latitude = (!preg_match('/not supported/', $result['latitude']) && $result['latitude'] != '-') ? $result['latitude'] : null;
 			$longitude = (!preg_match('/not supported/', $result['longitude']) && $result['longitude'] != '-') ? $result['longitude'] : null;
