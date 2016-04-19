@@ -14,6 +14,9 @@ See http://piwik.org/faq/plugins/#faq_21
 
 ## Changelog
 
+__2.2.0__
+* added custom report to view additional information such as Time Zone, ZIP code, usage type.
+
 __2.1.0__
 * updated to IP2Location 7.0.0 library
 
