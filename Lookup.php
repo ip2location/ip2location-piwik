@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2005-2014 IP2Location.com
+ * Copyright (C) 2005-2016 IP2Location.com
  * All Rights Reserved
  *
  * This library is free software: you can redistribute it and/or
@@ -46,7 +46,7 @@ class IP2LocationRecord {
 
 class Lookup {
   // Current version.
-  const VERSION = '7.0.0';
+  const VERSION = '8.0.0';
 
   // Database storage method.
   const FILE_IO = 0;
@@ -231,13 +231,15 @@ class Lookup {
 
     $this->database['type'] = $this->readByte(1, '8');
     $this->database['column'] = $this->readByte(2, '8');
-    $this->database['year'] = $this->readByte(3, '8');
+    $this->database['year'] = 2000 + $this->readByte(3, '8');
     $this->database['month'] = $this->readByte(4, '8');
     $this->database['day'] = $this->readByte(5, '8');
     $this->database['ipv4_count'] = $this->readByte(6, '32');
     $this->database['ipv4_base_address'] = $this->readByte(10, '32');
     $this->database['ipv6_count'] = $this->readByte(14, '32');
     $this->database['ipv6_base_address'] = $this->readByte(18, '32');
+	$this->database['ipv4_indexbaseaddr'] = $this->readByte(22, '32');
+	$this->database['ipv6_indexbaseaddr'] = $this->readByte(26, '32');
 
     $this->result = new IP2LocationRecord();
   }
@@ -416,6 +418,13 @@ class Lookup {
 
     return FALSE;
   }
+  
+  /**
+   * Return the version of module
+   */
+  public function getDatabaseVersion() {
+	return $this->database['year'] . '-' . $this->database['month'] . '-' . $this->database['day'];
+  }
 
   /**
    * Core function to lookup geolocation data.
@@ -451,6 +460,7 @@ class Lookup {
     $keys = array_keys($this->columns);
 
     $base_address = $this->database['ipv4_base_address'];
+	$indexbaseaddr = $this->database['ipv4_indexbaseaddr'];
     $high = $this->database['ipv4_count'];
     $ip_number = sprintf('%u', ip2long($ip));
     $ip_number = ($ip_number >= 4294967295) ? ($ip_number - 1) : $ip_number;
@@ -460,6 +470,15 @@ class Lookup {
     $mid = 0;
     $ip_from = 0;
     $ip_to = 0;
+	
+	if ($indexbaseaddr > 0){
+		$indexPos = 0;
+		$ipNum1_2 = intval($ip_number / 65536);
+		$indexPos = $indexbaseaddr + ($ipNum1_2 << 3);
+		
+		$low = $this->readByte($indexPos, 32);
+		$high = $this->readByte($indexPos + 4, 32);
+	}
 
     while ($low <= $high) {
       $mid = (int) (($low + $high) / 2);
@@ -616,6 +635,7 @@ class Lookup {
     $keys = array_keys($this->columns);
 
     $base_address = $this->database['ipv6_base_address'];
+	$indexbaseaddr = $this->database['ipv6_indexbaseaddr'];
     $ip_number = $this->ipv6Numeric($ip);
     $this->result->ipNumber = $ip_number;
 
@@ -624,6 +644,15 @@ class Lookup {
     $high = $this->database['ipv6_count'];
     $ip_from = 0;
     $ip_to = 0;
+	
+	if ($indexbaseaddr > 0){
+		$indexPos = 0;
+		$ipNum1 = intval(bcdiv($ip_number, bcpow('2', '112')));
+		$indexPos = $indexbaseaddr + ($ipNum1 << 3);
+		
+		$low = $this->readByte($indexPos, 32);
+		$high = $this->readByte($indexPos + 4, 32);
+	}
 
     while ($low <= $high) {
       $mid = (int) (($low + $high) / 2);

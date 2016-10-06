@@ -74,12 +74,17 @@ class Controller extends \Piwik\Plugin\Controller
 
 		if($dbFile){
 			$view->assign('fileName', $file);
+			
+			require_once(PIWIK_INCLUDE_PATH . '/plugins/IP2Location/Lookup.php');
 
-			if(filemtime($dbFile) < strtotime('-2 months')){
+			$db = new Lookup($dbFile);
+			$dbVersion = $db->getDatabaseVersion();
+			
+			if(strtotime($dbVersion) < strtotime('-2 months')){
 				$view->assign('dbOutDated', true);
 			}
 			else{
-				$view->assign('date', date('d M, Y', filemtime($dbFile)));
+				$view->assign('date', $dbVersion);
 			}
 
 			if(!empty($_POST)){
