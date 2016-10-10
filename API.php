@@ -34,19 +34,19 @@ class API extends \Piwik\Plugin\API
 	{
 		require_once(PIWIK_INCLUDE_PATH . '/plugins/IP2Location/Lookup.php');
 
-		$db = new Lookup($dbFile);
-		$records = $db->lookup($ipAddress, Lookup::ALL);
+		$db = new Database($dbFile, Database::FILE_IO);
+		$records = $db->lookup($ipAddress, Database::ALL);
 
 		return array(
-			'countryCode'=>$records->countryCode,
-			'countryName'=>$records->countryName,
-			'regionName'=>$records->regionName,
-			'cityName'=>$records->cityName,
-			'latitude'=>$records->latitude,
-			'longitude'=>$records->longitude,
-			'zipCode'=>$records->zipCode,
-			'timeZone'=>$records->timeZone,
-			'usageType'=>$records->usageType,
+			'countryCode'=>$records['countryCode'],
+			'countryName'=>$records['countryName'],
+			'regionName'=>$records['regionName'],
+			'cityName'=>$records['cityName'],
+			'latitude'=>$records['latitude'],
+			'longitude'=>$records['longitude'],
+			'zipCode'=>$records['zipCode'],
+			'timeZone'=>$records['timeZone'],
+			'usageType'=>$records['usageType'],
 		);
 	}
 

@@ -14,8 +14,8 @@ See http://piwik.org/faq/plugins/#faq_21
 
 ## Changelog
 
-__2.2.1__
-* updated to IP2Location 8.0.0 library.
+__2.3.0__
+* updated to IP2Location PHP 8.0.2 library.
 
 __2.2.0__
 * added custom report to view additional information such as Time Zone, ZIP code, usage type.
