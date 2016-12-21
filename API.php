@@ -37,16 +37,29 @@ class API extends \Piwik\Plugin\API
 		$db = new Database($dbFile, Database::FILE_IO);
 		$records = $db->lookup($ipAddress, Database::ALL);
 
+		if(!isset($records['countryCode']))
+			return [
+				'countryCode'	=> '',
+				'countryName'	=> '',
+				'regionName'	=> '',
+				'cityName'	=> '',
+				'latitude'	=> '',
+				'longitude'	=> '',
+				'zipCode'	=> '',
+				'timeZone'	=> '',
+				'usageType'	=> '',
+			];
+
 		return array(
-			'countryCode'=>$records['countryCode'],
-			'countryName'=>$records['countryName'],
-			'regionName'=>$records['regionName'],
-			'cityName'=>$records['cityName'],
-			'latitude'=>$records['latitude'],
-			'longitude'=>$records['longitude'],
-			'zipCode'=>$records['zipCode'],
-			'timeZone'=>$records['timeZone'],
-			'usageType'=>$records['usageType'],
+			'countryCode'	=> $records['countryCode'],
+			'countryName'	=> $records['countryName'],
+			'regionName'	=> $records['regionName'],
+			'cityName'	=> $records['cityName'],
+			'latitude'	=> $records['latitude'],
+			'longitude'	=> $records['longitude'],
+			'zipCode'	=> $records['zipCode'],
+			'timeZone'	=> $records['timeZone'],
+			'usageType'	=> $records['usageType'],
 		);
 	}
 
