@@ -14,6 +14,9 @@ See http://piwik.org/faq/plugins/#faq_21
 
 ## Changelog
 
+__2.3.2__
+* fixed error when BIN file is not readable. Added backward compatible.
+
 __2.3.0__
 * updated to IP2Location PHP 8.0.2 library.
 
