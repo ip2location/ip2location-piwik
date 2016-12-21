@@ -1,6 +1,6 @@
 {
     "name": "IP2Location",
-    "version": "2.3.0",
+    "version": "2.3.1",
     "keywords": [
         "IP2Location"
     ],
@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "piwik": ">=2.12.0",
+        "piwik": ">=3.0.0-b1",
         "php": ">=5.3.20"
     }
 }
