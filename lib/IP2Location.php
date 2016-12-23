@@ -1,5 +1,6 @@
 <?php
-/**
+
+/*
  * Copyright (C) 2005-2016 IP2Location.com
  * All Rights Reserved
  *
@@ -15,10 +16,15 @@
  *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; If not, see <http://www.gnu.org/licenses/>.
+ *
  */
 
-namespace Piwik\Plugins\IP2Location;
+namespace IP2Location;
 
+/**
+ * IP2Location database class
+ *
+ */
 class Database {
 
   /**
@@ -603,14 +609,14 @@ class Database {
    * @var array
    */
   private $ipBase = [];
-  
-  
+
+
   //hjlim
   private $indexBaseAddr = [];
   private $year;
   private $month;
   private $day;
-  
+
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //  Default fields  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1484,31 +1490,31 @@ class Database {
 			case 4:
 				$ipNum1_2 = intval($ipNumber / 65536);
 				$indexPos = $indexBaseStart + ($ipNum1_2 << 3);
-				
+
 				break;
-			
+
 			case 6:
 				$ipNum1 = intval(bcdiv($ipNumber, bcpow('2', '112')));
 				$indexPos = $indexBaseStart + ($ipNum1 << 3);
 
 				break;
-				
+
 			default:
 				return false;
 		}
-		
+
 		$low = $this->readWord($indexPos);
 		$high = $this->readWord($indexPos + 4);
 	}
-	
+
     // as long as we can narrow down the search...
 	while ($low <= $high) {
       $mid     = (int) ($low + (($high - $low) >> 1));
-		
+
 	  // Read IP ranges to get boundaries
       $ip_from = $this->readIp($version, $base + $width * $mid);
       $ip_to   = $this->readIp($version, $base + $width * ($mid + 1));
-    
+
       // determine whether to return, repeat on the lower half, or repeat on the upper half
       switch (self::ipBetween($version, $ipNumber, $ip_from, $ip_to)) {
         case 0:
@@ -1578,14 +1584,14 @@ class Database {
   public function getModuleVersion() {
 	return self::VERSION;
   }
-  
+
   /**
    * Return the version of module
    */
   public function getDatabaseVersion() {
 	return $this->year . '.' . $this->month . '.' . $this->day;
   }
-  
+
   /**
    * This function will look the given IP address up in the database and return the result(s) asked for
    *
