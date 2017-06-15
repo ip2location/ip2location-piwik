@@ -18,6 +18,14 @@ See http://piwik.org/faq/plugins/#faq_21
 
 ### Change Log
 
+__3.1.0__
+
+* Added IP2Location settings menu.
+
+* Added support for IP2Location Web service.
+
+  ​
+
 __3.0.0__
 
 - Removed compatibilities with Piwik 2.x. Version [2.3.0](https://github.com/ip2location/ip2location-piwik/releases/tag/2.3.0) is the last version supporting Piwik 2.x.

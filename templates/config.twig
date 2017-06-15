@@ -1,0 +1,98 @@
+{% extends 'admin.twig' %}
+
+{% set title %}{{'IP2Location_IP2Location'|translate}}{% endset %}
+
+{% block content %}
+{% import 'macros.twig' as piwik %}
+{% if isSuperUser %}
+
+	<h1>{{'IP2Location_IP2LocationSettings'|translate}}</h1>
+
+	{% if saved %}
+	<div class="card-panel">
+		<span class="green-text text-darken-2">{{'IP2Location_ChangesHasBeenSaved'|translate}}</span>
+	</div>
+	{% endif %}
+
+	{% for i, error in errors %}
+	<div class="card-panel">
+		<span class="red-text text-darken-2">{{ error }}</span>
+	</div>
+	{% endfor %}
+
+	<form method="POST" action="{{ linkTo({'module':'IP2Location','action':'saveConfig'}) }}" class="col s6">
+
+		<h3>{{'IP2Location_LookupMode'|translate}}</h3>
+
+		<div class="form-group row">
+			<div class="col s12">
+				<p>
+					<input type="radio" value="BIN" id="lookupMode_BIN" name="lookupMode" {% if lookupMode == 'BIN' %} checked="checked"{% endif %} />
+					<label for="lookupMode_BIN">
+					    {{ 'IP2Location_LocalBINDatabase'|translate }}
+					    <span class="form-description">{{ 'IP2Location_UploadYourIP2LocationBINDatabaseToPiwikMisc'|translate }}</span>
+					</label>
+				</p>
+				<p>
+					<input type="radio" value="WS" id="lookupMode_WS" name="lookupMode" {% if lookupMode == 'WS' %} checked="checked"{% endif %} />
+					<label for="lookupMode_WS">
+					    {{ 'IP2Location_WebService'|translate }}
+					</label>
+				</p>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<div class="input-field col s12">
+				<input type="text" value="{{apiKey}}" id="apiKey" name="apiKey" />
+				<label for="apiKey">{{'IP2Location_APIKey'|translate}}</label>
+				<span class="form-description">{{ 'IP2Location_PleaseGetYourAPIKeyFrom'|translate }}</span>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<button class="waves-effect waves-light btn">{{'IP2Location_SaveChanges'|translate}}</button>
+		</div>
+
+		{% if lookupMode == 'BIN' %}
+
+		<h3>{{'IP2Location_DatabaseInformation'|translate}}</h3>
+
+		<div class="form-group row">
+			<div class="input-field col s12">
+				<input type="text" value="{{database}}" id="databaseFile" disabled>
+				<label for="databaseFile">{{'IP2Location_IP2LocationDatabaseFile'|translate}}</label>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="input-field col s12">
+				<input type="text" value="{{date}}" id="databaseDate" disabled>
+				<label for="databaseDate">{{'IP2Location_DatabaseDate'|translate}}</label>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="input-field col s12">
+				<input type="text" value="{{size}}" id="databaseSize" disabled>
+				<label for="databaseSize">{{'IP2Location_DatabaseSize'|translate}}</label>
+			</div>
+		</div>
+
+		{% endif %}
+
+		{% if lookupMode == 'WS' %}
+
+		<h3>{{'IP2Location_WebServiceInformation'|translate}}</h3>
+
+		<div class="form-group row">
+			<div class="input-field col s12">
+				<input type="text" value="{{credit}}" id="creditAvailable" disabled>
+				<label for="creditAvailable">{{'IP2Location_CreditAvailable'|translate}}</label>
+			</div>
+		</div>
+		{% endif %}
+
+		<input type="hidden" name="submit" value="true" />
+	</form>
+{% endif %}
+
+{% endblock %}

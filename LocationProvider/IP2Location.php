@@ -2,6 +2,8 @@
 namespace Piwik\Plugins\IP2Location\LocationProvider;
 
 use Piwik\Piwik;
+use Piwik\Option;
+use Piwik\Http;
 use Piwik\Plugins\UserCountry\LocationProvider;
 
 class IP2Location extends LocationProvider
@@ -22,9 +24,17 @@ class IP2Location extends LocationProvider
 	{
 		$extraMessage = '';
 
-		if ($this->getDatabasePath()) {
+		if (Option::get('IP2Location.LookupMode') == 'WS') {
 			$extraMessage = '
-			<strong>Database File: </strong>' . basename($this->getDatabasePath());
+				<strong>Lookup Mode: </strong>IP2Location Web Service<br/>
+				<strong>API Key: </strong>' . Option::get('IP2Location.APIKey');
+		}
+		else{
+			if ($this->getDatabasePath()) {
+				$extraMessage = '
+				<strong>Lookup Mode: </strong>IP2Location BIN Database<br/>
+				<strong>Database File: </strong>' . basename($this->getDatabasePath());
+			}
 		}
 
 		return array(
@@ -51,33 +61,52 @@ class IP2Location extends LocationProvider
 	public function getLocation($info)
 	{
 		$ip = $this->getIpFromInfo($info);
+		$ip = '8.8.8.8';
 
 		$result = array();
 
-		require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
+		if (Option::get('IP2Location.LookupMode') == 'WS' && Option::get('IP2Location.APIKey')) {
+			$response = Http::sendHttpRequest('https://api.ip2location.com/?key=' . Option::get('IP2Location.APIKey') . '&ip=' . $ip . '&format=json&package=WS6', 30);
 
-		$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
-		$response = $db->lookup($ip, \IP2Location\Database::ALL);
-
-		$result[self::COUNTRY_CODE_KEY] = $response['countryCode'];
-        $result[self::COUNTRY_NAME_KEY] = $response['countryName'];
-
-		if (strpos($response['regionName'], 'unavailable') === false) {
-			$result[self::REGION_CODE_KEY] = $this->getRegionCode($response['countryCode'], $response['regionName']);
-			$result[self::REGION_NAME_KEY] = $response['regionName'];
+			if (is_null($json = json_decode($response)) === false) {
+				if (!isset($json->response)) {
+					$result[self::COUNTRY_CODE_KEY] = $json->country_code;
+					$result[self::COUNTRY_NAME_KEY] = $json->country_name;
+					$result[self::REGION_CODE_KEY] = $this->getRegionCode($json->country_code, $json->region_name);
+					$result[self::REGION_NAME_KEY] = $json->region_name;
+					$result[self::CITY_NAME_KEY] = $json->city_name;
+					$result[self::LATITUDE_KEY] = $json->latitude;
+					$result[self::LONGITUDE_KEY] = $json->longitude;
+					$result[self::ISP_KEY] = $json->isp;
+				}
+			}
 		}
+		else {
+			require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
 
-		if (strpos($response['cityName'], 'unavailable') === false) {
-			$result[self::CITY_NAME_KEY] = $response['cityName'];
-		}
+			$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
+			$response = $db->lookup($ip, \IP2Location\Database::ALL);
 
-		if (strpos($response['latitude'], 'unavailable') === false) {
-			$result[self::LATITUDE_KEY] = $response['latitude'];
-			$result[self::LONGITUDE_KEY] = $response['longitude'];
-		}
+			$result[self::COUNTRY_CODE_KEY] = $response['countryCode'];
+			$result[self::COUNTRY_NAME_KEY] = $response['countryName'];
 
-		if (strpos($response['isp'], 'unavailable') === false) {
-			$result[self::ISP_KEY] = $response['isp'];
+			if (strpos($response['regionName'], 'unavailable') === false) {
+				$result[self::REGION_CODE_KEY] = $this->getRegionCode($response['countryCode'], $response['regionName']);
+				$result[self::REGION_NAME_KEY] = $response['regionName'];
+			}
+
+			if (strpos($response['cityName'], 'unavailable') === false) {
+				$result[self::CITY_NAME_KEY] = $response['cityName'];
+			}
+
+			if (strpos($response['latitude'], 'unavailable') === false) {
+				$result[self::LATITUDE_KEY] = $response['latitude'];
+				$result[self::LONGITUDE_KEY] = $response['longitude'];
+			}
+
+			if (strpos($response['isp'], 'unavailable') === false) {
+				$result[self::ISP_KEY] = $response['isp'];
+			}
 		}
 
 		$this->completeLocationResult($result);
