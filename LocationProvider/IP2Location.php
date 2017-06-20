@@ -61,8 +61,7 @@ class IP2Location extends LocationProvider
 	public function getLocation($info)
 	{
 		$ip = $this->getIpFromInfo($info);
-		$ip = '8.8.8.8';
-
+		
 		$result = array();
 
 		if (Option::get('IP2Location.LookupMode') == 'WS' && Option::get('IP2Location.APIKey')) {

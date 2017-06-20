@@ -18,6 +18,12 @@ See http://piwik.org/faq/plugins/#faq_21
 
 ### Change Log
 
+__3.1.1__
+
+* Removed testing data.
+
+  
+
 __3.1.0__
 
 * Added IP2Location settings menu.
