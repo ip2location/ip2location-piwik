@@ -1103,7 +1103,10 @@ class Database {
    */
   private function readWord($pos) {
     // Unpack a long's worth of data
-    return self::wrap32(unpack('V', $this->read($pos - 1, 4))[1]);
+	try {
+		return self::wrap32(unpack('V', $this->read($pos - 1, 4))[1]);
+	}
+	catch(Exception $e) {}
   }
 
   /**
