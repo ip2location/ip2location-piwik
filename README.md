@@ -18,6 +18,12 @@ See http://piwik.org/faq/plugins/#faq_21
 
 ### Change Log
 
+__3.1.4__
+
+* Bugs and typos fixed.
+
+  ​
+
 __3.1.2__
 
 * Updated version number.

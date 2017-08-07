@@ -53,7 +53,7 @@ class API extends \Piwik\Plugin\API
 
 	static public function getDatabaseDate($file)
 	{
-		if (!file_exists(PIWIK_DOCUMENT_ROOT . '/misc/' . $file))
+		if (!is_file(PIWIK_DOCUMENT_ROOT . '/misc/' . $file))
 			return;
 
 		require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';

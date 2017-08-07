@@ -40,11 +40,12 @@ class Controller extends \Piwik\Plugin\Controller
 		$apiKey = (Common::getRequestVar('apiKey', '')) ? trim(Common::getRequestVar('apiKey', '')) : APIIP2Location::getAPIKey();
 
 		$file = APIIP2Location::getDatabaseFile();
-		$date = APIIP2Location::getDatabaseDate($file);
-		$size = APIIP2Location::getDatabaseSize($file);
+
+		$date = ($file) ? APIIP2Location::getDatabaseDate($file) : '';
+		$size = ($file) ? APIIP2Location::getDatabaseSize($file) : 0;
 
 		if (!$file) {
-			$errors[] = 'There is not IP2Location database file found in <code>' . PIWIK_DOCUMENT_ROOT . '/misc</code>.';
+			$errors[] = 'There is no IP2Location database file found in ' . PIWIK_DOCUMENT_ROOT . DIRECTORY_SEPARATOR . 'misc.';
 		}
 
 		if ($lookupMode == 'BIN' && $date && strtotime($date) < strtotime('-2 months')) {
