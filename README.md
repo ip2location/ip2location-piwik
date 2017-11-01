@@ -1,6 +1,6 @@
 # Piwik IP2Location Plugin
 
-### Description
+## Description
 
 This IP2Location plugin enables more accurate location lookup in your Piwik visitor log.
 
@@ -10,13 +10,37 @@ http://lite.ip2location.com or http://www.ip2location.com for a commercial datab
 
 
 
-### Installation / Update
+## Installation / Update
 
 See http://piwik.org/faq/plugins/#faq_21
 
+## FAQ
+
+__How to I configure the plugin?__
+
+Login as administrator, then go to System > IP2Location.
 
 
-### Change Log
+
+__Where to download IP2Location database?__
+
+You can download IP2Location database for free at http://lite.ip2location.com or commercial version from http://www.ip2location.com
+
+
+
+__Can I use IP2Location Web service?__
+
+Yes, please purchase credits from http://www.ip2location.com/web-service and insert your API key in the settings page.
+
+
+
+## Change Log
+
+__3.1.5__
+
+* Added screenshot and FAQ.
+
+  ​
 
 __3.1.4__
 
@@ -89,12 +113,12 @@ __2.0.0__
 
 
 
-### License
+## License
 
 GPL v3 / fair use
 
 
 
-### Support
+## Support
 
 Please contact us at support@ip2location.com
