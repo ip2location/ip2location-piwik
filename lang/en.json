@@ -1,25 +1,28 @@
 {
     "IP2Location": {
-	"IP2Location": "IP2Location",
-        "IP2LocationSettings": "IP2Location Settings",
-	"LookupMode": "Lookup Mode",
-	"LocalBINDatabase": "Local BIN Database",
-	"UploadYourIP2LocationBINDatabaseToPiwikMisc": "Upload your IP2Location BIN database to Piwk/misc.",
-	"WebService": "Web Service",
-	"APIKey": "API Key",
-	"PleaseGetYourAPIKeyFrom": "Please get your API key from https://www.ip2location.com/web-service",
+		"IP2Location": "IP2Location",
+		"IP2LocationSettings": "IP2Location Settings",
+		"LookupMode": "Lookup Mode",
+		"LocalBINDatabase": "Local BIN Database",
+		"UploadYourIP2LocationBINDatabaseToPiwikMisc": "Upload your IP2Location BIN database to Piwk/misc.",
+		"WebService": "Web Service",
+		"APIKey": "API Key",
+		"PleaseGetYourAPIKeyFrom": "Please get your API key from https://www.ip2location.com/web-service",
 
-	"DatabaseInformation": "Database Information",
-	"IP2LocationDatabaseFile": "IP2Location Database File",
-	"DatabaseDate": "Database Date",
-	"DatabaseSize": "Database Size",
+		"DatabaseInformation": "Database Information",
+		"IP2LocationDatabaseFile": "IP2Location Database File",
+		"DatabaseDate": "Database Date",
+		"DatabaseSize": "Database Size",
 
-	"WebServiceInformation": "Web Service Information",
-	"CreditAvailable": "Credit Available",
+		"WebServiceInformation": "Web Service Information",
+		"CreditAvailable": "Credit Available",
 
-	"SaveChanges": "Save Changes",
-	"IP2Location_NoIP2LocationDatabaseFile": "No IP2Location database file found in Piwik/misc directory.",
-	"PleaseEnterAValidAPIKey": "Please enter a valid API key.",
-	"ChangesHasBeenSaved": "Changes has been saved."
+		"SaveChanges": "Save Changes",
+		"IP2Location_NoIP2LocationDatabaseFile": "No IP2Location database file found in Piwik/misc directory.",
+		"PleaseEnterAValidAPIKey": "Please enter a valid API key.",
+		"ChangesHasBeenSaved": "Changes has been saved.",
+		"AutomatedUpdate": "You may implement automated monthly database update as well.",
+		"LearnMore": "Learn more...",
+		"AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download"
     }
 }

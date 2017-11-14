@@ -36,6 +36,12 @@ Yes, please purchase credits from http://www.ip2location.com/web-service and ins
 
 ## Change Log
 
+__3.1.6__
+
+* Added instructions for automated IP2Location database update.
+
+
+
 __3.1.5__
 
 * Added screenshot and FAQ.
