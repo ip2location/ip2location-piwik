@@ -1,10 +1,10 @@
-# Piwik IP2Location Plugin
+# IP2Location Matomo (Piwik)
 [![Latest Stable Version](https://img.shields.io/packagist/v/ip2location/ip2location-piwik.svg)](https://packagist.org/packages/ip2location/ip2location-piwik)
 [![Total Downloads](https://img.shields.io/packagist/dt/ip2location/ip2location-piwik.svg?style=flat-square)](https://packagist.org/packages/ip2location/ip2location-piwik)
 
 ## Description
 
-This IP2Location plugin enables more accurate location lookup in your Piwik visitor log.
+This IP2Location plugin enables more accurate location lookup in your Matomo (Piwik) visitor log.
 
 You need a IP2Location BIN database to make this plugin works. Database is available for free at
 
