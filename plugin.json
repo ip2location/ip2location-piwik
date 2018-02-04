@@ -6,7 +6,7 @@
     ],
     "homepage": "http:\/\/www.ip2location.com\/developers\/piwik",
     "description": "Use IP2Location geolocation database to lookup for accurate visitor location in Piwik.",
-    "license": "GPL-3.0-or-later",
+    "license": "GPL-3.0+",
     "authors": [
         {
             "name": "IP2Location",
