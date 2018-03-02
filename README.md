@@ -8,7 +8,7 @@ This IP2Location plugin enables more accurate location lookup in your Matomo (Pi
 
 You need a IP2Location BIN database to make this plugin works. Database is available for free at
 
-http://lite.ip2location.com or http://www.ip2location.com for a commercial database.
+https://lite.ip2location.com or https://www.ip2location.com for a commercial database.
 
 
 
@@ -26,13 +26,13 @@ Login as administrator, then go to System > IP2Location.
 
 __Where to download IP2Location database?__
 
-You can download IP2Location database for free at http://lite.ip2location.com or commercial version from http://www.ip2location.com
+You can download IP2Location database for free at https://lite.ip2location.com or commercial version from https://www.ip2location.com
 
 
 
 __Can I use IP2Location Web service?__
 
-Yes, please purchase credits from http://www.ip2location.com/web-service and insert your API key in the settings page.
+Yes, please purchase credits from https://www.ip2location.com/web-service and insert your API key in the settings page.
 
 
 
