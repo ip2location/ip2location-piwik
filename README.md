@@ -134,5 +134,5 @@ GPL v3 / fair use
 
 
 ## Support
-
-Please contact us at support@ip2location.com
+Website: https://www.ip2location.com
+Email: support@ip2location.com
