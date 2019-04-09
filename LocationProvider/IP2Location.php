@@ -61,11 +61,11 @@ class IP2Location extends LocationProvider
 	public function getLocation($info)
 	{
 		$ip = $this->getIpFromInfo($info);
-		
+
 		$result = array();
 
 		if (Option::get('IP2Location.LookupMode') == 'WS' && Option::get('IP2Location.APIKey')) {
-			$response = Http::sendHttpRequest('https://api.ip2location.com/?key=' . Option::get('IP2Location.APIKey') . '&ip=' . $ip . '&format=json&package=WS6', 30);
+			$response = Http::sendHttpRequest('https://api.ip2location.com/v2/?key=' . Option::get('IP2Location.APIKey') . '&ip=' . $ip . '&format=json&package=WS6', 30);
 
 			if (is_null($json = json_decode($response)) === false) {
 				if (!isset($json->response)) {
