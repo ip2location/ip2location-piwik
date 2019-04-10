@@ -100,10 +100,12 @@ class API extends \Piwik\Plugin\API
 			return 0;
 		}
 
-		$response = Http::sendHttpRequest('https://api.ip2location.com/?key=' . $apiKey . '&check=1', 30);
+		if (($json = json_decode(Http::sendHttpRequest('https://api.ip2location.com/v2/?key=' . $apiKey . '&check=1', 30))) === null) {
+			return 0;
+		}
 
-		if (preg_match('/^[0-9]+$/', $response)) {
-			return (int) $response;
+		if (preg_match('/^[0-9]+$/', $json->response)) {
+			return (int) $json->response;
 		}
 
 		return 0;
