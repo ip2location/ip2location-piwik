@@ -1,39 +1,32 @@
 <?php
 /**
- * Piwik - Open source web analytics
+ * Piwik - Open source web analytics.
  *
- * @link http://piwik.org
+ * @see http://piwik.org
+ *
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
+ *
  * @version $Id: API.php 4448 2011-04-14 08:20:49Z matt $
  *
  * @category Piwik_Plugins
- * @package Piwik_IP2Location
  */
+
 namespace Piwik\Plugins\IP2Location;
 
-use Piwik\DataTable\Row;
-use Piwik\Db;
-use Piwik\Common;
-use Piwik\DataTable;
-use Piwik\Site;
-use Piwik\Date;
-use Piwik\Piwik;
-use Piwik\Option;
 use Piwik\Http;
+use Piwik\Option;
+use Piwik\Piwik;
 
-/**
- * @package Piwik_IP2Location
- */
 class API extends \Piwik\Plugin\API
 {
 	static private $instance = null;
 
 	static public function getInstance()
 	{
-		if (self::$instance == null)
-		{
-			self::$instance = new self;
+		if (self::$instance == null) {
+			self::$instance = new self();
 		}
+
 		return self::$instance;
 	}
 
@@ -41,9 +34,10 @@ class API extends \Piwik\Plugin\API
 	{
 		$files = scandir(PIWIK_DOCUMENT_ROOT . '/misc');
 
-		foreach ( $files as $file ) {
+		foreach ($files as $file) {
 			if (strtoupper(substr($file, -4)) == '.BIN') {
 				Option::set('IP2Location.BIN', $file);
+
 				return $file;
 			}
 		}
@@ -53,8 +47,9 @@ class API extends \Piwik\Plugin\API
 
 	static public function getDatabaseDate($file)
 	{
-		if (!is_file(PIWIK_DOCUMENT_ROOT . '/misc/' . $file))
+		if (!is_file(PIWIK_DOCUMENT_ROOT . '/misc/' . $file)) {
 			return;
+		}
 
 		require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
 
@@ -65,8 +60,9 @@ class API extends \Piwik\Plugin\API
 
 	static public function getDatabaseSize($file)
 	{
-		if (!file_exists(PIWIK_DOCUMENT_ROOT . '/misc/' . $file))
+		if (!file_exists(PIWIK_DOCUMENT_ROOT . '/misc/' . $file)) {
 			return 0;
+		}
 
 		return self::displayBytes(filesize(PIWIK_DOCUMENT_ROOT . '/misc/' . $file));
 	}
@@ -93,8 +89,9 @@ class API extends \Piwik\Plugin\API
 
 	static public function getWebServiceCredit($apiKey = '')
 	{
-		if (!$apiKey)
+		if (!$apiKey) {
 			$apiKey = self::getAPIKey();
+		}
 
 		if (!$apiKey) {
 			return 0;
@@ -113,11 +110,12 @@ class API extends \Piwik\Plugin\API
 
 	static private function displayBytes($bytes)
 	{
-		$ext = array('B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
+		$ext = ['B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
 		$unitCount = 0;
 
-		for(; $bytes > 1024; $unitCount++)
+		for (; $bytes > 1024; ++$unitCount) {
 			$bytes /= 1024;
+		}
 
 		return number_format($bytes, 2, '.', ',') . ' ' . $ext[$unitCount];
 	}

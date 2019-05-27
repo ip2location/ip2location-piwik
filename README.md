@@ -38,6 +38,30 @@ Yes, please purchase credits from https://www.ip2location.com/web-service and in
 
 ## Change Log
 
+__3.1.10__
+
+- Minor changes and fixes.
+
+
+
+__3.1.9__
+
+- Update README.md
+
+
+
+__3.1.8__
+
+- Updated version due to licensing error.
+
+
+
+__3.1.7__
+
+- Updated version due to licensing error.
+
+
+
 __3.1.6__
 
 * Added instructions for automated IP2Location database update.
@@ -48,25 +72,25 @@ __3.1.5__
 
 * Added screenshot and FAQ.
 
-  ​
+  
 
 __3.1.4__
 
 * Bugs and typos fixed.
 
-  ​
+  
 
 __3.1.2__
 
 * Updated version number.
 
-  ​
+  
 
 __3.1.1__
 
 * Removed testing data.
 
-  ​
+  
 
 
 __3.1.0__
@@ -75,7 +99,7 @@ __3.1.0__
 
 * Added support for IP2Location Web service.
 
-  ​
+  
 
 __3.0.0__
 
@@ -91,33 +115,33 @@ __3.0.0__
 
 - Database file is stored in `/path/to/piwik/misc/` starting this version.
 
-  ​
+  
 
 __2.3.2__
 
 * Fixed error when BIN file is not readable. Added backward compatible.
 
-  ​
+  
 
 __2.3.0__
 * Updated to IP2Location PHP 8.0.2 library.
 
-  ​
+  
 
 __2.2.0__
 * Added custom report to view additional information such as Time Zone, ZIP code, usage type.
 
-  ​
+  
 
 __2.1.0__
 * Updated to IP2Location 7.0.0 library
 
-  ​
+  
 
 __2.0.0__
 * First release for Piwik 2.0
 
-  ​
+  
 
 IPv4 BIN vs IPv6 BIN
 ====================
