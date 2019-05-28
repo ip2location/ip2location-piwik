@@ -38,6 +38,12 @@ Yes, please purchase credits from https://www.ip2location.com/web-service and in
 
 ## Change Log
 
+__3.1.11__
+
+- Fixed class error.
+
+
+
 __3.1.10__
 
 - Minor changes and fixes.

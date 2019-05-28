@@ -24,7 +24,7 @@ namespace IP2Location;
 /**
  * IP2Location database class.
  */
-class IP2Location
+class Database
 {
 	/**
 	 * Current module's version.
