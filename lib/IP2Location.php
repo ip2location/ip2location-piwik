@@ -24,7 +24,7 @@ namespace IP2Location;
 /**
  * IP2Location database class.
  */
-class Database
+class IP2Location
 {
 	/**
 	 * Current module's version.
@@ -743,7 +743,7 @@ class Database
 		$this->ipCount[6] = $this->readWord(14);
 		$this->ipBase[6] = $this->readWord(18);
 		$this->indexBaseAddr[4] = $this->readWord(22);		//hjlim
-	$this->indexBaseAddr[6] = $this->readWord(26);		//hjlim
+		$this->indexBaseAddr[6] = $this->readWord(26);		//hjlim
 	}
 
 	/**
@@ -887,7 +887,8 @@ class Database
 	public function lookup($ip, $fields = null, $asNamed = true)
 	{
 		// extract IP version and number
-		[$ipVersion, $ipNumber] = self::ipVersionAndNumber($ip);
+		list($ipVersion, $ipNumber) = self::ipVersionAndNumber($ip);
+
 		// perform the binary search proper (if the IP address was invalid, binSearch will return false)
 		$pointer = $this->binSearch($ipVersion, $ipNumber);
 
