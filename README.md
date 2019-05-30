@@ -38,6 +38,18 @@ Yes, please purchase credits from https://www.ip2location.com/web-service and in
 
 ## Change Log
 
+__3.1.14__
+
+- Fixed class name error.
+
+
+
+__3.1.13__
+
+- Fixed array assignment issues.
+
+
+
 __3.1.12__
 
 - Fixed syntax error in PHP 7.1.
