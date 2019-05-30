@@ -973,7 +973,7 @@ class IP2Location
 
 		case self::COUNTRY:
 		  if (!$done[self::COUNTRY]) {
-		  	[$results[self::COUNTRY_NAME], $results[self::COUNTRY_CODE]] = $this->readCountryNameAndCode($pointer);
+		  	list($results[self::COUNTRY_NAME], $results[self::COUNTRY_CODE]) = $this->readCountryNameAndCode($pointer);
 		  	$done[self::COUNTRY] = true;
 		  	$done[self::COUNTRY_CODE] = true;
 		  	$done[self::COUNTRY_NAME] = true;
@@ -981,7 +981,7 @@ class IP2Location
 		  break;
 		case self::COORDINATES:
 		  if (!$done[self::COORDINATES]) {
-		  	[$results[self::LATITUDE], $results[self::LONGITUDE]] = $this->readLatitudeAndLongitude($pointer);
+		  	list($results[self::LATITUDE], $results[self::LONGITUDE]) = $this->readLatitudeAndLongitude($pointer);
 		  	$done[self::COORDINATES] = true;
 		  	$done[self::LATITUDE] = true;
 		  	$done[self::LONGITUDE] = true;
@@ -989,7 +989,7 @@ class IP2Location
 		  break;
 		case self::IDD_AREA:
 		  if (!$done[self::IDD_AREA]) {
-		  	[$results[self::IDD_CODE], $results[self::AREA_CODE]] = $this->readIddAndAreaCodes($pointer);
+		  	list($results[self::IDD_CODE], $results[self::AREA_CODE]) = $this->readIddAndAreaCodes($pointer);
 		  	$done[self::IDD_AREA] = true;
 		  	$done[self::IDD_CODE] = true;
 		  	$done[self::AREA_CODE] = true;
@@ -997,7 +997,7 @@ class IP2Location
 		  break;
 		case self::WEATHER_STATION:
 		  if (!$done[self::WEATHER_STATION]) {
-		  	[$results[self::WEATHER_STATION_NAME], $results[self::WEATHER_STATION_CODE]] = $this->readWeatherStationNameAndCode($pointer);
+		  	list($results[self::WEATHER_STATION_NAME], $results[self::WEATHER_STATION_CODE]) = $this->readWeatherStationNameAndCode($pointer);
 		  	$done[self::WEATHER_STATION] = true;
 		  	$done[self::WEATHER_STATION_NAME] = true;
 		  	$done[self::WEATHER_STATION_CODE] = true;
@@ -1005,7 +1005,7 @@ class IP2Location
 		  break;
 		case self::MCC_MNC_MOBILE_CARRIER_NAME:
 		  if (!$done[self::MCC_MNC_MOBILE_CARRIER_NAME]) {
-		  	[$results[self::MCC], $results[self::MNC], $results[self::MOBILE_CARRIER_NAME]] = $this->readMccMncAndMobileCarrierName($pointer);
+		  	list($results[self::MCC], $results[self::MNC], $results[self::MOBILE_CARRIER_NAME]) = $this->readMccMncAndMobileCarrierName($pointer);
 		  	$done[self::MCC_MNC_MOBILE_CARRIER_NAME] = true;
 		  	$done[self::MCC] = true;
 		  	$done[self::MNC] = true;
