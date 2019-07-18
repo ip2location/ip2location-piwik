@@ -16,6 +16,26 @@ https://lite.ip2location.com or https://www.ip2location.com for a commercial dat
 
 See http://piwik.org/faq/plugins/#faq_21
 
+
+## Configure settings
+
+You can visit IP2Location Settings by selecting the menu on the left pane (under **System**). This plugin support geolocation lookup using IP2Location BIN file and web service.
+
+**To use BIN file, please download it from the below links**
+* [IP2Location LITE Database (Free)](https://lite.ip2location.com)
+* [IP2Location Database (Commercial)](https://www.ip2location.com)
+
+**To use web service, please sign up for the API key at**
+* [IP2Location Web Service](https://www.ip2location.com/web-service/ip2location). Trial key available for testing.
+
+## How to import the IP2Location BIN file for usage
+You should copy the BIN file into **/var/www/html/misc** folder (for default installation). If you customize the installation path, it should be the **misc** folder inside your root folder.
+
+If you are using Piwik docker image, then you can use below command to copy the BIN into piwik container.
+```
+sudo docker cp {your_local_bin_file_location} {your_piwik_container_name}:/var/www/html/misc
+```
+
 ## FAQ
 
 __How to I configure the plugin?__
