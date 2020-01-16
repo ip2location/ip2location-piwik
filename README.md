@@ -14,7 +14,17 @@ https://lite.ip2location.com or https://www.ip2location.com for a commercial dat
 
 ## Installation / Update
 
-See http://piwik.org/faq/plugins/#faq_21
+1. Login into your Matomo administrator page.
+2. Go to System > Plugins.
+3. Click on the **Install New Plugins** button at the bottom of the page.
+4. Search for **IP2Location** from the plugin page.
+5. Install and activate the plugin.
+6. Upload a IP2Location BIN database to **misc** folder. 
+7. Navigate to System > IP2Location page to make sure the BIN database is detected by the plugin.
+8. Go to System > Geolocation.
+9. Select **IP2Location** as provider and save.
+
+
 
 
 ## Configure settings
@@ -57,6 +67,12 @@ Yes, please purchase credits from https://www.ip2location.com/web-service and in
 
 
 ## Change Log
+
+**3.1.17**
+
+* Updated install instructions.
+
+
 
 __3.1.14__
 
