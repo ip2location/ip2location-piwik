@@ -68,6 +68,12 @@ Yes, please purchase credits from https://www.ip2location.com/web-service and in
 
 ## Change Log
 
+**3.1.18**
+
+* Added better handler when IP2Location BIN database file is not loaded.
+
+
+
 **3.1.17**
 
 * Updated install instructions.

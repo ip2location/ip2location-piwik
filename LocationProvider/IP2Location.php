@@ -162,7 +162,11 @@ class IP2Location extends LocationProvider
 	 */
 	public function isAvailable()
 	{
-		return self::getDatabasePath() !== false;
+		if (Option::get('IP2Location.APIKey') || self::getDatabasePath() !== false) {
+			return true;
+		}
+
+		return false;
 	}
 
 	/**
@@ -173,7 +177,15 @@ class IP2Location extends LocationProvider
 	 */
 	public function isWorking()
 	{
+		if (!empty(Option::get('IP2Location.APIKey'))) {
+			return true;
+		}
+
 		require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
+
+		if (!file_exists(self::getDatabasePath())) {
+			return 'The IP2Location BIN database file is not found.';
+		}
 
 		$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
 		$response = $db->lookup('8.8.8.8', \IP2Location\Database::ALL);
