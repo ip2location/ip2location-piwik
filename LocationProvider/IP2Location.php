@@ -42,12 +42,17 @@ class IP2Location extends LocationProvider
 			'title'       => self::TITLE,
 			'order'       => 5,
 			'description' => implode("\n", [
-				'IP2Location Database',
 				'<p>',
-				'	<a href="http://lite.ip2location.com/?r=piwik" rel="noreferrer"  target="_blank">Download free IP2Location Lite database &raquo;</a>',
+				'This location provider uses <strong>IP2Location database</strong> to accurately detect the location of your visitors.',
+				'It support both IPv4 and IPv6 address detection. In addition, you can choose to use either BIN database or web service for the geolocation lookup.',
 				'</p>',
+				'<p><ul>',
+				'<li><a href="https://lite.ip2location.com/?r=piwik" rel="noreferrer"  target="_blank">Download free IP2Location LITE BIN database &raquo;</a></li>',
+				'<li><a href="https://www.ip2location.com/?r=piwik" rel="noreferrer"  target="_blank">Download free IP2Location Commercial BIN database &raquo;</a></li>',
+				'<li><a href="https://www.ip2location.com/web-service/ip2location/?r=piwik" rel="noreferrer"  target="_blank">Sign up for web service &raquo;</a></li>',
+				'</ul></p>',
 			]),
-			'install_docs'  => 'Upload IP2Location binary database to <strong>Piwik/misc</strong> directory via FTP or SSH.',
+			'install_docs'  => 'For BIN database option, please upload IP2Location BIN database file into <strong>Piwik/misc</strong> folder.',
 			'extra_message' => $extraMessage,
 		];
 	}
