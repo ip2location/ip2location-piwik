@@ -3,11 +3,14 @@
 		"IP2Location": "IP2Location",
 		"IP2LocationSettings": "IP2Location Settings",
 		"LookupMode": "Lookup Mode",
-		"LocalBINDatabase": "Local BIN Database",
-		"UploadYourIP2LocationBINDatabaseToPiwikMisc": "Upload your IP2Location BIN database to Piwk/misc.",
-		"WebService": "Web Service",
-		"APIKey": "API Key",
-		"PleaseGetYourAPIKeyFrom": "Please get your API key from https://www.ip2location.com/web-service",
+		"LocalBINDatabase": "IP2Location BIN Database",
+		"UploadYourIP2LocationBINDatabaseToPiwikMisc": "Please upload your IP2Location BIN database to Piwk/misc folder.",
+		"DownloadLITEDatabase": "Download IP2Location Free LITE BIN Database",
+		"DownloadCommercialDatabase": "Download IP2Location Commercial Database",
+		"WebService": "IP2Location Web Service",
+		"WebServiceMisc": "Web service will use WS6 package for the lookup call",
+		"APIKey": "API Key (for Web Service lookup mode)",
+		"PleaseGetYourAPIKeyFrom": "You can get your API key at",
 
 		"DatabaseInformation": "Database Information",
 		"IP2LocationDatabaseFile": "IP2Location Database File",
@@ -21,7 +24,7 @@
 		"IP2Location_NoIP2LocationDatabaseFile": "No IP2Location database file found in Piwik/misc directory.",
 		"PleaseEnterAValidAPIKey": "Please enter a valid API key.",
 		"ChangesHasBeenSaved": "Changes has been saved.",
-		"AutomatedUpdate": "You may implement automated monthly database update as well.",
+		"AutomatedUpdate": "How to implement automated monthly BIN database update for up-to-date lookup.",
 		"LearnMore": "Learn more...",
 		"AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download"
     }

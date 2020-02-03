@@ -32,11 +32,17 @@
 					    {{ 'IP2Location_LocalBINDatabase'|translate }}
 					    <span class="form-description">{{ 'IP2Location_UploadYourIP2LocationBINDatabaseToPiwikMisc'|translate }}</span>
 					</label>
+					
+					<ul>
+						<li><a href="https://lite.ip2location.com" target="_blank">{{ 'IP2Location_DownloadLITEDatabase'|translate }}</a></li>
+						<li><a href="https://www.ip2location.com" target="_blank">{{ 'IP2Location_DownloadCommercialDatabase'|translate }}</a></li>
+					</ul>
 				</p>
 				<p>
 					<input type="radio" value="WS" id="lookupMode_WS" name="lookupMode" {% if lookupMode == 'WS' %} checked="checked"{% endif %} />
 					<label for="lookupMode_WS">
 					    {{ 'IP2Location_WebService'|translate }}
+					    <span class="form-description"><a href="https://www.ip2location.com/web-service/ip2location" target="_blank">{{ 'IP2Location_WebServiceMisc'|translate }}</a></span>
 					</label>
 				</p>
 			</div>
@@ -46,7 +52,7 @@
 			<div class="input-field col s12">
 				<input type="text" value="{{apiKey}}" id="apiKey" name="apiKey" />
 				<label for="apiKey">{{'IP2Location_APIKey'|translate}}</label>
-				<span class="form-description">{{ 'IP2Location_PleaseGetYourAPIKeyFrom'|translate }}</span>
+				<span class="form-description">{{ 'IP2Location_PleaseGetYourAPIKeyFrom'|translate }} <a href="https://www.ip2location.com/web-service/ip2location" target="_blank">https://www.ip2location.com/web-service/ip2location</a></span>
 			</div>
 		</div>
 
