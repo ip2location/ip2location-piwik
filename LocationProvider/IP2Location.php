@@ -9,8 +9,8 @@ use Piwik\Plugins\UserCountry\LocationProvider;
 
 class IP2Location extends LocationProvider
 {
-	public const ID = 'ip2location';
-	public const TITLE = 'IP2Location';
+	const ID = 'ip2location';
+	const TITLE = 'IP2Location';
 
 	public function __construct()
 	{
