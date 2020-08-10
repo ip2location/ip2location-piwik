@@ -1,6 +1,6 @@
 {
     "name": "IP2Location",
-    "version": "3.1.22",
+    "version": "4.0.0",
     "keywords": [
         "ip2location", "geolocation", "visitor location", "ip to location"
     ],
@@ -21,6 +21,6 @@
         "source": "https://github.com/ip2location/ip2location-piwik"
     },
     "require": {
-        "piwik": ">=3.0.0-b1"
+        "piwik": ">=4.0.0-b1"
     }
 }

@@ -11,6 +11,7 @@
 		"WebServiceMisc": "Web service will use WS6 package for the lookup call",
 		"APIKey": "API Key (for Web Service lookup mode)",
 		"PleaseGetYourAPIKeyFrom": "You can get your API key at",
+		"InfoDescription": "<p>This location provider uses <strong>IP2Location database</strong> to accurately detect the location of your visitors. It support both IPv4 and IPv6 address detection. In addition, you can choose to use either BIN database or web service for the geolocation lookup.</p><p><ul><li><a href=\"https://lite.ip2location.com/?r=piwik\" rel=\"noreferrer\"  target=\"_blank\">Download free IP2Location LITE BIN database &raquo;</a></li><li><a href=\"https://www.ip2location.com/?r=piwik\" rel=\"noreferrer\"  target=\"_blank\">Download free IP2Location Commercial BIN database &raquo;</a></li><li><a href=\"https://www.ip2location.com/web-service/ip2location/?r=piwik\" rel=\"noreferrer\"  target=\"_blank\">Sign up for web service &raquo;</a></li></ul></p>",
 
 		"DatabaseInformation": "Database Information",
 		"IP2LocationDatabaseFile": "IP2Location Database File",

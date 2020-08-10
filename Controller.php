@@ -1,19 +1,9 @@
 <?php
-/**
- * Piwik - Open source web analytics.
- *
- * @see http://piwik.org
- *
- * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
- *
- * @version $Id: Controller.php 4336 2011-04-06 01:52:11Z matt $
- *
- * @category Piwik_Plugins
- */
 
 namespace Piwik\Plugins\IP2Location;
 
 use Piwik\Common;
+use Piwik\Container\StaticContainer;
 use Piwik\Menu\MenuAdmin;
 use Piwik\Menu\MenuTop;
 use Piwik\Nonce;
@@ -56,7 +46,7 @@ class Controller extends \Piwik\Plugin\Controller
 
 		if ($lookupMode == 'BIN') {
 			if (!$file) {
-				$errors[] = 'There is no IP2Location database file found in ' . PIWIK_DOCUMENT_ROOT . \DIRECTORY_SEPARATOR . 'misc.';
+				$errors[] = 'There is no IP2Location database file found in "' . StaticContainer::get('path.ip2location') . '".';
 			}
 
 			if ($date && strtotime($date) < strtotime('-2 months')) {

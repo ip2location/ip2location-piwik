@@ -6,18 +6,21 @@ use Piwik\Plugins\UserCountry\LocationProvider;
 
 class IP2Location extends \Piwik\Plugin
 {
-	/**
-	 * @see Piwik\Plugin::registerEvents
-	 */
 	public function registerEvents()
 	{
-		return [
-			'Tracker.setTrackerCacheGeneral' => 'setTrackerCacheGeneral',
-		];
+		return [];
 	}
 
-	public function setTrackerCacheGeneral(&$cache)
+	public function isTrackerPlugin()
 	{
-		$cache['currentLocationProviderId'] = LocationProvider::getCurrentProviderId();
+		return true;
+	}
+
+	public function deactivate()
+	{
+		// Switch to default provider if IP2Location provider was in use
+		if (LocationProvider::getCurrentProvider() instanceof \Piwik\Plugins\IP2Location\LocationProvider\IP2Location) {
+			LocationProvider::setCurrentProvider(LocationProvider\DefaultProvider::ID);
+		}
 	}
 }
