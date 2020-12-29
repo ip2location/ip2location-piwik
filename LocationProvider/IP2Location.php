@@ -78,6 +78,10 @@ class IP2Location extends LocationProvider
 		} else {
 			require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
 
+			if (self::getDatabasePath() === false) {
+				return;
+			}
+
 			$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
 			$response = $db->lookup($ip, \IP2Location\Database::ALL);
 
