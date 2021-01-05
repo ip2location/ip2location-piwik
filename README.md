@@ -62,7 +62,17 @@ You can download IP2Location database for free at https://lite.ip2location.com o
 
 __Can I use IP2Location Web service?__
 
-Yes, please purchase credits from https://www.ip2location.com/web-service and insert your API key in the settings pag
+Yes, please purchase credits from https://www.ip2location.com/web-service and insert your API key in the settings page.
+
+
+
+__Why I'm getting undefined function error?__
+
+ It might be one of the required PHP extension is not enabled. Please make sure you have following PHP extension enabled in your php.ini:
+
+* php-curl
+* php-gmp
+* php-bcmath
 
 
 
