@@ -1,1 +1,28 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "Κλειδί API (για την κατάσταση αναζήτησης στην Υπηρεσία Ιστού)",
+        "AutomatedUpdate": "Πώς να εφαρμόσετε αυτοματοποιημένη μηνιαία ενημέρωση βάσης δεδομένων BIN για ενημερωμένη αναζήτηση.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "Οι αλλαγές αποθηκεύτηκαν.",
+        "CreditAvailable": "Διαθέσιμες Μονάδες",
+        "DatabaseDate": "Ημερομηνία Βάσης Δεδομένων",
+        "DatabaseInformation": "Πληροφορίες Βάσης Δεδομένων",
+        "DatabaseSize": "Μέγεθος Βάσης Δεδομένων",
+        "DownloadCommercialDatabase": "Μεταφόρτωση της Εμπορικής Βάσης Δεδομένων IP2Location",
+        "DownloadLITEDatabase": "Μεταφόρτωση της Δωρεάν Βάσης Δεδομένων IP2Location",
+        "IP2Location": "IP2Location",
+        "IP2LocationDatabaseFile": "Αρχείο Βάσης Δεδομένων IP2Location",
+        "IP2LocationSettings": "Ρυθμίσεις IP2Location",
+        "IP2Location_NoIP2LocationDatabaseFile": "Δεν βρέθηκε το αρχείο της βάσης δεδομένων IP2Location στον κατάλογο matomo/misc.",
+        "LearnMore": "Μάθετε περισσότερα…",
+        "LocalBINDatabase": "Βάση Δεδομένων BIN IP2Location",
+        "LookupMode": "Κατάσταση Αναζήτησης",
+        "PleaseEnterAValidAPIKey": "Εισάγετε ένα έγκυρο κλειδί API.",
+        "PleaseGetYourAPIKeyFrom": "Μπορείτε να λάβετε το κλειδί σας API στο",
+        "SaveChanges": "Αποθήκευση Αλλαγών",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Ανεβάστε τη βάση δεδομένων BIN του IP2Location στον κατάλογο matomo/misc.",
+        "WebService": "Υπηρεσία Ιστού IP2Location",
+        "WebServiceInformation": "Πληροφορίες Υπηρεσίας Ιστού",
+        "WebServiceMisc": "Η υπηρεσία ιστού θα χρησιμοποιήσει πακέτο WS6 για την κλήση αναζήτησης"
+    }
+}
