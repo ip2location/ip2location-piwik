@@ -1,1 +1,28 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "Clé API (pour le mode de recherche de service Web)",
+        "AutomatedUpdate": "Comment mettre en œuvre une mise à jour mensuelle automatisée de la base de données BIN pour une recherche à jour.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "Les modifications ont été enregistrées.",
+        "CreditAvailable": "Crédit disponible",
+        "DatabaseDate": "Date de la base de données",
+        "DatabaseInformation": "Informations sur la base de données",
+        "DatabaseSize": "Taille de la base de données",
+        "DownloadCommercialDatabase": "Télécharger la base de données commerciale IP2Location",
+        "DownloadLITEDatabase": "Télécharger la base de données LITE BIN gratuite d'IP2Location",
+        "IP2Location": "IP2Location",
+        "IP2LocationDatabaseFile": "Fichier de base de données IP2Location",
+        "IP2LocationSettings": "Paramètres de localisation IP2",
+        "IP2Location_NoIP2LocationDatabaseFile": "Aucun fichier de base de données IP2Location trouvé dans le répertoire matomo/misc.",
+        "LearnMore": "Apprendre encore plus…",
+        "LocalBINDatabase": "Base de données BIN IP2Location",
+        "LookupMode": "Mode de recherche",
+        "PleaseEnterAValidAPIKey": "Veuillez saisir une clé API valide.",
+        "PleaseGetYourAPIKeyFrom": "Vous pouvez obtenir votre clé API sur",
+        "SaveChanges": "Sauvegarder les modifications",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Veuillez télécharger votre base de données IP2Location BIN dans le dossier matomo/misc.",
+        "WebService": "Service Web IP2Location",
+        "WebServiceInformation": "Informations sur les services Web",
+        "WebServiceMisc": "Le service Web utilisera le package WS6 pour l'appel de recherche"
+    }
+}
