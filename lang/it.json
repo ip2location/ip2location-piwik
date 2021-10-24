@@ -1,1 +1,12 @@
-{}
+{
+    "IP2Location": {
+        "ChangesHasBeenSaved": "I cambiamenti sono stati salvati.",
+        "CreditAvailable": "Credito disponibile",
+        "DatabaseDate": "Data del database",
+        "DatabaseInformation": "Informazioni database",
+        "DatabaseSize": "Dimensione database",
+        "IP2Location": "IP2Location",
+        "IP2LocationSettings": "Impostazioni IP2Location",
+        "IP2Location_NoIP2LocationDatabaseFile": "Nessun database IP2Location trovato nella cartella matomo/misc."
+    }
+}
