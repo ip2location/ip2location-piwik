@@ -74,7 +74,7 @@ class IP2Location extends LocationProvider
 			$response = Http::sendHttpRequest('https://api.ip2location.com/v2/?key=' . Option::get('IP2Location.APIKey') . '&ip=' . $ip . '&format=json&package=WS6', 30);
 
 			if (($json = json_decode($response)) !== null) {
-				if (!isset($json->response)) {
+				if ($json->response == 'OK') {
 					$result[self::COUNTRY_CODE_KEY] = $json->country_code;
 					$result[self::COUNTRY_NAME_KEY] = $json->country_name;
 					$result[self::REGION_CODE_KEY] = $this->getRegionCode($json->country_code, $json->region_name);
