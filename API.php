@@ -5,7 +5,6 @@ namespace Piwik\Plugins\IP2Location;
 use Piwik\Container\StaticContainer;
 use Piwik\Http;
 use Piwik\Option;
-use Piwik\Piwik;
 
 class API extends \Piwik\Plugin\API
 {
@@ -23,6 +22,14 @@ class API extends \Piwik\Plugin\API
 	public static function getDatabaseFile()
 	{
 		$files = scandir(StaticContainer::get('path.ip2location'));
+
+		foreach ($files as $file) {
+			if (preg_match('/^(IP(V6)?-COUNTRY.+|IP2LOCATION-LITE-DB[0-9]+(\.IPV6)?)\.BIN$/', $file)) {
+				Option::set('IP2Location.BIN', $file);
+
+				return $file;
+			}
+		}
 
 		foreach ($files as $file) {
 			if (strtoupper(substr($file, -4)) == '.BIN') {
