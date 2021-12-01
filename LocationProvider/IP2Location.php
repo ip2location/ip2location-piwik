@@ -38,10 +38,10 @@ class IP2Location extends LocationProvider
 		}
 
 		return [
-			'id'          => self::ID,
-			'title'       => self::TITLE,
-			'order'       => 2,
-			'description' => Piwik::translate('IP2Location_InfoDescription'),
+			'id'            => self::ID,
+			'title'         => self::TITLE,
+			'order'         => 2,
+			'description'   => Piwik::translate('IP2Location_InfoDescription'),
 			'install_docs'  => 'For BIN database option, please upload IP2Location BIN database file into <strong>Piwik/misc</strong> folder.',
 			'extra_message' => $extraMessage,
 		];
@@ -64,7 +64,7 @@ class IP2Location extends LocationProvider
 			$response = Http::sendHttpRequest('https://api.ip2location.com/v2/?key=' . Option::get('IP2Location.APIKey') . '&ip=' . $ip . '&format=json&package=WS6', 30);
 
 			if (($json = json_decode($response)) !== null) {
-				if (!isset($json->response)) {
+				if ($json->response == 'OK') {
 					$result[self::COUNTRY_CODE_KEY] = $json->country_code;
 					$result[self::COUNTRY_NAME_KEY] = $json->country_name;
 					$result[self::REGION_CODE_KEY] = $this->getRegionCode($json->country_code, $json->region_name);

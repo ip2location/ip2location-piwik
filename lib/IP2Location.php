@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2005-2020 IP2Location.com
+ * Copyright (C) 2005-2021 IP2Location.com
  * All Rights Reserved
  *
  * This library is free software: you can redistribute it and/or
@@ -1268,7 +1268,7 @@ class Database
 
 			list($ipFrom, $ipTo) = $records;
 
-			$ipTo -= 1;
+			--$ipTo;
 
 			while ($ipTo >= $ipFrom) {
 				$maxSize = self::getMaxSize($ipFrom, 32);
@@ -2199,7 +2199,7 @@ class WebService
 			return false;
 		}
 
-		if (isset($data['response'])) {
+		if ($data['response'] != 'OK') {
 			throw new \Exception(__CLASS__ . ': ' . $data['response'], self::EXCEPTION_WEB_SERVICE_ERROR);
 		}
 
