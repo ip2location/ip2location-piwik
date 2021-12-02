@@ -213,6 +213,12 @@ class IP2Location extends LocationProvider
 		if (empty($files)) {
 			return false;
 		}
+		
+		foreach ($files as $file) {
+			if (preg_match('/^(IP(V6)?-COUNTRY.+|IP2LOCATION-LITE-DB[0-9]+(\.IPV6)?)\.BIN$/', $file)) {
+				return PIWIK_INCLUDE_PATH . '/misc/' . $file;
+			}
+		}
 
 		foreach ($files as $file) {
 			if (strtoupper(substr($file, -4)) == '.BIN') {
