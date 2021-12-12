@@ -1,1 +1,28 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "API-nøkkel (til oppslagsmodus for vev-tjenester)",
+        "AutomatedUpdate": "Hvordan implementere automatisk månedling BIN-databaseoppslag for alltid oppdatert sjekk.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "Endringer lagret.",
+        "CreditAvailable": "Tilgjengelig kreditt",
+        "DatabaseDate": "Databasedato",
+        "DatabaseInformation": "Database-info",
+        "DatabaseSize": "Database-størrelse",
+        "DownloadCommercialDatabase": "Last ned kommersiell database for IP2Location",
+        "DownloadLITEDatabase": "Last ned gratis LITE BIN-database for IP2Location",
+        "IP2Location": "IP2Location",
+        "IP2LocationDatabaseFile": "IP2Location-databasefil",
+        "IP2LocationSettings": "IP2Location-innstillinger",
+        "IP2Location_NoIP2LocationDatabaseFile": "Fant ingen databasefil for I2PLocation i matomo/misc-mappen.",
+        "LearnMore": "Lær mer …",
+        "LocalBINDatabase": "BIN-database for IP2Location",
+        "LookupMode": "Oppslagsmodus",
+        "PleaseEnterAValidAPIKey": "Skriv inn en gyldig API-nøkkel.",
+        "PleaseGetYourAPIKeyFrom": "Du kan hente din API-nøkkel på",
+        "SaveChanges": "Lagre endringer",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Last opp din BIN-database for IP2Location til matomo/misc-mappen.",
+        "WebService": "I2PLocation-vevtjeneste",
+        "WebServiceInformation": "Vev-tjenesteinfo",
+        "WebServiceMisc": "Vev-tjenesten vil bruke WS6-pakken for oppslagskallet"
+    }
+}
