@@ -1,1 +1,28 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "Kyç API (për mënyrën kërkim te Shërbimi Web)",
+        "AutomatedUpdate": "Si të sendërtohet përditësim i automatizuar baze të dhënash BIN për kërkim të përditësuar.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "Ndryshimet u ruajtën.",
+        "CreditAvailable": "Kredit i Passhëm",
+        "DatabaseDate": "Datë Baze të Dhënash",
+        "DatabaseInformation": "Hollësi Baze të Dhënash",
+        "DatabaseSize": "Madhësi Baze të Dhënash",
+        "DownloadCommercialDatabase": "Shkarkoni Bazë Komerciale të Dhënash IP2Location",
+        "DownloadLITEDatabase": "Shkarkoni Bazë të Dhënash Falas IP2Location LITE BIN",
+        "IP2Location": "IP2Location",
+        "IP2LocationDatabaseFile": "Kartelë Baze të Dhënash IP2Location",
+        "IP2LocationSettings": "Rregullime IP2Location",
+        "IP2Location_NoIP2LocationDatabaseFile": "S’u gjet kartelë baze të dhënash IP2Location te drejtoria matomo/misc.",
+        "LearnMore": "Mësoni më tepër…",
+        "LocalBINDatabase": "Bazë të dhënash IP2Location BIN",
+        "LookupMode": "Mënyra Kërkim",
+        "PleaseEnterAValidAPIKey": "Ju lutemi, jepni një kyç API të vlefshëm.",
+        "PleaseGetYourAPIKeyFrom": "Kyçin tuaj API mund ta merrni te",
+        "SaveChanges": "Ruaji Ndryshimet",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Ju lutemi, ngarkojeni bazën tuaj të të dhënave IP2Location BIN te dosja matomo/misc.",
+        "WebService": "Shërbim Web IP2Location",
+        "WebServiceInformation": "Informacion Shërbimi Web",
+        "WebServiceMisc": "Shërbimi Web do të përdorë paketë WS6 për thirrje kërkimi"
+    }
+}
