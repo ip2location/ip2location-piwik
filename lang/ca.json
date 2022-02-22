@@ -11,6 +11,18 @@
         "DownloadCommercialDatabase": "Descarregar la base de dades comercial IP2Location",
         "DownloadLITEDatabase": "Descarregar la base de dades gratuïta de IP2Location LITE BIN",
         "IP2Location": "IP2Location",
-        "IP2LocationDatabaseFile": "Arxiu de la base de dades IP2Location"
+        "IP2LocationDatabaseFile": "Arxiu de la base de dades IP2Location",
+        "IP2LocationSettings": "Configuració IP2Location",
+        "IP2Location_NoIP2LocationDatabaseFile": "No s'ha trobat cap fitxer de base de dades IP2Location al directori matomo/misc.",
+        "LearnMore": "Aprèn més…",
+        "LocalBINDatabase": "Base de dades IP2Location BIN",
+        "LookupMode": "Mode de cerca",
+        "PleaseEnterAValidAPIKey": "Introduïu una clau API vàlida.",
+        "PleaseGetYourAPIKeyFrom": "Podeu obtenir la vostra clau API a",
+        "SaveChanges": "Desar canvis",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Si us plau carregueu la vostra base de dades IP2Location BIN a la carpeta matomo/misc.",
+        "WebService": "Servei web IP2Location",
+        "WebServiceInformation": "Informació del servei web",
+        "WebServiceMisc": "El servei web utilitzarà el paquet WS6 per a la crida de cerca"
     }
 }
