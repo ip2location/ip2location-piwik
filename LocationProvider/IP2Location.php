@@ -128,6 +128,18 @@ class IP2Location extends LocationProvider
 		$result[self::CONTINENT_CODE_KEY] = true;
 		$result[self::CONTINENT_NAME_KEY] = true;
 
+		// All fields are supported with IP2Location WS
+		if (Option::get('IP2Location.LookupMode') == 'WS' && Option::get('IP2Location.APIKey')) {
+			$result[self::REGION_CODE_KEY] = true;
+			$result[self::REGION_NAME_KEY] = true;
+			$result[self::CITY_NAME_KEY] = true;
+			$result[self::LATITUDE_KEY] = true;
+			$result[self::LONGITUDE_KEY] = true;
+			$result[self::ISP_KEY] = true;
+
+			return $result;
+		}
+
 		require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
 
 		$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
@@ -213,7 +225,7 @@ class IP2Location extends LocationProvider
 		if (empty($files)) {
 			return false;
 		}
-		
+
 		foreach ($files as $file) {
 			if (preg_match('/^(IP(V6)?-COUNTRY.+|IP2LOCATION-LITE-DB[0-9]+(\.IPV6)?)\.BIN$/', $file)) {
 				return PIWIK_INCLUDE_PATH . '/misc/' . $file;
