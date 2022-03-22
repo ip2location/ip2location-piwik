@@ -1,1 +1,28 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "Kunci API (untuk mode pencarian Layanan Web)",
+        "AutomatedUpdate": "Bagaimana cara menerapkan pembaruan basis data BIN bulanan otomatis untuk pencarian terkini.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "Perubahan telah disimpan.",
+        "CreditAvailable": "Kredit Tersedia",
+        "DatabaseDate": "Tanggal Basis Data",
+        "DatabaseInformation": "Informasi Basis Data",
+        "DatabaseSize": "Ukuran Basis Data",
+        "DownloadCommercialDatabase": "Unduh Basis Data Komersial IP2Location",
+        "DownloadLITEDatabase": "Unduh Basis Data LITE BIN IP2Location Gratis",
+        "IP2Location": "IP2Location",
+        "IP2LocationDatabaseFile": "Berkas Basis Data IP2Location",
+        "IP2LocationSettings": "Pengaturan IP2Location",
+        "IP2Location_NoIP2LocationDatabaseFile": "Tidak ada berkas basis data IP2Location yang ditemukan di direktori matomo/misc.",
+        "LearnMore": "Pelajari lebih lanjut…",
+        "LocalBINDatabase": "Basis Data BIN IP2Location",
+        "LookupMode": "Mode Pencarian",
+        "PleaseEnterAValidAPIKey": "Silakan masukkan kunci API yang valid.",
+        "PleaseGetYourAPIKeyFrom": "Anda bisa mendapatkan kunci API Anda di",
+        "SaveChanges": "Simpan Perubahan",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Silakan unggah basis data BIN IP2Location Anda ke folder matomo/misc.",
+        "WebService": "Layanan Web IP2Location",
+        "WebServiceInformation": "Informasi Layanan Web",
+        "WebServiceMisc": "Layanan web akan menggunakan paket WS6 untuk panggilan pencarian"
+    }
+}
