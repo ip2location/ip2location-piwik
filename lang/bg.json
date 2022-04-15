@@ -1,1 +1,9 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "API ключ (за режим на търсене на уеб услуги)",
+        "AutomatedUpdate": "Как да внедрите автоматизирана месечна актуализация на базата данни на BIN за актуално търсене.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "Промените са запазени.",
+        "CreditAvailable": "Наличен кредит"
+    }
+}
