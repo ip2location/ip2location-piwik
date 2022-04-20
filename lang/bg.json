@@ -4,6 +4,25 @@
         "AutomatedUpdate": "Как да внедрите автоматизирана месечна актуализация на базата данни на BIN за актуално търсене.",
         "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
         "ChangesHasBeenSaved": "Промените са запазени.",
-        "CreditAvailable": "Наличен кредит"
+        "CreditAvailable": "Наличен кредит",
+        "DatabaseDate": "Дата на базата данни",
+        "DatabaseInformation": "Информация за базата данни",
+        "DatabaseSize": "Размер на базата данни",
+        "DownloadCommercialDatabase": "Изтеглете IP2Location търговска база данни",
+        "DownloadLITEDatabase": "Изтеглете IP2Location безплатна LITE BIN база данни",
+        "IP2Location": "IP2Location (локация)",
+        "IP2LocationDatabaseFile": "Файл с база данни за IP2Location",
+        "IP2LocationSettings": "Настройки за IP2Location",
+        "IP2Location_NoIP2LocationDatabaseFile": "Не е намерен файл с база данни IP2Location в директорията matomo/misc.",
+        "LearnMore": "Научете повече…",
+        "LocalBINDatabase": "IP2Location BIN база данни",
+        "LookupMode": "Режим на търсене",
+        "PleaseEnterAValidAPIKey": "Моля, въведете валиден API ключ.",
+        "PleaseGetYourAPIKeyFrom": "Можете да получите своя API ключ на",
+        "SaveChanges": "Запазете промените",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Моля, качете Вашата IP2Location BIN база данни в папка matomo/misc.",
+        "WebService": "IP2Location уеб услуга",
+        "WebServiceInformation": "Информация за уеб услуги",
+        "WebServiceMisc": "Уеб услугата ще използва пакета WS6 за повикването за търсене"
     }
 }
