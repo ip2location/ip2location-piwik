@@ -1589,6 +1589,10 @@ class Database
 	 */
 	private function read($pos, $len)
 	{
+    if ($len < 1) {
+			return '';
+		}
+
 		switch ($this->mode) {
 		case self::SHARED_MEMORY:
 		return shmop_read($this->resource, $pos, $len);
