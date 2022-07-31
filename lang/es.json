@@ -1,1 +1,10 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "Clave API (para el modo de búsqueda de servicios web)",
+        "AutomatedUpdate": "Cómo implementar la actualización mensual automatizada de la base de datos BIN para una búsqueda actualizada.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "Se han guardado los cambios.",
+        "CreditAvailable": "Crédito disponible",
+        "DatabaseDate": "Fecha de la base de datos"
+    }
+}
