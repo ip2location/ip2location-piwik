@@ -1,1 +1,28 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "API-nyckel (för webbtjänsts uppslagsläge)",
+        "AutomatedUpdate": "Hur man inför automatisk månatlig uppdatering för BIN-databas för aktuella uppslag.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "Ändringar har lagrats.",
+        "CreditAvailable": "Kredit tillgänglig",
+        "DatabaseDate": "Databasdatum",
+        "DatabaseInformation": "Databasinformation",
+        "DatabaseSize": "Databasstorlek",
+        "DownloadCommercialDatabase": "Laffa ner IP2Location Kommersiell Databas",
+        "DownloadLITEDatabase": "Ladda ner IP2Location Fria LITE BIN-databas",
+        "IP2Location": "IP2Location",
+        "IP2LocationDatabaseFile": "IP2Location Databasfil",
+        "IP2LocationSettings": "IP2Location Inställningar",
+        "IP2Location_NoIP2LocationDatabaseFile": "IP2Location databasfil hittades inte i matomo/misc-katalogen.",
+        "LearnMore": "Läs mer…",
+        "LocalBINDatabase": "IP2Location BIN Databas",
+        "LookupMode": "Uppslagsläge",
+        "PleaseEnterAValidAPIKey": "Vänligen ange giltig API-nyckel.",
+        "PleaseGetYourAPIKeyFrom": "Du kan hämta din API-nyckel hos",
+        "SaveChanges": "Spara Ändringar",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Vänligen ladda upp din IP2Location BIN databas till matomo/misc-katalog.",
+        "WebService": "IP2Location Webbtjänst",
+        "WebServiceInformation": "Webbtjänst Information",
+        "WebServiceMisc": "Webbtjänst kommer använda WS6-paket för uppslagsanrop"
+    }
+}
