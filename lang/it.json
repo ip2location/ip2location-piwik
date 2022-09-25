@@ -1,11 +1,17 @@
 {
     "IP2Location": {
+        "APIKey": "Chiave API (per la modalità di ricerca Web Service)",
+        "AutomatedUpdate": "Come implementare l'aggiornamento mensile automatico del database BIN per una ricerca aggiornata.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
         "ChangesHasBeenSaved": "I cambiamenti sono stati salvati.",
         "CreditAvailable": "Credito disponibile",
         "DatabaseDate": "Data del database",
         "DatabaseInformation": "Informazioni database",
         "DatabaseSize": "Dimensione database",
+        "DownloadCommercialDatabase": "Scarica il database commerciale IP2Location",
+        "DownloadLITEDatabase": "Scarica il database IP2Location Free LITE BIN",
         "IP2Location": "IP2Location",
+        "IP2LocationDatabaseFile": "File del database IP2Location",
         "IP2LocationSettings": "Impostazioni IP2Location",
         "IP2Location_NoIP2LocationDatabaseFile": "Nessun database IP2Location trovato nella cartella matomo/misc."
     }
