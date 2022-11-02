@@ -5,6 +5,8 @@
         "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
         "ChangesHasBeenSaved": "Se han guardado los cambios.",
         "CreditAvailable": "Crédito disponible",
-        "DatabaseDate": "Fecha de la base de datos"
+        "DatabaseDate": "Fecha de la base de datos",
+        "DatabaseInformation": "Información de la base de datos",
+        "DatabaseSize": "Tamaño de la base de datos"
     }
 }
