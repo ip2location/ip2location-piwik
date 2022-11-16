@@ -1,21 +1,10 @@
 <?php
-/**
- * Piwik - Open source web analytics.
- *
- * @see http://piwik.org
- *
- * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
- *
- * @version $Id: API.php 4448 2011-04-14 08:20:49Z matt $
- *
- * @category Piwik_Plugins
- */
 
 namespace Piwik\Plugins\IP2Location;
 
+use Piwik\Container\StaticContainer;
 use Piwik\Http;
 use Piwik\Option;
-use Piwik\Piwik;
 
 class API extends \Piwik\Plugin\API
 {
@@ -32,7 +21,15 @@ class API extends \Piwik\Plugin\API
 
 	public static function getDatabaseFile()
 	{
-		$files = scandir(PIWIK_DOCUMENT_ROOT . '/misc');
+		$files = scandir(StaticContainer::get('path.ip2location'));
+
+		foreach ($files as $file) {
+			if (preg_match('/^(IP(V6)?-COUNTRY.+|IP2LOCATION-LITE-DB[0-9]+(\.IPV6)?)\.BIN$/', $file)) {
+				Option::set('IP2Location.BIN', $file);
+
+				return $file;
+			}
+		}
 
 		foreach ($files as $file) {
 			if (strtoupper(substr($file, -4)) == '.BIN') {
@@ -47,24 +44,24 @@ class API extends \Piwik\Plugin\API
 
 	public static function getDatabaseDate($file)
 	{
-		if (!is_file(PIWIK_DOCUMENT_ROOT . '/misc/' . $file)) {
+		if (!is_file(StaticContainer::get('path.ip2location') . $file)) {
 			return;
 		}
 
 		require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
 
-		$db = new \IP2Location\Database(PIWIK_DOCUMENT_ROOT . '/misc/' . $file, \IP2Location\Database::FILE_IO);
+		$db = new \IP2Location\Database(StaticContainer::get('path.ip2location') . $file, \IP2Location\Database::FILE_IO);
 
 		return $db->getDate();
 	}
 
 	public static function getDatabaseSize($file)
 	{
-		if (!file_exists(PIWIK_DOCUMENT_ROOT . '/misc/' . $file)) {
+		if (!file_exists(StaticContainer::get('path.ip2location') . $file)) {
 			return 0;
 		}
 
-		return self::displayBytes(filesize(PIWIK_DOCUMENT_ROOT . '/misc/' . $file));
+		return self::displayBytes(filesize(StaticContainer::get('path.ip2location') . $file));
 	}
 
 	public static function getLookupMode()
