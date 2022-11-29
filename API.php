@@ -21,7 +21,7 @@ class API extends \Piwik\Plugin\API
 
 	public static function getDatabaseFile()
 	{
-		$files = scandir(StaticContainer::get('path.ip2location'));
+		$files = scandir(PIWIK_DOCUMENT_ROOT . '/misc');
 
 		foreach ($files as $file) {
 			if (preg_match('/^(IP(V6)?-COUNTRY.+|IP2LOCATION-LITE-DB[0-9]+(\.IPV6)?)\.BIN$/', $file)) {
