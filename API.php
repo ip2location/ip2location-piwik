@@ -44,24 +44,24 @@ class API extends \Piwik\Plugin\API
 
 	public static function getDatabaseDate($file)
 	{
-		if (!is_file(StaticContainer::get('path.ip2location') . $file)) {
+		if (!is_file(PIWIK_DOCUMENT_ROOT . '/misc/' . $file)) {
 			return;
 		}
 
 		require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
 
-		$db = new \IP2Location\Database(StaticContainer::get('path.ip2location') . $file, \IP2Location\Database::FILE_IO);
+		$db = new \IP2Location\Database(PIWIK_DOCUMENT_ROOT . '/misc/' . $file, \IP2Location\Database::FILE_IO);
 
 		return $db->getDate();
 	}
 
 	public static function getDatabaseSize($file)
 	{
-		if (!file_exists(StaticContainer::get('path.ip2location') . $file)) {
+		if (!file_exists(PIWIK_DOCUMENT_ROOT . '/misc/' . $file)) {
 			return 0;
 		}
 
-		return self::displayBytes(filesize(StaticContainer::get('path.ip2location') . $file));
+		return self::displayBytes(filesize(PIWIK_DOCUMENT_ROOT . '/misc/' . $file));
 	}
 
 	public static function getLookupMode()
