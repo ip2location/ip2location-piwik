@@ -7,6 +7,22 @@
         "CreditAvailable": "Crédito disponible",
         "DatabaseDate": "Fecha de la base de datos",
         "DatabaseInformation": "Información de la base de datos",
-        "DatabaseSize": "Tamaño de la base de datos"
+        "DatabaseSize": "Tamaño de la base de datos",
+        "DownloadCommercialDatabase": "Descargar la base de datos comercial de IP2Location",
+        "DownloadLITEDatabase": "Descargar la base de datos IP2Location Free LITE BIN",
+        "IP2Location": "IP2-Location",
+        "IP2LocationDatabaseFile": "Archivo de base de datos IP2Location",
+        "IP2LocationSettings": "Configuración de IP2Location",
+        "IP2Location_NoIP2LocationDatabaseFile": "No se ha encontrado ningún archivo de base de datos IP2Location en el directorio matomo/misc.",
+        "LearnMore": "Más información…",
+        "LocalBINDatabase": "Base de datos IP2Location BIN",
+        "LookupMode": "Modo de búsqueda",
+        "PleaseEnterAValidAPIKey": "Por favor, introduzca una clave API válida.",
+        "PleaseGetYourAPIKeyFrom": "Puede obtener su clave API en",
+        "SaveChanges": "Guardar los cambios",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Por favor, sube tu base de datos IP2Location BIN a la carpeta matomo/misc.",
+        "WebService": "Servicio web IP2Location",
+        "WebServiceInformation": "Información sobre los servicios web",
+        "WebServiceMisc": "El servicio web utilizará el paquete WS6 para la llamada de búsqueda"
     }
 }
