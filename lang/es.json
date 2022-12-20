@@ -13,6 +13,7 @@
         "IP2Location": "IP2-Location",
         "IP2LocationDatabaseFile": "Archivo de base de datos IP2Location",
         "IP2LocationSettings": "Configuración de IP2Location",
+        "IP2Location_InfoDescription": "Este proveedor para la ubicación utiliza la base de datos BIN de IP2Location para la búsqueda de la ubicación.",
         "IP2Location_NoIP2LocationDatabaseFile": "No se ha encontrado ningún archivo de base de datos IP2Location en el directorio matomo/misc.",
         "LearnMore": "Más información…",
         "LocalBINDatabase": "Base de datos IP2Location BIN",
