@@ -1,1 +1,29 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "Chave de API (para o modo de pesquisa de serviço da Web)",
+        "AutomatedUpdate": "Como implementar a atualização mensal automatizada do banco de dados BIN para uma pesquisa atualizada.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "As alterações foram salvas.",
+        "CreditAvailable": "Crédito disponível",
+        "DatabaseDate": "Data do banco de dados",
+        "DatabaseInformation": "Informações do banco de dados",
+        "DatabaseSize": "Tamanho do banco de dados",
+        "DownloadCommercialDatabase": "Baixe o banco de dados comercial IP2Location",
+        "DownloadLITEDatabase": "Baixe o banco de dados LITE BIN gratuito do IP2Location",
+        "IP2Location": "IP2Location",
+        "IP2LocationDatabaseFile": "Arquivo de banco de dados IP2Location",
+        "IP2LocationSettings": "Configurações de IP2Location",
+        "IP2Location_InfoDescription": "Este provedor de localização usa o banco de dados IP2Location BIN para pesquisa de geolocalização.",
+        "IP2Location_NoIP2LocationDatabaseFile": "Nenhum arquivo de banco de dados IP2Location encontrado no diretório matomo/misc.",
+        "LearnMore": "Saber mais…",
+        "LocalBINDatabase": "Banco de dados BIN de IP2Location",
+        "LookupMode": "Modo de pesquisa",
+        "PleaseEnterAValidAPIKey": "Insira uma chave de API válida.",
+        "PleaseGetYourAPIKeyFrom": "Você pode obter sua chave de API em",
+        "SaveChanges": "Salvar alterações",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Por favor, carregue seu banco de dados IP2Location BIN para a pasta matomo/misc.",
+        "WebService": "Serviço Web IP2Location",
+        "WebServiceInformation": "Informações do serviço da Web",
+        "WebServiceMisc": "O serviço da Web usará o pacote WS6 para a chamada de pesquisa"
+    }
+}
