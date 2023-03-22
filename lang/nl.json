@@ -1,1 +1,7 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "API-sleutel (voor Web Service opzoekmodus)",
+        "AutomatedUpdate": "Hoe een geautomatiseerd maandelijkse BIN database update implementeren voor up-to-date opzoekingen.",
+        "ChangesHasBeenSaved": "Wijzigingen zijn opgeslagen."
+    }
+}
