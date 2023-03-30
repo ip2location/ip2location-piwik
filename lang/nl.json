@@ -2,6 +2,28 @@
     "IP2Location": {
         "APIKey": "API-sleutel (voor Web Service opzoekmodus)",
         "AutomatedUpdate": "Hoe een geautomatiseerd maandelijkse BIN database update implementeren voor up-to-date opzoekingen.",
-        "ChangesHasBeenSaved": "Wijzigingen zijn opgeslagen."
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "Wijzigingen zijn opgeslagen.",
+        "CreditAvailable": "Krediet beschikbaar",
+        "DatabaseDate": "Datum databank",
+        "DatabaseInformation": "Database-informatie",
+        "DatabaseSize": "Database-grootte",
+        "DownloadCommercialDatabase": "Download de IP2Location Commercial database",
+        "DownloadLITEDatabase": "Download de IP2Location Free LITE BIN database",
+        "IP2Location": "IP2Location",
+        "IP2LocationDatabaseFile": "IP2Location database-bestand",
+        "IP2LocationSettings": "IP2Locatie instellingen",
+        "IP2Location_InfoDescription": "Deze locatie provider gebruikt de IP2Location BIN-database voor geolocatie opzoekingen.",
+        "IP2Location_NoIP2LocationDatabaseFile": "Geen IP2Location database-bestand gevonden in de matomo/misc map.",
+        "LearnMore": "Meer informatie…",
+        "LocalBINDatabase": "IP2Location BIN-database",
+        "LookupMode": "Opzoekmodus",
+        "PleaseEnterAValidAPIKey": "Voer een geldige API-sleutel in.",
+        "PleaseGetYourAPIKeyFrom": "U kunt uw API-sleutel krijgen op",
+        "SaveChanges": "Wijzigingen opslaan",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Upload uw IP2Location BIN database naar de matomo/misc map.",
+        "WebService": "IP2Location-webservice",
+        "WebServiceInformation": "Webservice-informatie",
+        "WebServiceMisc": "Webservice zal het WS6-pakket gebruiken voor de zoekopdracht"
     }
 }
