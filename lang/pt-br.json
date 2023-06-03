@@ -13,6 +13,7 @@
         "IP2Location": "IP2Location",
         "IP2LocationDatabaseFile": "Arquivo de banco de dados do IP2Location",
         "IP2LocationSettings": "Configurações do IP2Location",
+        "IP2Location_InfoDescription": "Este provedor de localização usa o banco de dados IP2Location BIN para pesquisa de geolocalização.",
         "IP2Location_NoIP2LocationDatabaseFile": "Nenhum arquivo de banco de dados IP2Location encontrado no diretório matomo/misc.",
         "LearnMore": "Saiba mais…",
         "LocalBINDatabase": "Banco de dados BIN do IP2Location",
