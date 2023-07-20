@@ -13,6 +13,7 @@
         "IP2Location": "IP2Location",
         "IP2LocationDatabaseFile": "Berkas Basis Data IP2Location",
         "IP2LocationSettings": "Pengaturan IP2Location",
+        "IP2Location_InfoDescription": "Penyedia lokasi ini menggunakan basis data IP2Location BIN untuk pencarian geolokasi.",
         "IP2Location_NoIP2LocationDatabaseFile": "Tidak ada berkas basis data IP2Location yang ditemukan di direktori matomo/misc.",
         "LearnMore": "Pelajari lebih lanjut…",
         "LocalBINDatabase": "Basis Data BIN IP2Location",
