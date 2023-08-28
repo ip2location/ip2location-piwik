@@ -13,6 +13,7 @@
         "IP2Location": "IP2Location",
         "IP2LocationDatabaseFile": "IP2Location Databasfil",
         "IP2LocationSettings": "IP2Location Inställningar",
+        "IP2Location_InfoDescription": "Denna platsleverantören använder IP2Locations BIN-databas för att slå upp geografisk plats.",
         "IP2Location_NoIP2LocationDatabaseFile": "IP2Location databasfil hittades inte i matomo/misc-katalogen.",
         "LearnMore": "Läs mer…",
         "LocalBINDatabase": "IP2Location BIN Databas",
