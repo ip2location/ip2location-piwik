@@ -9,20 +9,20 @@
 	<h1>{{'IP2Location_IP2LocationSettings'|translate}}</h1>
 
 	{% if saved %}
-	<div class="card-panel">
-		<span class="green-text text-darken-2">{{'IP2Location_ChangesHasBeenSaved'|translate}}</span>
+	<div class="alert alert-success">
+		{{'IP2Location_ChangesHasBeenSaved'|translate}}
 	</div>
 	{% endif %}
 
 	{% for i, error in errors %}
-	<div class="card-panel">
-		<span class="red-text text-darken-2">{{ error }}</span>
+	<div class="alert alert-danger">
+		{{ error }}
 	</div>
 	{% endfor %}
 
 	<form method="POST" action="{{ linkTo({'module':'IP2Location','action':'saveConfig'}) }}" class="col s6">
 
-		<h3>{{'IP2Location_LookupMode'|translate}}</h3>
+		<h2 class="card-title">{{'IP2Location_LookupMode'|translate}}</h2>
 
 		<div class="form-group row">
 			<div class="col s12">
@@ -62,7 +62,7 @@
 
 		{% if lookupMode == 'BIN' %}
 
-		<h3>{{'IP2Location_DatabaseInformation'|translate}}</h3>
+		<h2 class="card-title">{{'IP2Location_DatabaseInformation'|translate}}</h2>
 
 		<div class="form-group row">
 			<div class="input-field col s12">
@@ -92,7 +92,7 @@
 
 		{% if lookupMode == 'WS' %}
 
-		<h3>{{'IP2Location_WebServiceInformation'|translate}}</h3>
+		<h2 class="card-title">{{'IP2Location_WebServiceInformation'|translate}}</h2>
 
 		<div class="form-group row">
 			<div class="input-field col s12">
