@@ -127,7 +127,7 @@ class Controller extends \Piwik\Plugin\Controller
 			}
 
 			$this->config($siteID, $errors);
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			echo $e;
 		}
 	}
