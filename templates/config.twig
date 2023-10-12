@@ -27,19 +27,19 @@
 		<div class="form-group row">
 			<div class="col s12">
 				<p>
-					<input type="radio" value="BIN" id="lookupMode_BIN" name="lookupMode" {% if lookupMode == 'BIN' %} checked="checked"{% endif %} />
+					<input type="radio" value="BIN" id="lookupMode_BIN" name="lookupMode" {% if lookupMode == 'BIN' %} checked="checked"{% endif %} class="rateradio">
 					<label for="lookupMode_BIN">
 					    {{ 'IP2Location_LocalBINDatabase'|translate }}
 					    <span class="form-description">{{ 'IP2Location_UploadYourIP2LocationBINDatabaseToPiwikMisc'|translate }}</span>
 					</label>
-					
+
 					<ul>
 						<li><a href="https://lite.ip2location.com" target="_blank">{{ 'IP2Location_DownloadLITEDatabase'|translate }}</a></li>
 						<li><a href="https://www.ip2location.com" target="_blank">{{ 'IP2Location_DownloadCommercialDatabase'|translate }}</a></li>
 					</ul>
 				</p>
 				<p>
-					<input type="radio" value="WS" id="lookupMode_WS" name="lookupMode" {% if lookupMode == 'WS' %} checked="checked"{% endif %} />
+					<input type="radio" value="WS" id="lookupMode_WS" name="lookupMode" {% if lookupMode == 'WS' %} checked="checked"{% endif %} class="rateradio">
 					<label for="lookupMode_WS">
 					    {{ 'IP2Location_WebService'|translate }}
 					    <span class="form-description"><a href="https://www.ip2location.com/web-service/ip2location" target="_blank">{{ 'IP2Location_WebServiceMisc'|translate }}</a></span>

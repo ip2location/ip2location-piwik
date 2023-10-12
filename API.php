@@ -71,7 +71,7 @@ class API extends \Piwik\Plugin\API
 
 	public static function getAPIKey()
 	{
-		return (Option::get('IP2Location.APIKey')) ? Option::get('IP2Location.APIKey') : '';
+		return Option::get('IP2Location.APIKey');
 	}
 
 	public static function setLookupMode($value)

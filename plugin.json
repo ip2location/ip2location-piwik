@@ -1,6 +1,6 @@
 {
     "name": "IP2Location",
-    "version": "4.1.2",
+    "version": "5.0.0",
     "keywords": [
         "ip2location", "geolocation", "visitor location", "ip to location"
     ],
@@ -21,6 +21,6 @@
         "source": "https://github.com/ip2location/ip2location-piwik"
     },
     "require": {
-        "matomo": ">=4.0.0-b1,<5.0.0-b1"
+        "matomo": ">=5.0.0-b1,<6.0.0-b1"
     }
 }

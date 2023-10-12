@@ -11,9 +11,10 @@ class Menu extends \Piwik\Plugin\Menu
 	{
 		if (Piwik::isUserHasSomeAdminAccess()) {
 			$menu->addSystemItem(
-					'IP2Location',
-					['module' => 'IP2Location', 'action' => 'config'],
-					$orderId = 35);
+				'IP2Location',
+				['module' => 'IP2Location', 'action' => 'config'],
+				$orderId = 35
+			);
 		}
 	}
 }
