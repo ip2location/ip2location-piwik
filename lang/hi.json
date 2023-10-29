@@ -1,1 +1,29 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "एपीआई कुंजी (वेब सेवा लुकअप मोड के लिए)",
+        "AutomatedUpdate": "अद्यतन लुकअप के लिए स्वचालित मासिक BIN डेटाबेस अद्यतन कैसे कार्यान्वित करें।",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "परिवर्तन सहेजे गए हैं।",
+        "CreditAvailable": "क्रेडिट उपलब्ध",
+        "DatabaseDate": "डेटाबेस दिनांक",
+        "DatabaseInformation": "डेटाबेस सूचना",
+        "DatabaseSize": "डेटाबेस का आकार",
+        "DownloadCommercialDatabase": "आईपी२स्थान वाणिज्यिक डेटाबेस डाउनलोड करें",
+        "DownloadLITEDatabase": "आईपी२स्थान निःशुल्क लाइट बिन डेटाबेस डाउनलोड करें",
+        "IP2Location": "आईपी२स्थान",
+        "IP2LocationDatabaseFile": "आईपी२स्थान डेटाबेस फ़ाइल",
+        "IP2LocationSettings": "आईपी२स्थान समायोजन",
+        "IP2Location_InfoDescription": "यह स्थान प्रदाता जियोलोकेशन लुकअप के लिए आईपी२लोकेशन बिन डेटाबेस का उपयोग करता है।",
+        "IP2Location_NoIP2LocationDatabaseFile": "माटोमो/विविध निर्देशिका में कोई आईपी२स्थान डेटाबेस फ़ाइल नहीं मिली।",
+        "LearnMore": "और अधिक जानें…",
+        "LocalBINDatabase": "आईपी२स्थान बिन डेटाबेस",
+        "LookupMode": "लुकअप मोड",
+        "PleaseEnterAValidAPIKey": "कृपया एक वैध एपीआई कुंजी दर्ज करें।",
+        "PleaseGetYourAPIKeyFrom": "आप अपनी एपीआई कुंजी यहां प्राप्त कर सकते हैं",
+        "SaveChanges": "परिवर्तनों को सुरक्षित करें",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "कृपया अपना आईपी२स्थान बिन डेटाबेस मैटोमो/विविध फ़ोल्डर में अपलोड करें।",
+        "WebService": "आईपी२स्थान वेब सेवा",
+        "WebServiceInformation": "वेब सेवा सूचना",
+        "WebServiceMisc": "वेब सेवा लुकअप कॉल के लिए डब्ल्यूएस६ पैकेज का उपयोग करेगी"
+    }
+}
