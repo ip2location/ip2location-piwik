@@ -36,7 +36,12 @@ You can visit IP2Location Settings by selecting the menu on the left pane (under
 * [IP2Location Database (Commercial)](https://www.ip2location.com)
 
 **To use web service, please sign up for the API key at**
+
 * [IP2Location Web Service](https://www.ip2location.com/web-service/ip2location). Trial key available for testing.
+
+**To use ip2location.io Geolocation API service, please sign up for the free account at**
+
+* https://www.ip2location.io
 
 ## How to import the IP2Location BIN file for usage
 You should copy the BIN file into **/var/www/html/misc** folder (for default installation). If you customize the installation path, it should be the **misc** folder inside your root folder.

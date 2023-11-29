@@ -48,6 +48,7 @@ class Controller extends \Piwik\Plugin\Controller
 
 		$lookupMode = (Common::getRequestVar('lookupMode', '')) ? trim(Common::getRequestVar('lookupMode', '')) : APIIP2Location::getLookupMode();
 		$apiKey = (Common::getRequestVar('apiKey', '')) ? trim(Common::getRequestVar('apiKey', '')) : APIIP2Location::getAPIKey();
+		$ioApiKey = (Common::getRequestVar('ioApiKey', '')) ? trim(Common::getRequestVar('ioApiKey', '')) : APIIP2Location::getIOAPIKey();
 
 		$file = APIIP2Location::getDatabaseFile();
 
@@ -75,6 +76,7 @@ class Controller extends \Piwik\Plugin\Controller
 
 		$view->assign('lookupMode', $lookupMode);
 		$view->assign('apiKey', $apiKey);
+		$view->assign('ioApiKey', $ioApiKey);
 
 		$view->assign('database', $file);
 		$view->assign('date', $date);
@@ -104,6 +106,7 @@ class Controller extends \Piwik\Plugin\Controller
 
 			$lookupMode = trim(Common::getRequestVar('lookupMode', ''));
 			$apiKey = trim(Common::getRequestVar('apiKey', ''));
+			$ioApiKey = trim(Common::getRequestVar('ioApiKey', ''));
 
 			/*if ($lookupMode == 'BIN') {
 				$file = APIIP2Location::getDatabaseFile();
@@ -113,17 +116,30 @@ class Controller extends \Piwik\Plugin\Controller
 				}
 			}*/
 
-			if ($lookupMode == 'WS') {
-				if (!$apiKey) {
-					$errors[] = Piwik::translate('IP2Location_PleaseEnterAValidAPIKey');
-				} elseif (!APIIP2Location::getWebServiceCredit($apiKey)) {
-					$errors[] = Piwik::translate('IP2Location_PleaseEnterAValidAPIKey');
+			if (!empty($_POST)) {
+				if ($lookupMode == 'WS') {
+					if (!$apiKey) {
+						$errors[] = Piwik::translate('IP2Location_PleaseEnterAValidAPIKey');
+					} elseif (!APIIP2Location::getWebServiceCredit($apiKey)) {
+						$errors[] = Piwik::translate('IP2Location_PleaseEnterAValidAPIKey');
+					}
 				}
-			}
 
-			if (empty($errors)) {
-				APIIP2Location::setLookupMode($lookupMode);
-				APIIP2Location::setAPIKey($apiKey);
+				if ($lookupMode == 'IO') {
+					if (!$ioApiKey) {
+						$errors[] = Piwik::translate('IP2Location_PleaseEnterAValidAPIKey');
+					}
+				}
+
+				if (empty($errors)) {
+					APIIP2Location::setLookupMode($lookupMode);
+
+					if ($lookupMode == 'WS') {
+						APIIP2Location::setAPIKey($apiKey);
+					} elseif ($lookupMode == 'IO') {
+						APIIP2Location::setAPIKey($ioApiKey, $lookupMode);
+					}
+				}
 			}
 
 			$this->config($siteID, $errors);

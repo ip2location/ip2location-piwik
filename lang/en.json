@@ -1,6 +1,7 @@
 {
     "IP2Location": {
         "APIKey": "API Key (for Web Service lookup mode)",
+        "IOAPIKey": "API Key (for IP2Location.io Geolocation API Service)",
 		"IP2Location_InfoDescription":"This location provider uses IP2Location BIN database for geolocation lookup.",
         "AutomatedUpdate": "How to implement automated monthly BIN database update for up-to-date lookup.",
         "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
@@ -24,6 +25,8 @@
         "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Please upload your IP2Location BIN database to matomo/misc folder.",
         "WebService": "IP2Location Web Service",
         "WebServiceInformation": "Web Service Information",
-        "WebServiceMisc": "Web service will use WS6 package for the lookup call"
+        "WebServiceMisc": "Web service will use WS6 package for the lookup call",
+        "WebServiceIO": "IP2Location.io Geolocation API Service",
+        "WebServiceIODescription": "30,000 free queries every month"
     }
 }

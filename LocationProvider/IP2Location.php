@@ -29,6 +29,10 @@ class IP2Location extends LocationProvider
 			$extraMessage = '
 				<strong>Lookup Mode: </strong>IP2Location Web Service<br/>
 				<strong>API Key: </strong>' . Option::get('IP2Location.APIKey');
+		} else if (Option::get('IP2Location.LookupMode') == 'IO') {
+			$extraMessage = '
+				<strong>Lookup Mode: </strong><a href="https://www.ip2location.io" target="_blank">IP2Location.io</a> IP Geolocation Web Service<br/>
+				<strong>API Key: </strong>' . Option::get('IP2Location.IOAPIKey');
 		} else {
 			if ($this->getDatabasePath()) {
 				$extraMessage = '
@@ -73,6 +77,21 @@ class IP2Location extends LocationProvider
 					$result[self::LATITUDE_KEY] = $json->latitude;
 					$result[self::LONGITUDE_KEY] = $json->longitude;
 					$result[self::ISP_KEY] = $json->isp;
+				}
+			}
+		} else if (Option::get('IP2Location.LookupMode') == 'IO' && Option::get('IP2Location.IOAPIKey')) {
+			$response = Http::sendHttpRequest('https://api.ip2location.io/?key=' . Option::get('IP2Location.IOAPIKey') . '&ip=' . $ip, 30);
+
+			if (($json = json_decode($response)) !== null) {
+				if ($json->response == 'OK') {
+					$result[self::COUNTRY_CODE_KEY] = $json->country_code;
+					$result[self::COUNTRY_NAME_KEY] = $json->country_name;
+					$result[self::REGION_CODE_KEY] = $this->getRegionCode($json->country_code, $json->region_name);
+					$result[self::REGION_NAME_KEY] = $json->region_name;
+					$result[self::CITY_NAME_KEY] = $json->city_name;
+					$result[self::LATITUDE_KEY] = $json->latitude;
+					$result[self::LONGITUDE_KEY] = $json->longitude;
+					$result[self::ISP_KEY] = $json->as;
 				}
 			}
 		} else {
@@ -140,6 +159,18 @@ class IP2Location extends LocationProvider
 			return $result;
 		}
 
+		// All fields are supported with IP2Location.io Service
+		if (Option::get('IP2Location.LookupMode') == 'IO' && Option::get('IP2Location.IOAPIKey')) {
+			$result[self::REGION_CODE_KEY] = true;
+			$result[self::REGION_NAME_KEY] = true;
+			$result[self::CITY_NAME_KEY] = true;
+			$result[self::LATITUDE_KEY] = true;
+			$result[self::LONGITUDE_KEY] = true;
+			$result[self::ISP_KEY] = true;
+
+			return $result;
+		}
+
 		require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
 
 		$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
@@ -173,7 +204,7 @@ class IP2Location extends LocationProvider
 	 */
 	public function isAvailable()
 	{
-		if (Option::get('IP2Location.APIKey') || self::getDatabasePath() !== false) {
+		if (Option::get('IP2Location.APIKey') || Option::get('IP2Location.IOAPIKey') || self::getDatabasePath() !== false) {
 			return true;
 		}
 
@@ -189,6 +220,10 @@ class IP2Location extends LocationProvider
 	public function isWorking()
 	{
 		if (!empty(Option::get('IP2Location.APIKey'))) {
+			return true;
+		}
+
+		if (!empty(Option::get('IP2Location.IOAPIKey'))) {
 			return true;
 		}
 

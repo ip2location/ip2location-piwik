@@ -74,14 +74,23 @@ class API extends \Piwik\Plugin\API
 		return Option::get('IP2Location.APIKey');
 	}
 
-	public static function setLookupMode($value)
+	public static function getIOAPIKey()
 	{
-		Option::set('IP2Location.LookupMode', ($value == 'WS') ? 'WS' : 'BIN');
+		return Option::get('IP2Location.IOAPIKey');
 	}
 
-	public static function setAPIKey($value)
+	public static function setLookupMode($value)
 	{
-		Option::set('IP2Location.APIKey', $value);
+		Option::set('IP2Location.LookupMode', $value);
+	}
+
+	public static function setAPIKey($value, $service = 'WS')
+	{
+		if ($service == 'WS') {
+			Option::set('IP2Location.APIKey', $value);
+		} else {
+			Option::set('IP2Location.IOAPIKey', $value);
+		}
 	}
 
 	public static function getWebServiceCredit($apiKey = '')

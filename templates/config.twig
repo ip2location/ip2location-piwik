@@ -44,15 +44,40 @@
 					    {{ 'IP2Location_WebService'|translate }}
 					    <span class="form-description"><a href="https://www.ip2location.com/web-service/ip2location" target="_blank">{{ 'IP2Location_WebServiceMisc'|translate }}</a></span>
 					</label>
-				</p>
-			</div>
-		</div>
+					<div class="form-group row">
+						<div class="input-field col s12">
+							<input type="text" value="{{apiKey}}" id="apiKey" name="apiKey" />
+							<label for="apiKey">{{'IP2Location_APIKey'|translate}}</label>
+							<span class="form-description">{{ 'IP2Location_PleaseGetYourAPIKeyFrom'|translate }} <a href="https://www.ip2location.com/web-service/ip2location" target="_blank">https://www.ip2location.com/web-service/ip2location</a></span>
+						</div>
+					</div>
 
-		<div class="form-group row">
-			<div class="input-field col s12">
-				<input type="text" value="{{apiKey}}" id="apiKey" name="apiKey" />
-				<label for="apiKey">{{'IP2Location_APIKey'|translate}}</label>
-				<span class="form-description">{{ 'IP2Location_PleaseGetYourAPIKeyFrom'|translate }} <a href="https://www.ip2location.com/web-service/ip2location" target="_blank">https://www.ip2location.com/web-service/ip2location</a></span>
+					{% if lookupMode == 'WS' %}
+					<h2 class="card-title">{{'IP2Location_WebServiceInformation'|translate}}</h2>
+
+					<div class="form-group row">
+						<div class="input-field col s12">
+							<input type="text" value="{{credit}}" id="creditAvailable" disabled>
+							<label for="creditAvailable">{{'IP2Location_CreditAvailable'|translate}}</label>
+						</div>
+					</div>
+					{% endif %}
+				</p>
+				<p>
+					<input type="radio" value="IO" id="lookupMode_IO" name="lookupMode" {% if lookupMode == 'IO' %} checked="checked"{% endif %} class="rateradio">
+					<label for="lookupMode_IO">
+					    {{ 'IP2Location_WebServiceIO'|translate }}
+					    <span class="form-description"><a href="https://www.ip2location.io/" target="_blank">{{ 'IP2Location_WebServiceIODescription'|translate }}</a></span>
+					</label>
+
+					<div class="form-group row">
+						<div class="input-field col s12">
+							<input type="text" value="{{ioApiKey}}" id="ioApiKey" name="ioApiKey" />
+							<label for="apiKey">{{'IP2Location_IOAPIKey'|translate}}</label>
+							<span class="form-description">{{ 'IP2Location_PleaseGetYourAPIKeyFrom'|translate }} <a href="https://www.ip2location.io/" target="_blank">https://www.ip2location.io/</a></span>
+						</div>
+					</div>
+				</p>
 			</div>
 		</div>
 
@@ -90,17 +115,6 @@
 
 		{% endif %}
 
-		{% if lookupMode == 'WS' %}
-
-		<h2 class="card-title">{{'IP2Location_WebServiceInformation'|translate}}</h2>
-
-		<div class="form-group row">
-			<div class="input-field col s12">
-				<input type="text" value="{{credit}}" id="creditAvailable" disabled>
-				<label for="creditAvailable">{{'IP2Location_CreditAvailable'|translate}}</label>
-			</div>
-		</div>
-		{% endif %}
 
 		<input type="hidden" name="submit" value="true" />
 	</form>
