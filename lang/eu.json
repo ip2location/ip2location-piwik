@@ -1,1 +1,28 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "API gakoa (web zerbitzuen bilaketa modurako)",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "Aldaketak gorde dira.",
+        "CreditAvailable": "Kreditua erabilgarri",
+        "DatabaseDate": "Datu-basearen data",
+        "DatabaseInformation": "Datu-basearen informazioa",
+        "DatabaseSize": "Datu-basearen tamaina",
+        "DownloadCommercialDatabase": "Deskargatu IP2Location datu-base komertziala",
+        "DownloadLITEDatabase": "Deskargatu doako IP2Location LITE BIN datu-basea",
+        "IP2Location": "IP2Location",
+        "IP2LocationDatabaseFile": "IP2Location datu-base fitxategia",
+        "IP2LocationSettings": "IP2Location ezarpenak",
+        "IP2Location_InfoDescription": "Kokapen hornitzaile honek IP2Location BIN datu-basea erabiltzen du geolokalizazio bilaketarako.",
+        "IP2Location_NoIP2LocationDatabaseFile": "Ez da IP2Location datu-baserik aurkitu matomo/misc direktorioan.",
+        "LearnMore": "Ikasi gehiago…",
+        "LocalBINDatabase": "IP2Location BIN datu-basea",
+        "LookupMode": "Bilaketa modua",
+        "PleaseEnterAValidAPIKey": "Sartu baliozko API gako bat.",
+        "PleaseGetYourAPIKeyFrom": "Hemen eskuratu dezakezu API gakoa",
+        "SaveChanges": "Gorde aldaketak",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Igo zure IP2Location BIN datu-basea matomo/misc karpetara.",
+        "WebService": "IP2Location web zerbitzua",
+        "WebServiceInformation": "Web zerbitzuaren informazioa",
+        "WebServiceMisc": "Web zerbitzuak WS6 paketea erabiliko du bilaketa deian"
+    }
+}
