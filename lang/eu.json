@@ -1,6 +1,7 @@
 {
     "IP2Location": {
         "APIKey": "API gakoa (web zerbitzuen bilaketa modurako)",
+        "AutomatedUpdate": "Nola inplementatu hilabetero automatikoki eguneratzen den BIN datu-basea, bilaketa eguneratuta edukitzeko.",
         "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
         "ChangesHasBeenSaved": "Aldaketak gorde dira.",
         "CreditAvailable": "Kreditua erabilgarri",
