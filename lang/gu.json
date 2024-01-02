@@ -1,1 +1,29 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "API કી (વેબ સર્વિસ લુકઅપ મોડ માટે)",
+        "AutomatedUpdate": "અપ-ટુ-ડેટ લુકઅપ માટે સ્વચાલિત માસિક BIN ડેટાબેઝ અપડેટનો અમલ કેવી રીતે કરવો.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "ફેરફારો સાચવવામાં આવ્યા છે.",
+        "CreditAvailable": "ક્રેડિટ ઉપલબ્ધ",
+        "DatabaseDate": "ડેટાબેઝ તારીખ",
+        "DatabaseInformation": "ડેટાબેઝ માહિતી",
+        "DatabaseSize": "ડેટાબેઝનું કદ",
+        "DownloadCommercialDatabase": "IP2 લોકેશન કોમર્શિયલ ડેટાબેઝ ડાઉનલોડ કરો",
+        "DownloadLITEDatabase": "IP2Location મફત LITE BIN ડેટાબેઝ ડાઉનલોડ કરો",
+        "IP2Location": "IP2 લોકેશન",
+        "IP2LocationDatabaseFile": "IP2 લોકેશન ડેટાબેઝ ફાઇલ",
+        "IP2LocationSettings": "IP2 લોકેશન સેટિંગ્સ",
+        "IP2Location_InfoDescription": "આ સ્થાન પ્રદાતા ભૌગોલિક સ્થાન લુકઅપ માટે IP2Location BIN ડેટાબેઝનો ઉપયોગ કરે છે.",
+        "IP2Location_NoIP2LocationDatabaseFile": "matomo/misc ડિરેક્ટરીમાં IP2Location ડેટાબેઝ ફાઇલ મળી નથી.",
+        "LearnMore": "વધુ શીખો…",
+        "LocalBINDatabase": "IP2 લોકેશન BIN ડેટાબેઝ",
+        "LookupMode": "લુકઅપ મોડ",
+        "PleaseEnterAValidAPIKey": "કૃપા કરીને માન્ય API કી દાખલ કરો.",
+        "PleaseGetYourAPIKeyFrom": "તમે તમારી API કી અહીંથી મેળવી શકો છો",
+        "SaveChanges": "ફેરફારો સાચવો",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "કૃપા કરીને તમારા IP2Location BIN ડેટાબેઝને matomo/misc ફોલ્ડરમાં અપલોડ કરો.",
+        "WebService": "IP2 લોકેશન વેબ સર્વિસ",
+        "WebServiceInformation": "વેબ સર્વિસ માહિતી",
+        "WebServiceMisc": "વેબ સેવા લુકઅપ કોલ માટે WS6 પેકેજનો ઉપયોગ કરશે"
+    }
+}
