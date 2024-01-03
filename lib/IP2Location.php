@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2005-2021 IP2Location.com
+ * Copyright (C) 2005-2024 IP2Location.com
  * All Rights Reserved
  *
  * This library is free software: you can redistribute it and/or
