@@ -13,13 +13,12 @@
 
 namespace Piwik\Plugins\IP2Location;
 
-use Piwik\Common;
 use Piwik\Menu\MenuAdmin;
 use Piwik\Menu\MenuTop;
 use Piwik\Nonce;
 use Piwik\Notification\Manager as NotificationManager;
 use Piwik\Piwik;
-use Piwik\Plugins\IP2Location\API as APIIP2Location;
+use Piwik\Plugins\IP2Location\API as IP2LocationPlugin;
 use Piwik\Plugins\LanguagesManager\LanguagesManager;
 use Piwik\Site;
 use Piwik\Translation\Translator;
@@ -40,24 +39,27 @@ class Controller extends \Piwik\Plugin\Controller
 	{
 		Piwik::checkUserHasSuperUserAccess();
 
+		$request = \Piwik\Request::fromRequest();
+
 		if ($siteId == 0) {
-			$siteId = Common::getRequestVar('idSite');
+			$siteId = $request->getIntegerParameter('idSite', 0);
 		}
 
-		$saved = (empty($errors) && Common::getRequestVar('submit', '')) ?: false;
+		$saved = (empty($errors) && $request->getStringParameter('submit', '')) ?: false;
 
-		$lookupMode = (Common::getRequestVar('lookupMode', '')) ? trim(Common::getRequestVar('lookupMode', '')) : APIIP2Location::getLookupMode();
-		$apiKey = (Common::getRequestVar('apiKey', '')) ? trim(Common::getRequestVar('apiKey', '')) : APIIP2Location::getAPIKey();
-		$ioApiKey = (Common::getRequestVar('ioApiKey', '')) ? trim(Common::getRequestVar('ioApiKey', '')) : APIIP2Location::getIOAPIKey();
+		$lookupMode = $request->getStringParameter('lookupMode', IP2LocationPlugin::getLookupMode());
+		$databasePath = $request->getStringParameter('databasePath', IP2LocationPlugin::getDatabasePath());
+		$apiKey = $request->getStringParameter('apiKey', IP2LocationPlugin::getWsApiKey());
+		$ioApiKey = $request->getStringParameter('ioApiKey', IP2LocationPlugin::getIoApiKey());
 
-		$file = APIIP2Location::getDatabaseFile();
+		$file = IP2LocationPlugin::getDatabaseFile();
 
-		$date = ($file) ? APIIP2Location::getDatabaseDate($file) : '';
-		$size = ($file) ? APIIP2Location::getDatabaseSize($file) : 0;
+		$date = ($file) ? IP2LocationPlugin::getDatabaseDate($file) : '';
+		$size = ($file) ? IP2LocationPlugin::getDatabaseSize($file) : 0;
 
 		if ($lookupMode == 'BIN') {
 			if (!$file) {
-				$errors[] = 'There is no IP2Location database file found in ' . PIWIK_DOCUMENT_ROOT . \DIRECTORY_SEPARATOR . 'misc.';
+				$errors[] = 'No IP2Location BIN found in "' . dirname(IP2LocationPlugin::getDatabasePath()) . '"';
 			}
 
 			if ($date && strtotime($date) < strtotime('-2 months')) {
@@ -75,13 +77,15 @@ class Controller extends \Piwik\Plugin\Controller
 		$view->assign('errors', $errors);
 
 		$view->assign('lookupMode', $lookupMode);
+		$view->assign('databasePath', $databasePath);
+		$view->assign('examplePath', PIWIK_DOCUMENT_ROOT . '/misc/IP-COUNTRY.BIN');
 		$view->assign('apiKey', $apiKey);
 		$view->assign('ioApiKey', $ioApiKey);
 
 		$view->assign('database', $file);
 		$view->assign('date', $date);
 		$view->assign('size', $size);
-		$view->assign('credit', number_format(APIIP2Location::getWebServiceCredit(), 0, '', ','));
+		$view->assign('credit', number_format(IP2LocationPlugin::getWebServiceCredit(), 0, '', ','));
 
 		$view->nonce = Nonce::getNonce('IP2Location.saveConfig');
 		$view->adminMenu = MenuAdmin::getInstance()->getMenu();
@@ -95,56 +99,55 @@ class Controller extends \Piwik\Plugin\Controller
 
 	public function saveConfig()
 	{
-		try {
-			Piwik::checkUserHasSuperUserAccess();
-			$siteID = Common::getRequestVar('siteID', 0);
-			if ($siteID == 0) {
-				$siteID = Common::getRequestVar('idSite');
-			}
+		Piwik::checkUserHasSuperUserAccess();
+		$request = \Piwik\Request::fromRequest();
 
-			$errors = [];
+		$siteId = $request->getIntegerParameter('siteID', 0);
 
-			$lookupMode = trim(Common::getRequestVar('lookupMode', ''));
-			$apiKey = trim(Common::getRequestVar('apiKey', ''));
-			$ioApiKey = trim(Common::getRequestVar('ioApiKey', ''));
-
-			/*if ($lookupMode == 'BIN') {
-				$file = APIIP2Location::getDatabaseFile();
-
-				if (!$file) {
-					$errors[] = Piwik::translate('IP2Location_NoIP2LocationDatabaseFile');
-				}
-			}*/
-
-			if (!empty($_POST)) {
-				if ($lookupMode == 'WS') {
-					if (!$apiKey) {
-						$errors[] = Piwik::translate('IP2Location_PleaseEnterAValidAPIKey');
-					} elseif (!APIIP2Location::getWebServiceCredit($apiKey)) {
-						$errors[] = Piwik::translate('IP2Location_PleaseEnterAValidAPIKey');
-					}
-				}
-
-				if ($lookupMode == 'IO') {
-					if (!$ioApiKey) {
-						$errors[] = Piwik::translate('IP2Location_PleaseEnterAValidAPIKey');
-					}
-				}
-
-				if (empty($errors)) {
-					APIIP2Location::setLookupMode($lookupMode);
-
-					if ($lookupMode == 'WS') {
-						APIIP2Location::setAPIKey($apiKey);
-					} elseif ($lookupMode == 'IO') {
-						APIIP2Location::setAPIKey($ioApiKey, $lookupMode);
-					}
-				}
-			}
-
-			$this->config($siteID, $errors);
-		} catch (\Exception $e) {
-			echo $e;
+		if ($siteId == 0) {
+			$siteId = $request->getIntegerParameter('idSite', 0);
 		}
+
+		$errors = [];
+
+		$lookupMode = $request->getStringParameter('lookupMode', '');
+		$databasePath = $request->getStringParameter('databasePath', '');
+		$apiKey = $request->getStringParameter('apiKey', '');
+		$ioApiKey = $request->getStringParameter('ioApiKey', '');
+
+		if ($lookupMode == 'BIN') {
+			if (!is_file($databasePath)) {
+				$errors[] = Piwik::translate('IP2Location_NoIP2LocationDatabaseFile');
+			}
+		}
+
+		if (!empty($_POST)) {
+			if ($lookupMode == 'WS') {
+				if (!$apiKey) {
+					$errors[] = Piwik::translate('IP2Location_PleaseEnterAValidAPIKey');
+				} elseif (!IP2LocationPlugin::getWebServiceCredit($apiKey)) {
+					$errors[] = Piwik::translate('IP2Location_PleaseEnterAValidAPIKey');
+				}
+			}
+
+			if ($lookupMode == 'IO') {
+				if (!preg_match('/^[0-9A-Z]{32}$/', $ioApiKey)) {
+					$errors[] = Piwik::translate('IP2Location_PleaseEnterAValidAPIKey');
+				}
+			}
+
+			if (empty($errors)) {
+				IP2LocationPlugin::setLookupMode($lookupMode);
+				IP2LocationPlugin::setDatabasePath($databasePath);
+
+				if ($lookupMode == 'WS') {
+					IP2LocationPlugin::setAPIKey($apiKey);
+				} elseif ($lookupMode == 'IO') {
+					IP2LocationPlugin::setAPIKey($ioApiKey, $lookupMode);
+				}
+			}
+		}
+
+		$this->config($siteId, $errors);
 	}
 }

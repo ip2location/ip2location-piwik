@@ -2,13 +2,12 @@
 
 namespace Piwik\Plugins\IP2Location;
 
-use Piwik\Container\StaticContainer;
 use Piwik\Http;
 use Piwik\Option;
 
 class API extends \Piwik\Plugin\API
 {
-	private static $instance = null;
+	private static $instance;
 
 	public static function getInstance()
 	{
@@ -21,6 +20,12 @@ class API extends \Piwik\Plugin\API
 
 	public static function getDatabaseFile()
 	{
+		if (is_file(self::getDatabasePath())) {
+			Option::set('IP2Location.BIN', basename(self::getDatabasePath()));
+
+			return basename(self::getDatabasePath());
+		}
+
 		$files = scandir(PIWIK_DOCUMENT_ROOT . '/misc');
 
 		foreach ($files as $file) {
@@ -30,38 +35,34 @@ class API extends \Piwik\Plugin\API
 				return $file;
 			}
 		}
-
-		foreach ($files as $file) {
-			if (strtoupper(substr($file, -4)) == '.BIN') {
-				Option::set('IP2Location.BIN', $file);
-
-				return $file;
-			}
-		}
-
-		return null;
 	}
 
-	public static function getDatabaseDate($file)
+	public static function getDatabaseDate()
 	{
-		if (!is_file(PIWIK_DOCUMENT_ROOT . '/misc/' . $file)) {
-			return;
+		if (!is_file(self::getDatabasePath())) {
+			return '';
 		}
 
 		require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
 
-		$db = new \IP2Location\Database(PIWIK_DOCUMENT_ROOT . '/misc/' . $file, \IP2Location\Database::FILE_IO);
+		$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
 
-		return $db->getDate();
+		if (!$db) {
+			return '';
+		}
+
+		$parts = explode('.', $db->getDatabaseVersion());
+
+		return $parts[0] . '-' . str_pad($parts[2], 2, '0', \STR_PAD_LEFT) . '-' . str_pad($parts[1], 2, '0', \STR_PAD_LEFT);
 	}
 
-	public static function getDatabaseSize($file)
+	public static function getDatabaseSize()
 	{
-		if (!file_exists(PIWIK_DOCUMENT_ROOT . '/misc/' . $file)) {
+		if (!file_exists(self::getDatabasePath())) {
 			return 0;
 		}
 
-		return self::displayBytes(filesize(PIWIK_DOCUMENT_ROOT . '/misc/' . $file));
+		return self::displayBytes(filesize(self::getDatabasePath()));
 	}
 
 	public static function getLookupMode()
@@ -69,12 +70,23 @@ class API extends \Piwik\Plugin\API
 		return (Option::get('IP2Location.LookupMode')) ? Option::get('IP2Location.LookupMode') : 'BIN';
 	}
 
-	public static function getAPIKey()
+	public static function getDatabasePath()
+	{
+		$databasePath = Option::get('IP2Location.DatabasePath');
+
+		if (empty($databasePath)) {
+			$databasePath = PIWIK_DOCUMENT_ROOT . '/misc/' . Option::get('IP2Location.BIN');
+		}
+
+		return Option::get('IP2Location.DatabasePath');
+	}
+
+	public static function getWsApiKey()
 	{
 		return Option::get('IP2Location.APIKey');
 	}
 
-	public static function getIOAPIKey()
+	public static function getIoApiKey()
 	{
 		return Option::get('IP2Location.IOAPIKey');
 	}
@@ -82,6 +94,13 @@ class API extends \Piwik\Plugin\API
 	public static function setLookupMode($value)
 	{
 		Option::set('IP2Location.LookupMode', $value);
+	}
+
+	public static function setDatabasePath($file)
+	{
+		if (is_file($file)) {
+			Option::set('IP2Location.DatabasePath', $file);
+		}
 	}
 
 	public static function setAPIKey($value, $service = 'WS')
@@ -96,7 +115,7 @@ class API extends \Piwik\Plugin\API
 	public static function getWebServiceCredit($apiKey = '')
 	{
 		if (!$apiKey) {
-			$apiKey = self::getAPIKey();
+			$apiKey = self::getWsApiKey();
 		}
 
 		if (!$apiKey) {

@@ -13,7 +13,7 @@
         "IP2Location": "IP2Location",
         "IP2LocationDatabaseFile": "IP2Location 資料庫文件",
         "IP2LocationSettings": "IP2Location 設定",
-        "IP2Location_InfoDescription": "此地理位置供應商使用 IP2Location BIN 資料庫作地理位置檢索。",
+        "InfoDescription": "此地理位置供應商使用 IP2Location BIN 資料庫作地理位置檢索。",
         "IP2Location_NoIP2LocationDatabaseFile": "在 matomo/misc 資料夾中找不到 IP2Location 資料庫檔案。",
         "LearnMore": "瞭解更多…",
         "LocalBINDatabase": "IP2Location BIN 資料庫",

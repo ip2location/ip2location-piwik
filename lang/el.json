@@ -13,7 +13,7 @@
         "IP2Location": "IP2Location",
         "IP2LocationDatabaseFile": "Αρχείο Βάσης Δεδομένων IP2Location",
         "IP2LocationSettings": "Ρυθμίσεις IP2Location",
-        "IP2Location_InfoDescription": "Αυτός ο πάροχος τοποθεσίας χρησιμοποιεί βάση IP2Location BIN για την αναζήτηση της γεωτοποθεσίας.",
+        "InfoDescription": "Αυτός ο πάροχος τοποθεσίας χρησιμοποιεί βάση IP2Location BIN για την αναζήτηση της γεωτοποθεσίας.",
         "IP2Location_NoIP2LocationDatabaseFile": "Δεν βρέθηκε το αρχείο της βάσης δεδομένων IP2Location στον κατάλογο matomo/misc.",
         "LearnMore": "Μάθετε περισσότερα…",
         "LocalBINDatabase": "Βάση Δεδομένων BIN IP2Location",

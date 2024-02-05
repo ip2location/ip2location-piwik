@@ -13,7 +13,7 @@
         "IP2Location": "IP2Location",
         "IP2LocationDatabaseFile": "IP2Location veri tabanı dosyası",
         "IP2LocationSettings": "IP2Location ayarları",
-        "IP2Location_InfoDescription": "Bu konum hizmeti sağlayıcısı, coğrafi konum araması için IP2Location BIN veri tabanını kullanır.",
+        "InfoDescription": "Bu konum hizmeti sağlayıcısı, coğrafi konum araması için IP2Location BIN veri tabanını kullanır.",
         "IP2Location_NoIP2LocationDatabaseFile": "Matomo/misc klasöründe IP2Location veri tabanı dosyası bulunamadı.",
         "LearnMore": "Ayrıntılı bilgi alın…",
         "LocalBINDatabase": "IP2Location BIN veri tabanı",

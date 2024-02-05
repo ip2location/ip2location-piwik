@@ -13,7 +13,7 @@
         "IP2Location": "IP2Location",
         "IP2LocationDatabaseFile": "Arxiu de la base de dades IP2Location",
         "IP2LocationSettings": "Configuració IP2Location",
-        "IP2Location_InfoDescription": "Aquest proveïdor d'ubicació utilitza la base de dades IP2Location BIN per resoldre la geolocalització.",
+        "InfoDescription": "Aquest proveïdor d'ubicació utilitza la base de dades IP2Location BIN per resoldre la geolocalització.",
         "IP2Location_NoIP2LocationDatabaseFile": "No s'ha trobat cap fitxer de base de dades IP2Location al directori matomo/misc.",
         "LearnMore": "Aprèn més…",
         "LocalBINDatabase": "Base de dades IP2Location BIN",

@@ -13,7 +13,7 @@
         "IP2Location": "IP2Location",
         "IP2LocationDatabaseFile": "Kartelë Baze të Dhënash IP2Location",
         "IP2LocationSettings": "Rregullime IP2Location",
-        "IP2Location_InfoDescription": "Ky shërbim vendndodhjesh përdor bazë të dhënash IP2Location BIN për kërkime lokalizimi.",
+        "InfoDescription": "Ky shërbim vendndodhjesh përdor bazë të dhënash IP2Location BIN për kërkime lokalizimi.",
         "IP2Location_NoIP2LocationDatabaseFile": "S’u gjet kartelë baze të dhënash IP2Location te drejtoria matomo/misc.",
         "LearnMore": "Mësoni më tepër…",
         "LocalBINDatabase": "Bazë të dhënash IP2Location BIN",

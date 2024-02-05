@@ -13,7 +13,7 @@
         "IP2Location": "IP2Location",
         "IP2LocationDatabaseFile": "IP2Locationのデータベースファイル",
         "IP2LocationSettings": "IP2Locationの設定",
-        "IP2Location_InfoDescription": "このロケーション プロバイダーは、ジオロケーション ルックアップに IP2Location BIN データベースを使用します。",
+        "InfoDescription": "このロケーション プロバイダーは、ジオロケーション ルックアップに IP2Location BIN データベースを使用します。",
         "IP2Location_NoIP2LocationDatabaseFile": "matomo/misc directoryでIP2Locationのデータベースファイルが見つかりません。",
         "LearnMore": "さらに詳しく…",
         "LocalBINDatabase": "IP2Location BINのデータベース",

@@ -27,54 +27,97 @@
 		<div class="form-group row">
 			<div class="col s12">
 				<p>
-					<input type="radio" value="BIN" id="lookupMode_BIN" name="lookupMode" {% if lookupMode == 'BIN' %} checked="checked"{% endif %} class="rateradio">
 					<label for="lookupMode_BIN">
-					    {{ 'IP2Location_LocalBINDatabase'|translate }}
-					    <span class="form-description">{{ 'IP2Location_UploadYourIP2LocationBINDatabaseToPiwikMisc'|translate }}</span>
+						<input type="radio" value="BIN" id="lookupMode_BIN" name="lookupMode" {% if lookupMode == 'BIN' %} checked="checked"{% endif %}>
+
+						<span>{{ 'IP2Location_LocalBINDatabase'|translate }}</span>
 					</label>
 
-					<ul>
-						<li><a href="https://lite.ip2location.com" target="_blank">{{ 'IP2Location_DownloadLITEDatabase'|translate }}</a></li>
-						<li><a href="https://www.ip2location.com" target="_blank">{{ 'IP2Location_DownloadCommercialDatabase'|translate }}</a></li>
-					</ul>
+					<div style="margin-left:40px;">
+						<div class="form-group">
+							<div class="input-field">
+								<input type="text" value="{{databasePath}}" id="databasePath" name="databasePath" />
+								<label for="databasePath">{{'IP2Location_DatabasePath'|translate}}</label>
+								<span class="form-description">Absolute path to BIN file. Example: <em>{{examplePath}}</em></span>
+							</div>
+						</div>
+						{% if size != 0 %}
+						<h5 class="card-title">{{'IP2Location_DatabaseInformation'|translate}}</h5>
+
+						<div class="form-group">
+							<div class="input-field">
+								<input type="text" value="{{database}}" id="databaseFile" disabled>
+								<label for="databaseFile">{{'IP2Location_IP2LocationDatabaseFile'|translate}}</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-field">
+								<input type="text" value="{{date}}" id="databaseDate" disabled>
+								<label for="databaseDate">{{'IP2Location_DatabaseDate'|translate}}</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-field">
+								<input type="text" value="{{size}}" id="databaseSize" disabled>
+								<label for="databaseSize">{{'IP2Location_DatabaseSize'|translate}}</label>
+
+								<small class="form-text text-muted">
+									{{'IP2Location_AutomatedUpdate'|translate}}
+									<a href="{{'IP2Location_AutomatedUpdateURL'|translate}}" target="_blank">{{'IP2Location_LearnMore'|translate}}</a>
+								</small>
+							</div>
+						</div>
+
+						{% else %}
+						<ul>
+							<li><a href="https://lite.ip2location.com" target="_blank">{{ 'IP2Location_DownloadLITEDatabase'|translate }}</a></li>
+							<li><a href="https://www.ip2location.com" target="_blank">{{ 'IP2Location_DownloadCommercialDatabase'|translate }}</a></li>
+						</ul>
+						{% endif %}
+					</div>
 				</p>
 				<p>
-					<input type="radio" value="WS" id="lookupMode_WS" name="lookupMode" {% if lookupMode == 'WS' %} checked="checked"{% endif %} class="rateradio">
 					<label for="lookupMode_WS">
-					    {{ 'IP2Location_WebService'|translate }}
-					    <span class="form-description"><a href="https://www.ip2location.com/web-service/ip2location" target="_blank">{{ 'IP2Location_WebServiceMisc'|translate }}</a></span>
+						<input type="radio" value="WS" id="lookupMode_WS" name="lookupMode" {% if lookupMode == 'WS' %} checked="checked"{% endif %}>
+						<span>{{ 'IP2Location_WebService'|translate }}</span>
+						<span class="form-description"><a href="https://www.ip2location.com/web-service/ip2location" target="_blank">{{ 'IP2Location_WebServiceMisc'|translate }}</a></span>
 					</label>
-					<div class="form-group row">
-						<div class="input-field col s12">
-							<input type="text" value="{{apiKey}}" id="apiKey" name="apiKey" />
-							<label for="apiKey">{{'IP2Location_APIKey'|translate}}</label>
-							<span class="form-description">{{ 'IP2Location_PleaseGetYourAPIKeyFrom'|translate }} <a href="https://www.ip2location.com/web-service/ip2location" target="_blank">https://www.ip2location.com/web-service/ip2location</a></span>
-						</div>
-					</div>
 
-					{% if lookupMode == 'WS' %}
-					<h2 class="card-title">{{'IP2Location_WebServiceInformation'|translate}}</h2>
-
-					<div class="form-group row">
-						<div class="input-field col s12">
-							<input type="text" value="{{credit}}" id="creditAvailable" disabled>
-							<label for="creditAvailable">{{'IP2Location_CreditAvailable'|translate}}</label>
+					<div style="margin-left:40px;">
+						<div class="form-group">
+							<div class="input-field">
+								<input type="text" value="{{apiKey}}" id="apiKey" name="apiKey" />
+								<label for="apiKey">{{'IP2Location_APIKey'|translate}}</label>
+								<span class="form-description">Deprecated. Will remove by next major update.</span>
+							</div>
 						</div>
+
+						{% if lookupMode == 'WS' %}
+						<h2 class="card-title">{{'IP2Location_WebServiceInformation'|translate}}</h2>
+
+						<div class="form-group row">
+							<div class="input-field">
+								<input type="text" value="{{credit}}" id="creditAvailable" disabled>
+								<label for="creditAvailable">{{'IP2Location_CreditAvailable'|translate}}</label>
+							</div>
+						</div>
+						{% endif %}
 					</div>
-					{% endif %}
 				</p>
 				<p>
-					<input type="radio" value="IO" id="lookupMode_IO" name="lookupMode" {% if lookupMode == 'IO' %} checked="checked"{% endif %} class="rateradio">
 					<label for="lookupMode_IO">
-					    {{ 'IP2Location_WebServiceIO'|translate }}
-					    <span class="form-description"><a href="https://www.ip2location.io/" target="_blank">{{ 'IP2Location_WebServiceIODescription'|translate }}</a></span>
+						<input type="radio" value="IO" id="lookupMode_IO" name="lookupMode" {% if lookupMode == 'IO' %} checked="checked"{% endif %}>
+						<span>{{ 'IP2Location_WebServiceIO'|translate }}</span>
+						<span class="form-description"><a href="https://www.ip2location.io/" target="_blank">{{ 'IP2Location_WebServiceIODescription'|translate }}</a></span>
 					</label>
 
-					<div class="form-group row">
-						<div class="input-field col s12">
-							<input type="text" value="{{ioApiKey}}" id="ioApiKey" name="ioApiKey" />
-							<label for="apiKey">{{'IP2Location_IOAPIKey'|translate}}</label>
-							<span class="form-description">{{ 'IP2Location_PleaseGetYourAPIKeyFrom'|translate }} <a href="https://www.ip2location.io/" target="_blank">https://www.ip2location.io/</a></span>
+					<div style="margin-left:40px;">
+						<div class="form-group">
+							<div class="input-field">
+								<input type="text" value="{{ioApiKey}}" id="ioApiKey" name="ioApiKey" />
+								<label for="ioApiKey">{{'IP2Location_IOAPIKey'|translate}}</label>
+								<span class="form-description">{{ 'IP2Location_PleaseGetYourAPIKeyFrom'|translate }} <a href="https://www.ip2location.io/" target="_blank">https://www.ip2location.io/</a></span>
+							</div>
 						</div>
 					</div>
 				</p>
@@ -84,37 +127,6 @@
 		<div class="form-group row">
 			<button class="waves-effect waves-light btn">{{'IP2Location_SaveChanges'|translate}}</button>
 		</div>
-
-		{% if lookupMode == 'BIN' %}
-
-		<h2 class="card-title">{{'IP2Location_DatabaseInformation'|translate}}</h2>
-
-		<div class="form-group row">
-			<div class="input-field col s12">
-				<input type="text" value="{{database}}" id="databaseFile" disabled>
-				<label for="databaseFile">{{'IP2Location_IP2LocationDatabaseFile'|translate}}</label>
-			</div>
-		</div>
-		<div class="form-group row">
-			<div class="input-field col s12">
-				<input type="text" value="{{date}}" id="databaseDate" disabled>
-				<label for="databaseDate">{{'IP2Location_DatabaseDate'|translate}}</label>
-			</div>
-		</div>
-		<div class="form-group row">
-			<div class="input-field col s12">
-				<input type="text" value="{{size}}" id="databaseSize" disabled>
-				<label for="databaseSize">{{'IP2Location_DatabaseSize'|translate}}</label>
-
-				<small class="form-text text-muted">
-					{{'IP2Location_AutomatedUpdate'|translate}}
-					<a href="{{'IP2Location_AutomatedUpdateURL'|translate}}" target="_blank">{{'IP2Location_LearnMore'|translate}}</a>
-				</small>
-			</div>
-		</div>
-
-		{% endif %}
-
 
 		<input type="hidden" name="submit" value="true" />
 	</form>

@@ -13,7 +13,7 @@
         "IP2Location": "IP2Location",
         "IP2LocationDatabaseFile": "IP2Location-databasefil",
         "IP2LocationSettings": "IP2Location-innstillinger",
-        "IP2Location_InfoDescription": "Denne posisjonstilbyderen bruker IP2Location BIN-databasen for geoposisjoneringsoppslag.",
+        "InfoDescription": "Denne posisjonstilbyderen bruker IP2Location BIN-databasen for geoposisjoneringsoppslag.",
         "IP2Location_NoIP2LocationDatabaseFile": "Fant ingen databasefil for I2PLocation i matomo/misc-mappen.",
         "LearnMore": "Lær mer …",
         "LocalBINDatabase": "BIN-database for IP2Location",

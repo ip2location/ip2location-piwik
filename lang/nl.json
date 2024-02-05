@@ -13,7 +13,7 @@
         "IP2Location": "IP2Location",
         "IP2LocationDatabaseFile": "IP2Location database-bestand",
         "IP2LocationSettings": "IP2Locatie instellingen",
-        "IP2Location_InfoDescription": "Deze locatie provider gebruikt de IP2Location BIN-database voor geolocatie opzoekingen.",
+        "InfoDescription": "Deze locatie provider gebruikt de IP2Location BIN-database voor geolocatie opzoekingen.",
         "IP2Location_NoIP2LocationDatabaseFile": "Geen IP2Location database-bestand gevonden in de matomo/misc map.",
         "LearnMore": "Meer informatie…",
         "LocalBINDatabase": "IP2Location BIN-database",
