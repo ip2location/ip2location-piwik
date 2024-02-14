@@ -1,1 +1,27 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "API密钥（用于Web服务查找模式）",
+        "AutomatedUpdate": "如何实现每月自动更新BIN数据库以便进行最新查询。",
+        "ChangesHasBeenSaved": "更改已保存。",
+        "CreditAvailable": "可用信贷",
+        "DatabaseDate": "数据库日期",
+        "DatabaseInformation": "数据库信息",
+        "DatabaseSize": "数据库大小",
+        "DownloadCommercialDatabase": "下载IP2Location商业数据库",
+        "DownloadLITEDatabase": "下载IP2Location免费LITE BIN数据库",
+        "IP2LocationDatabaseFile": "IP2Location数据库文件",
+        "IP2LocationSettings": "IP2位置设置",
+        "IP2Location_InfoDescription": "此位置提供程序使用IP2Location BIN数据库进行地理位置查找。",
+        "IP2Location_NoIP2LocationDatabaseFile": "在matomo/misc目录中找不到IP2Location数据库文件。",
+        "LearnMore": "了解更多…",
+        "LocalBINDatabase": "IP2Location BIN数据库",
+        "LookupMode": "查找模式",
+        "PleaseEnterAValidAPIKey": "请输入有效的API密钥。",
+        "PleaseGetYourAPIKeyFrom": "您可以在获取API密钥",
+        "SaveChanges": "保存更改",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "请将您的IP2Location BIN数据库上传到matomo/misc文件夹。",
+        "WebService": "IP2Location网络服务",
+        "WebServiceInformation": "网络服务信息",
+        "WebServiceMisc": "Web服务将使用WS6包进行查找调用"
+    }
+}
