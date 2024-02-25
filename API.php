@@ -53,7 +53,7 @@ class API extends \Piwik\Plugin\API
 
 		$parts = explode('.', $db->getDatabaseVersion());
 
-		return $parts[0] . '-' . str_pad($parts[2], 2, '0', \STR_PAD_LEFT) . '-' . str_pad($parts[1], 2, '0', \STR_PAD_LEFT);
+		return $parts[0] . '-' . str_pad($parts[1], 2, '0', \STR_PAD_LEFT) . '-' . str_pad($parts[2], 2, '0', \STR_PAD_LEFT);
 	}
 
 	public static function getDatabaseSize()
