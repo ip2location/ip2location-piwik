@@ -13,6 +13,17 @@
         "IP2Location": "IP2Location",
         "IP2LocationDatabaseFile": "File del database IP2Location",
         "IP2LocationSettings": "Impostazioni IP2Location",
-        "IP2Location_NoIP2LocationDatabaseFile": "Nessun database IP2Location trovato nella cartella matomo/misc."
+        "IP2Location_InfoDescription": "Questo provider di posizione utilizza il database BIN IP2Location per la ricerca della geolocalizzazione.",
+        "IP2Location_NoIP2LocationDatabaseFile": "Nessun database IP2Location trovato nella cartella matomo/misc.",
+        "LearnMore": "Per saperne di più…",
+        "LocalBINDatabase": "Database IP2Location BIN",
+        "LookupMode": "Modalità di Ricerca",
+        "PleaseEnterAValidAPIKey": "Inserisci una chiave API valida.",
+        "PleaseGetYourAPIKeyFrom": "Puoi ottenere la tua chiave API su",
+        "SaveChanges": "Salva Modifiche",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Carica il tuo database BIN IP2Location nella cartella matomo/misc.",
+        "WebService": "Servizio Web IP2Location",
+        "WebServiceInformation": "Informazioni Servizio Web",
+        "WebServiceMisc": "Il servizio Web utilizzerà il pacchetto WS6 per la chiamata di ricerca"
     }
 }
