@@ -45,7 +45,7 @@ class IP2Location extends LocationProvider
 			'id'            => self::ID,
 			'title'         => self::TITLE,
 			'order'         => 2,
-			'description'   => Piwik::translate('InfoDescription'),
+			'description'   => Piwik::translate('IP2Location_InfoDescription'),
 			'install_docs'  => 'For BIN database option, please upload IP2Location BIN database file into <strong>Matomo/misc</strong> folder.',
 			'extra_message' => $extraMessage,
 		];
@@ -107,6 +107,10 @@ class IP2Location extends LocationProvider
 
 			$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
 			$response = $db->lookup($ip, \IP2Location\Database::ALL);
+
+			if (!$response) {
+				return;
+			}
 
 			$result[self::COUNTRY_CODE_KEY] = $response['countryCode'];
 			$result[self::COUNTRY_NAME_KEY] = $response['countryName'];
@@ -213,10 +217,10 @@ class IP2Location extends LocationProvider
 				return self::getDatabasePath() !== false;
 
 			case 'WS':
-				return preg_match('/^[0-9A-Z]{10}$/', Option::get('IP2Location.APIKey'));
+				return (bool) preg_match('/^[0-9A-Z]{10}$/', (string) Option::get('IP2Location.APIKey'));
 
 			case 'IO':
-				return preg_match('/^[0-9A-Z]{32}$/', Option::get('IP2Location.IOAPIKey'));
+				return (bool) preg_match('/^[0-9A-Z]{32}$/', Option::get('IP2Location.IOAPIKey'));
 		}
 
 		return false;
@@ -252,10 +256,10 @@ class IP2Location extends LocationProvider
 				return true;
 
 			case 'WS':
-				return preg_match('/^[0-9A-Z]{10}$/', Option::get('IP2Location.APIKey'));
+				return (bool) preg_match('/^[0-9A-Z]{10}$/', Option::get('IP2Location.APIKey'));
 
 			case 'IO':
-				return preg_match('/^[0-9A-Z]{32}$/', Option::get('IP2Location.IOAPIKey'));
+				return (bool) preg_match('/^[0-9A-Z]{32}$/', Option::get('IP2Location.IOAPIKey'));
 		}
 
 		return false;
