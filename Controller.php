@@ -35,14 +35,14 @@ class Controller extends \Piwik\Plugin\Controller
 		parent::__construct();
 	}
 
-	public function config($siteId = 0, $errors = [])
+	public function config($siteId = 1, $errors = [])
 	{
 		Piwik::checkUserHasSuperUserAccess();
 
 		$request = \Piwik\Request::fromRequest();
 
 		if ($siteId == 0) {
-			$siteId = $request->getIntegerParameter('idSite', 0);
+			$siteId = $request->getIntegerParameter('idSite', 1);
 		}
 
 		$saved = (empty($errors) && $request->getStringParameter('submit', '')) ?: false;
@@ -105,7 +105,7 @@ class Controller extends \Piwik\Plugin\Controller
 		$siteId = $request->getIntegerParameter('siteID', 0);
 
 		if ($siteId == 0) {
-			$siteId = $request->getIntegerParameter('idSite', 0);
+			$siteId = $request->getIntegerParameter('idSite', 1);
 		}
 
 		$errors = [];
