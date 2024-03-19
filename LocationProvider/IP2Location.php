@@ -86,17 +86,15 @@ class IP2Location extends LocationProvider
 				'source' => 'matomo',
 			]), 30);
 
-			if (($json = json_decode($response)) !== null) {
-				if ($json->response == 'OK') {
-					$result[self::COUNTRY_CODE_KEY] = $json->country_code;
-					$result[self::COUNTRY_NAME_KEY] = $json->country_name;
-					$result[self::REGION_CODE_KEY] = $this->getRegionCode($json->country_code, $json->region_name);
-					$result[self::REGION_NAME_KEY] = $json->region_name;
-					$result[self::CITY_NAME_KEY] = $json->city_name;
-					$result[self::LATITUDE_KEY] = $json->latitude;
-					$result[self::LONGITUDE_KEY] = $json->longitude;
-					$result[self::ISP_KEY] = $json->as;
-				}
+			if (($json = json_decode((string) $response)) !== null) {
+				$result[self::COUNTRY_CODE_KEY] = $json->country_code;
+				$result[self::COUNTRY_NAME_KEY] = $json->country_name;
+				$result[self::REGION_CODE_KEY] = $this->getRegionCode($json->country_code, $json->region_name);
+				$result[self::REGION_NAME_KEY] = $json->region_name;
+				$result[self::CITY_NAME_KEY] = $json->city_name;
+				$result[self::LATITUDE_KEY] = $json->latitude;
+				$result[self::LONGITUDE_KEY] = $json->longitude;
+				$result[self::ISP_KEY] = $json->as;
 			}
 		} else {
 			require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
