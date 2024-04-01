@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Piwik - Open source web analytics.
  *
@@ -20,7 +21,6 @@ use Piwik\Notification\Manager as NotificationManager;
 use Piwik\Piwik;
 use Piwik\Plugins\IP2Location\API as IP2LocationPlugin;
 use Piwik\Plugins\LanguagesManager\LanguagesManager;
-use Piwik\Site;
 use Piwik\Translation\Translator;
 use Piwik\View;
 
@@ -35,15 +35,11 @@ class Controller extends \Piwik\Plugin\Controller
 		parent::__construct();
 	}
 
-	public function config($siteId = 1, $errors = [])
+	public function config($errors = [])
 	{
 		Piwik::checkUserHasSuperUserAccess();
 
 		$request = \Piwik\Request::fromRequest();
-
-		if ($siteId == 0) {
-			$siteId = $request->getIntegerParameter('idSite', 1);
-		}
 
 		$saved = (empty($errors) && $request->getStringParameter('submit', '')) ?: false;
 
@@ -71,8 +67,6 @@ class Controller extends \Piwik\Plugin\Controller
 		$view->language = LanguagesManager::getLanguageCodeForCurrentUser();
 
 		$this->setBasicVariablesView($view);
-		$view->defaultReportSiteName = Site::getNameFor($siteId);
-		$view->assign('idSite', $siteId);
 		$view->assign('saved', $saved);
 		$view->assign('errors', $errors);
 
@@ -101,12 +95,6 @@ class Controller extends \Piwik\Plugin\Controller
 	{
 		Piwik::checkUserHasSuperUserAccess();
 		$request = \Piwik\Request::fromRequest();
-
-		$siteId = $request->getIntegerParameter('siteID', 0);
-
-		if ($siteId == 0) {
-			$siteId = $request->getIntegerParameter('idSite', 1);
-		}
 
 		$errors = [];
 
@@ -148,6 +136,6 @@ class Controller extends \Piwik\Plugin\Controller
 			}
 		}
 
-		$this->config($siteId, $errors);
+		$this->config($errors);
 	}
 }
