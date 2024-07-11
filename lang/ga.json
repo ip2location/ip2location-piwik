@@ -1,1 +1,29 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "Eochair API (do mhód cuardaigh na Seirbhíse Gréasáin)",
+        "AutomatedUpdate": "Conas nuashonrú uathoibríoch bunachar sonraí BIN míosúil a chur i bhfeidhm le haghaidh cuardaigh cothrom le dáta.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "Sábháladh na hathruithe.",
+        "CreditAvailable": "Creidmheas ar Fáil",
+        "DatabaseDate": "Dáta Bunachar Sonraí",
+        "DatabaseInformation": "Eolas Bunachar Sonraí",
+        "DatabaseSize": "Méid an Bhunachair Sonraí",
+        "DownloadCommercialDatabase": "Íoslódáil bunachar sonraí seoltaí IP2",
+        "DownloadLITEDatabase": "Íoslódáil Bunachar Sonraí ARAID LITE saor in aisce IP2Location",
+        "IP2Location": "IP2 Suíomh",
+        "IP2LocationDatabaseFile": "Comhad Bunachar Sonraí IP2Location",
+        "IP2LocationSettings": "Socruithe IP2 Suíomh",
+        "IP2Location_InfoDescription": "Úsáideann an soláthraí suímh seo bunachar sonraí BIN IP2Location le haghaidh cuardaigh geolocation.",
+        "IP2Location_NoIP2LocationDatabaseFile": "Níor aimsíodh aon chomhad bunachar sonraí IP2Location san eolaire matomo/misc.",
+        "LearnMore": "Foghlaim níos mó…",
+        "LocalBINDatabase": "Bunachar Sonraí ARAID IP2Location",
+        "LookupMode": "Mód Cuardach",
+        "PleaseEnterAValidAPIKey": "Cuir isteach eochair API bhailí.",
+        "PleaseGetYourAPIKeyFrom": "Is féidir leat d'eochair API a fháil ag",
+        "SaveChanges": "Sabháil na hathruithe",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Uaslódáil do bhunachar sonraí araid IP2Location chuig fillteán matomo/misc.",
+        "WebService": "Seirbhís Ghréasáin IP2Location",
+        "WebServiceInformation": "Faisnéise Seirbhíse Gréasáin",
+        "WebServiceMisc": "Bainfidh seirbhís Gréasáin úsáid as pacáiste WS6 don ghlao cuardaigh"
+    }
+}
