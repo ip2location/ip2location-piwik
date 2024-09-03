@@ -1,17 +1,17 @@
 {
     "name": "IP2Location",
-    "version": "5.2.6",
+    "version": "5.3.0",
     "keywords": [
         "ip2location", "geolocation", "visitor location", "ip to location"
     ],
-    "homepage": "http:\/\/www.ip2location.com\/developers\/piwik",
-    "description": "Use IP2Location geolocation database to lookup for accurate visitor location in Piwik.",
+    "homepage": "https:\/\/www.ip2location.com\/developers\/piwik",
+    "description": "Use IP2Location geolocation database to lookup for accurate visitor location in Matomo.",
     "license": "GPL-3.0+",
     "authors": [
         {
             "name": "IP2Location",
             "email": "support@ip2location.com",
-            "homepage": "http:\/\/www.ip2location.com"
+            "homepage": "https:\/\/www.ip2location.com"
         }
     ],
     "support": {
