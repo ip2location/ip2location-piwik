@@ -77,34 +77,6 @@
 					</div>
 				</p>
 				<p>
-					<label for="lookupMode_WS">
-						<input type="radio" value="WS" id="lookupMode_WS" name="lookupMode" {% if lookupMode == 'WS' %} checked="checked"{% endif %}>
-						<span>{{ 'IP2Location_WebService'|translate }}</span>
-						<span class="form-description"><a href="https://www.ip2location.com/web-service/ip2location" target="_blank">{{ 'IP2Location_WebServiceMisc'|translate }}</a></span>
-					</label>
-
-					<div style="margin-left:40px;">
-						<div class="form-group">
-							<div class="input-field">
-								<input type="text" value="{{apiKey}}" id="apiKey" name="apiKey" />
-								<label for="apiKey">{{'IP2Location_APIKey'|translate}}</label>
-								<span class="form-description">Deprecated. Will remove by next major update.</span>
-							</div>
-						</div>
-
-						{% if lookupMode == 'WS' %}
-						<h2 class="card-title">{{'IP2Location_WebServiceInformation'|translate}}</h2>
-
-						<div class="form-group row">
-							<div class="input-field">
-								<input type="text" value="{{credit}}" id="creditAvailable" disabled>
-								<label for="creditAvailable">{{'IP2Location_CreditAvailable'|translate}}</label>
-							</div>
-						</div>
-						{% endif %}
-					</div>
-				</p>
-				<p>
 					<label for="lookupMode_IO">
 						<input type="radio" value="IO" id="lookupMode_IO" name="lookupMode" {% if lookupMode == 'IO' %} checked="checked"{% endif %}>
 						<span>{{ 'IP2Location_WebServiceIO'|translate }}</span>

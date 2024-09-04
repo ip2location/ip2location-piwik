@@ -35,10 +35,6 @@ You can visit IP2Location Settings by selecting the menu on the left pane (under
 * [IP2Location LITE Database (Free)](https://lite.ip2location.com)
 * [IP2Location Database (Commercial)](https://www.ip2location.com)
 
-**To use web service, please sign up for the API key at**
-
-* [IP2Location Web Service](https://www.ip2location.com/web-service/ip2location). Trial key available for testing.
-
 **To use ip2location.io Geolocation API service, please sign up for the free account at**
 
 * https://www.ip2location.io
@@ -65,9 +61,9 @@ You can download IP2Location database for free at https://lite.ip2location.com o
 
 
 
-__Can I use IP2Location Web service?__
+__Can I use IP2Location.io Geolocation API service?__
 
-Yes, please purchase credits from https://www.ip2location.com/web-service and insert your API key in the settings page.
+Yes, please create an account from https://www.ip2location.io/ and insert your API key in the settings page.
 
 
 

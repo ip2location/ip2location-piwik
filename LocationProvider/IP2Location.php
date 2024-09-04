@@ -25,11 +25,7 @@ class IP2Location extends LocationProvider
 	{
 		$extraMessage = '';
 
-		if (Option::get('IP2Location.LookupMode') == 'WS') {
-			$extraMessage = '
-				<strong>Lookup Mode: </strong>IP2Location Web Service<br/>
-				<strong>API Key: </strong>' . Option::get('IP2Location.APIKey');
-		} elseif (Option::get('IP2Location.LookupMode') == 'IO') {
+		if (Option::get('IP2Location.LookupMode') == 'IO') {
 			$extraMessage = '
 				<strong>Lookup Mode: </strong><a href="https://www.ip2location.io" target="_blank">IP2Location.io</a> IP Geolocation Web Service<br/>
 				<strong>API Key: </strong>' . Option::get('IP2Location.IOAPIKey');
