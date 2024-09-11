@@ -1,1 +1,12 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "Klíč API (pro režim vyhledávání webových služeb)",
+        "AutomatedUpdate": "Jak zavést automatickou měsíční aktualizaci databáze BIN pro aktuální vyhledávání.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "Změny byly uloženy.",
+        "CreditAvailable": "Dostupný kredit",
+        "DatabaseDate": "Datum databáze",
+        "DatabaseInformation": "Informace o databázi",
+        "IP2Location_InfoDescription": "Tento zprostředkovatel polohy používá pro vyhledávání zeměpisné polohy databázi IP2Location BIN."
+    }
+}
