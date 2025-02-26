@@ -28,6 +28,6 @@
         "WebServiceInformation": "Web Service Information",
         "WebServiceMisc": "Web service will use WS6 package for the lookup call",
         "WebServiceIO": "IP2Location.io Geolocation API Service",
-        "WebServiceIODescription": "30,000 free queries every month"
+        "WebServiceIODescription": "50,000 free queries every month"
     }
 }
