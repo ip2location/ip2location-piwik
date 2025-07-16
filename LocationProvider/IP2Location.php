@@ -61,7 +61,12 @@ class IP2Location extends LocationProvider
 		$result = [];
 
 		if (Option::get('IP2Location.LookupMode') == 'WS' && Option::get('IP2Location.APIKey')) {
-			$response = Http::sendHttpRequest('https://api.ip2location.com/v2/?key=' . Option::get('IP2Location.APIKey') . '&ip=' . $ip . '&format=json&package=WS6', 30);
+			$response = Http::sendHttpRequest('https://api.ip2location.com/v2/?' . http_build_query([
+				'key'     => Option::get('IP2Location.APIKey'),
+				'ip'      => $ip,
+				'format'  => 'json',
+				'package' => 'WS6',
+			]), 30);
 
 			if (($json = json_decode($response)) !== null) {
 				if ($json->response == 'OK') {
@@ -277,6 +282,9 @@ class IP2Location extends LocationProvider
 
 	/**
 	 * Get region code by country code and region name.
+	 *
+	 * @param mixed $countryCode
+	 * @param mixed $regionName
 	 *
 	 * @return false|string
 	 */
