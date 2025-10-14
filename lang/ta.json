@@ -1,1 +1,29 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "பநிஇ விசை (வலை பணி தேடல் பயன்முறைக்கு)",
+        "AutomatedUpdate": "புதுப்பித்த தேடலுக்கான தானியங்கி மாதாந்திர தரவுத்தள புதுப்பிப்பை எவ்வாறு செயல்படுத்துவது.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "மாற்றங்கள் சேமிக்கப்பட்டுள்ளன.",
+        "CreditAvailable": "கடன் கிடைக்கிறது",
+        "DatabaseDate": "தரவுத்தள தேதி",
+        "DatabaseInformation": "தரவுத்தள செய்தி",
+        "DatabaseSize": "தரவுத்தள அளவு",
+        "DownloadCommercialDatabase": "IP2Location வணிக தரவுத்தளத்தைப் பதிவிறக்கவும்",
+        "DownloadLITEDatabase": "IP2Location இலவச லைட் பின் தரவுத்தளத்தைப் பதிவிறக்கவும்",
+        "IP2Location": "Ip2 இடம்",
+        "IP2LocationDatabaseFile": "IP2Location தரவுத்தள கோப்பு",
+        "IP2LocationSettings": "IP2Location அமைப்புகள்",
+        "IP2Location_InfoDescription": "இந்த இருப்பிட வழங்குநர் புவிஇருப்பிடத் தேடலுக்காக IP2Location பின் தரவுத்தளத்தைப் பயன்படுத்துகிறார்.",
+        "IP2Location_NoIP2LocationDatabaseFile": "MATOMO/MISC கோப்பகத்தில் IP2Location தரவுத்தள கோப்பு இல்லை.",
+        "LearnMore": "மேலும் அறிக…",
+        "LocalBINDatabase": "IP2Location பின் தரவுத்தளம்",
+        "LookupMode": "தேடல் பயன்முறை",
+        "PleaseEnterAValidAPIKey": "செல்லுபடியாகும் பநிஇ விசையை உள்ளிடவும்.",
+        "PleaseGetYourAPIKeyFrom": "உங்கள் பநிஇ விசையை நீங்கள் பெறலாம்",
+        "SaveChanges": "மாற்றங்களைச் சேமிக்கவும்",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "உங்கள் IP2Location பின் தரவுத்தளத்தை MATOMO/MISC கோப்புறையில் பதிவேற்றவும்.",
+        "WebService": "IP2 இடம் வலை பணி",
+        "WebServiceInformation": "வலை பணி செய்தி",
+        "WebServiceMisc": "வலை பணி தேடல் அழைப்புக்கு WS6 தொகுப்பைப் பயன்படுத்தும்"
+    }
+}
