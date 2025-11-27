@@ -1,7 +1,7 @@
 {
 	"name": "ip2location/ip2location-piwik",
 	"type": "plugin",
-	"description": "Use IP2Location geolocation database to lookup for accurate visitor location in Matomo. It enables the user to find the country, region, city, coordinates, zip code, time zone, ISP, domain name, connection type, area code, weather, MCC, MNC, mobile brand name, elevation and usage type that any IP address or hostname originates from. http://www.ip2location.com",
+	"description": "Use the IP2Location geolocation service to lookup your visitors' locations. You can configure the settings under System → IP2Location.",
 	"keywords": ["geolocation", "ip2location", "piwik"],
 	"homepage": "https://www.ip2location.com/",
 	"license": "GPL-3.0-only",

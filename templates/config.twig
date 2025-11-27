@@ -38,7 +38,29 @@
 							<div class="input-field">
 								<input type="text" value="{{databasePath}}" id="databasePath" name="databasePath" />
 								<label for="databasePath">{{'IP2Location_DatabasePath'|translate}}</label>
-								<span class="form-description">Absolute path to BIN file. Example: <em>{{examplePath}}</em></span>
+								<span class="form-description">{{'IP2Location_AbsolutePath'|translate}} <em>{{examplePath}}</em></span><br>
+								<span class="form-description">{{'IP2Location_RegisterAccount'|translate}} <a href="https://lite.ip2location.com/" target="_blank">https://lite.ip2location.com/</a></span><br>
+								<span class="form-description">{{'IP2Location_CommercialDatabase'|translate}} <a href="https://www.ip2location.com/database/ip2location" target="_blank">https://www.ip2location.com/</a></span><br>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="input-field">
+								<input type="text" value="{{downloadToken}}" id="downloadToken" name="downloadToken" />
+								<label for="downloadToken">{{'IP2Location_DownloadToken'|translate}}</label>
+								<span class="form-description">{{'IP2Location_DownloadTokenDescription'|translate}}</span><br>
+								<span class="form-description">{{'IP2Location_Tasks'|translate}}<code>./console core:run-scheduled-tasks --force "Piwik\Plugins\IP2Location\Tasks.downloadBinDatabase"</code>.</span><br>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-field">
+								<select name="databaseCode">
+									<option value="DB1LITEBIN" {% if databaseCode == 'DB1LITEBIN' %}selected{% endif %}>IP2Location LITE DB1 {{'IP2Location_Database'|translate}}</option>
+									<option value="DB1BIN" {% if databaseCode == 'DB1BIN' %}selected{% endif %}>IP2Location DB1 {{'IP2Location_Database'|translate}}</option>
+									<option value="DB3LITEBIN" {% if databaseCode == 'DB3LITEBIN' %}selected{% endif %}>IP2Location LITE DB3 {{'IP2Location_Database'|translate}}</option>
+									<option value="DB3BIN" {% if databaseCode == 'DB3BIN' %}selected{% endif %}>IP2Location DB3 {{'IP2Location_Database'|translate}}</option>
+								</select>
+								<label for="databaseCode">{{'IP2Location_DatabaseCode'|translate}}</label>
 							</div>
 						</div>
 						{% if size != 0 %}
@@ -80,7 +102,7 @@
 					<label for="lookupMode_IO">
 						<input type="radio" value="IO" id="lookupMode_IO" name="lookupMode" {% if lookupMode == 'IO' %} checked="checked"{% endif %}>
 						<span>{{ 'IP2Location_WebServiceIO'|translate }}</span>
-						<span class="form-description"><a href="https://www.ip2location.io/" target="_blank">{{ 'IP2Location_WebServiceIODescription'|translate }}</a></span>
+						<span class="form-description"><a href="https://www.ip2location.io/pricing" target="_blank">{{ 'IP2Location_WebServiceIODescription'|translate }}</a></span>
 					</label>
 
 					<div style="margin-left:40px;">
@@ -88,7 +110,7 @@
 							<div class="input-field">
 								<input type="text" value="{{ioApiKey}}" id="ioApiKey" name="ioApiKey" />
 								<label for="ioApiKey">{{'IP2Location_IOAPIKey'|translate}}</label>
-								<span class="form-description">{{ 'IP2Location_PleaseGetYourAPIKeyFrom'|translate }} <a href="https://www.ip2location.io/" target="_blank">https://www.ip2location.io/</a></span>
+								<span class="form-description">{{ 'IP2Location_PleaseGetYourAPIKeyFrom'|translate }} <a href="https://www.ip2location.io/pricing" target="_blank">https://www.ip2location.io/</a></span>
 							</div>
 						</div>
 					</div>

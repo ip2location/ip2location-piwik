@@ -91,6 +91,16 @@ class API extends \Piwik\Plugin\API
 		return Option::get('IP2Location.IOAPIKey');
 	}
 
+	public static function getDownloadToken()
+	{
+		return Option::get('IP2Location.DownloadToken');
+	}
+
+	public static function getDatabaseCode()
+	{
+		return Option::get('IP2Location.DatabaseCode');
+	}
+
 	public static function setLookupMode($value)
 	{
 		Option::set('IP2Location.LookupMode', $value);
@@ -110,6 +120,16 @@ class API extends \Piwik\Plugin\API
 		} else {
 			Option::set('IP2Location.IOAPIKey', $value);
 		}
+	}
+
+	public static function setDownloadToken($value)
+	{
+		Option::set('IP2Location.DownloadToken', $value);
+	}
+
+	public static function setDatabaseCode($value)
+	{
+		Option::set('IP2Location.DatabaseCode', $value);
 	}
 
 	public static function getWebServiceCredit($apiKey = '')

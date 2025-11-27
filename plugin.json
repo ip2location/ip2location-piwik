@@ -1,11 +1,11 @@
 {
     "name": "IP2Location",
-    "version": "5.3.2",
+    "version": "5.4.0",
     "keywords": [
         "ip2location", "geolocation", "visitor location", "ip to location"
     ],
     "homepage": "https:\/\/www.ip2location.com\/developers\/piwik",
-    "description": "Use IP2Location geolocation database to lookup for accurate visitor location in Matomo.",
+    "description": "Use the IP2Location geolocation service to lookup your visitors' locations. You can configure the settings under System → IP2Location.",
     "license": "GPL-3.0+",
     "authors": [
         {

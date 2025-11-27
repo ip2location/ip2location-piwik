@@ -47,6 +47,8 @@ class Controller extends \Piwik\Plugin\Controller
 		$databasePath = $request->getStringParameter('databasePath', IP2LocationPlugin::getDatabasePath());
 		$apiKey = $request->getStringParameter('apiKey', IP2LocationPlugin::getWsApiKey());
 		$ioApiKey = $request->getStringParameter('ioApiKey', IP2LocationPlugin::getIoApiKey());
+		$downloadToken = $request->getStringParameter('downloadToken', IP2LocationPlugin::getDownloadToken());
+		$databaseCode = $request->getStringParameter('databaseCode', IP2LocationPlugin::getDatabaseCode());
 
 		$file = IP2LocationPlugin::getDatabaseFile();
 
@@ -74,7 +76,10 @@ class Controller extends \Piwik\Plugin\Controller
 		$view->assign('databasePath', $databasePath);
 		$view->assign('examplePath', PIWIK_DOCUMENT_ROOT . '/misc/IP-COUNTRY.BIN');
 		$view->assign('apiKey', $apiKey);
+		$view->assign('apiKey', $apiKey);
 		$view->assign('ioApiKey', $ioApiKey);
+		$view->assign('downloadToken', $downloadToken);
+		$view->assign('databaseCode', $databaseCode);
 
 		$view->assign('database', $file);
 		$view->assign('date', $date);
@@ -101,7 +106,10 @@ class Controller extends \Piwik\Plugin\Controller
 		$lookupMode = $request->getStringParameter('lookupMode', '');
 		$databasePath = $request->getStringParameter('databasePath', '');
 		$apiKey = $request->getStringParameter('apiKey', '');
+		$apiKey = $request->getStringParameter('apiKey', '');
 		$ioApiKey = $request->getStringParameter('ioApiKey', '');
+		$downloadToken = $request->getStringParameter('downloadToken', '');
+		$databaseCode = $request->getStringParameter('databaseCode', '');
 
 		if ($lookupMode == 'BIN') {
 			if (!is_file($databasePath)) {
@@ -127,6 +135,8 @@ class Controller extends \Piwik\Plugin\Controller
 			if (empty($errors)) {
 				IP2LocationPlugin::setLookupMode($lookupMode);
 				IP2LocationPlugin::setDatabasePath($databasePath);
+				IP2LocationPlugin::setDownloadToken($downloadToken);
+				IP2LocationPlugin::setDatabaseCode($databaseCode);
 
 				if ($lookupMode == 'WS') {
 					IP2LocationPlugin::setAPIKey($apiKey);
