@@ -25,10 +25,10 @@ class IP2Location extends LocationProvider
 	{
 		$extraMessage = '';
 
-		if (Option::get('IP2Location.LookupMode') == 'IO') {
+		if (Option::get('IP2Location.LookupMode') == 'WS') {
 			$extraMessage = '
-				<strong>Lookup Mode: </strong><a href="https://www.ip2location.io/pricing" target="_blank">IP2Location.io</a> IP Geolocation Web Service<br/>
-				<strong>API Key: </strong>' . Option::get('IP2Location.IOAPIKey');
+				<strong>Lookup Mode: </strong><a href="https://www.ip2location.io/pricing?utm_source=matomo" target="_blank">IP2Location.io</a> IP Geolocation Web Service<br/>
+				<strong>API Key: </strong>' . Option::get('IP2Location.ApiKey');
 		} else {
 			if ($this->getDatabasePath()) {
 				$extraMessage = '
@@ -38,11 +38,15 @@ class IP2Location extends LocationProvider
 		}
 
 		return [
-			'id'            => self::ID,
-			'title'         => self::TITLE,
-			'order'         => 2,
-			'description'   => Piwik::translate('IP2Location_InfoDescription'),
-			'install_docs'  => 'For BIN database option, please upload IP2Location BIN database file into <strong>Matomo/misc</strong> folder.',
+			'id'          => self::ID,
+			'title'       => self::TITLE,
+			'order'       => 2,
+			'description' => Piwik::translate('IP2Location_LocationProviderDescription', [
+				'<a href="https://lite.ip2location.com/ip2location-lite?utm_source=matomo" target="_blank">', '</a>', '<a href="https://www.ip2location.io/pricing?utm_source=matomo" target="_blank">', '</a>'
+			]),
+			'install_docs' => Piwik::translate('IP2Location_LocationProviderInstallDocs', [
+				'<strong>', '</strong>'
+			]),
 			'extra_message' => $extraMessage,
 		];
 	}
@@ -60,29 +64,9 @@ class IP2Location extends LocationProvider
 
 		$result = [];
 
-		if (Option::get('IP2Location.LookupMode') == 'WS' && Option::get('IP2Location.APIKey')) {
-			$response = Http::sendHttpRequest('https://api.ip2location.com/v2/?' . http_build_query([
-				'key'     => Option::get('IP2Location.APIKey'),
-				'ip'      => $ip,
-				'format'  => 'json',
-				'package' => 'WS6',
-			]), 30);
-
-			if (($json = json_decode($response)) !== null) {
-				if ($json->response == 'OK') {
-					$result[self::COUNTRY_CODE_KEY] = $json->country_code;
-					$result[self::COUNTRY_NAME_KEY] = $json->country_name;
-					$result[self::REGION_CODE_KEY] = $this->getRegionCode($json->country_code, $json->region_name);
-					$result[self::REGION_NAME_KEY] = $json->region_name;
-					$result[self::CITY_NAME_KEY] = $json->city_name;
-					$result[self::LATITUDE_KEY] = $json->latitude;
-					$result[self::LONGITUDE_KEY] = $json->longitude;
-					$result[self::ISP_KEY] = $json->isp;
-				}
-			}
-		} elseif (Option::get('IP2Location.LookupMode') == 'IO' && Option::get('IP2Location.IOAPIKey')) {
+		if (Option::get('IP2Location.LookupMode') == 'WS' && Option::get('IP2Location.ApiKey')) {
 			$response = Http::sendHttpRequest('https://api.ip2location.io/?' . http_build_query([
-				'key'    => Option::get('IP2Location.IOAPIKey'),
+				'key'    => Option::get('IP2Location.ApiKey'),
 				'ip'     => $ip,
 				'source' => 'matomo',
 			]), 30);
@@ -167,7 +151,7 @@ class IP2Location extends LocationProvider
 		}
 
 		// All fields are supported with IP2Location.io Service
-		if (Option::get('IP2Location.LookupMode') == 'IO' && Option::get('IP2Location.IOAPIKey')) {
+		if (Option::get('IP2Location.LookupMode') == 'IO' && Option::get('IP2Location.ApiKey')) {
 			$result[self::REGION_CODE_KEY] = true;
 			$result[self::REGION_NAME_KEY] = true;
 			$result[self::CITY_NAME_KEY] = true;
@@ -216,10 +200,7 @@ class IP2Location extends LocationProvider
 				return self::getDatabasePath() !== false;
 
 			case 'WS':
-				return (bool) preg_match('/^[0-9A-Z]{10}$/', (string) Option::get('IP2Location.APIKey'));
-
-			case 'IO':
-				return (bool) preg_match('/^[0-9A-Z]{32}$/', Option::get('IP2Location.IOAPIKey'));
+				return (bool) preg_match('/^[0-9A-Z]{32}$/', Option::get('IP2Location.ApiKey'));
 		}
 
 		return false;
@@ -255,10 +236,7 @@ class IP2Location extends LocationProvider
 				return true;
 
 			case 'WS':
-				return (bool) preg_match('/^[0-9A-Z]{10}$/', Option::get('IP2Location.APIKey'));
-
-			case 'IO':
-				return (bool) preg_match('/^[0-9A-Z]{32}$/', Option::get('IP2Location.IOAPIKey'));
+				return (bool) preg_match('/^[0-9A-Z]{32}$/', Option::get('IP2Location.ApiKey'));
 		}
 
 		return false;

@@ -1,0 +1,48 @@
+div.radio {
+	margin-bottom: 1rem;
+}
+
+div.radio-description {
+	margin-left: 35px;
+	color: #9e9e9e;
+}
+
+.mt-1 {
+	margin-top: 1rem;
+}
+
+.mt-2 {
+	margin-top: 1.25rem;
+}
+
+.mt-3 {
+	margin-top: 1.5rem;
+}
+
+.mt-4 {
+	margin-top: 1.75rem;
+}
+
+.mt-5 {
+	margin-top: 2rem;
+}
+
+.mb-1 {
+	margin-bottom: 1rem;
+}
+
+.mb-2 {
+	margin-bottom: 1.25rem;
+}
+
+.mb-3 {
+	margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+	margin-bottom: 1.75rem;
+}
+
+.mb-5 {
+	margin-bottom: 2rem;
+}

@@ -67,28 +67,96 @@ class API extends \Piwik\Plugin\API
 
 	public static function getLookupMode()
 	{
-		return (Option::get('IP2Location.LookupMode')) ? Option::get('IP2Location.LookupMode') : 'BIN';
+		return (Option::get('IP2Location.LookupMode')) ? Option::get('IP2Location.LookupMode') : '';
 	}
 
 	public static function getDatabasePath()
 	{
-		$databasePath = Option::get('IP2Location.DatabasePath');
-
-		if (empty($databasePath)) {
-			$databasePath = PIWIK_DOCUMENT_ROOT . '/misc/' . Option::get('IP2Location.BIN');
-		}
-
 		return Option::get('IP2Location.DatabasePath');
 	}
 
-	public static function getWsApiKey()
+	public static function checkDownloadToken($token, $code)
 	{
-		return Option::get('IP2Location.APIKey');
+		$response = Http::sendHttpRequest('https://www.ip2location.com/download-info?' . http_build_query([
+			'token'   => $token,
+			'package' => $code,
+		]), 30);
+
+		if (strpos($response, 'OK') !== false) {
+			return true;
+		}
+
+		return false;
 	}
 
-	public static function getIoApiKey()
+	public static function downloadBinDatabase()
 	{
-		return Option::get('IP2Location.IOAPIKey');
+		$token = self::getDownloadToken();
+		$code = self::getDatabaseCode();
+		$databasePath = (substr(self::getDatabasePath(), -3) == 'BIN') ? dirname(self::getDatabasePath()) : self::getDatabasePath();
+
+		if (empty($databasePath)) {
+			$databasePath = str_replace('\\', '/', PIWIK_DOCUMENT_ROOT) . '/misc';
+		}
+
+		if (empty($token) || empty($code)) {
+			return false;
+		}
+
+		$zipFile = $databasePath . '/ip2location.zip';
+		$extractPath = $databasePath . '/tmp/';
+
+		if (is_dir($extractPath)) {
+			$files = scandir($extractPath);
+			foreach ($files as $file) {
+				@unlink($extractPath . $file);
+			}
+		} else {
+			mkdir($extractPath);
+		}
+
+		try {
+			$success = Http::sendHttpRequest('https://www.ip2location.com/download?' . http_build_query([
+				'token' => $token,
+				'file'  => $code,
+			]), 600, null, $zipFile);
+
+			if ($success !== true) {
+				return false;
+			}
+
+			$zip = new \ZipArchive();
+			if ($zip->open($zipFile) === true) {
+				$zip->extractTo($extractPath);
+				$zip->close();
+
+				// Delete existing BIN files
+				$files = scandir(str_replace('/tmp', '', $extractPath));
+				foreach ($files as $file) {
+					if (substr($file, -4) == '.BIN') {
+						@unlink(str_replace('/tmp', '', $extractPath) . $file);
+					}
+				}
+
+				// Find the BIN file
+				$files = scandir($extractPath);
+				foreach ($files as $file) {
+					if (preg_match('/^IP(V6)?-COUNTRY.*\.BIN$/', $file) || preg_match('/^IP2LOCATION-LITE-DB[0-9]+(\.IPV6)?\.BIN$/', $file)) {
+						copy($extractPath . $file, str_replace('/tmp', '', $extractPath) . $file);
+						self::setDatabasePath(str_replace('/tmp', '', $extractPath) . $file);
+					}
+
+					@unlink($extractPath . $file);
+				}
+			}
+
+			@unlink($zipFile);
+			@rmdir($extractPath);
+
+			return true;
+		} catch (\Exception $e) {
+			return false;
+		}
 	}
 
 	public static function getDownloadToken()
@@ -108,18 +176,39 @@ class API extends \Piwik\Plugin\API
 
 	public static function setDatabasePath($file)
 	{
-		if (is_file($file)) {
-			Option::set('IP2Location.DatabasePath', $file);
-		}
+		Option::set('IP2Location.DatabasePath', str_replace('\\', '/', $file));
 	}
 
-	public static function setAPIKey($value, $service = 'WS')
+	public static function getApiKey()
 	{
-		if ($service == 'WS') {
-			Option::set('IP2Location.APIKey', $value);
-		} else {
-			Option::set('IP2Location.IOAPIKey', $value);
+		return Option::get('IP2Location.ApiKey');
+	}
+
+	public static function setAPIKey($value)
+	{
+		Option::set('IP2Location.ApiKey', $value);
+	}
+
+	public static function checkAPIKey($apiKey)
+	{
+		$response = Http::sendHttpRequest('https://api.ip2location.io/?' . http_build_query([
+			'key' => $apiKey,
+			'ip'  => '8.8.8.8',
+		]), 30);
+
+		if (($json = json_decode((string) $response)) === null) {
+			return false;
 		}
+
+		if (!isset($json->country_code)) {
+			return false;
+		}
+
+		if ($json->country_code != 'US') {
+			return false;
+		}
+
+		return true;
 	}
 
 	public static function setDownloadToken($value)
@@ -132,25 +221,34 @@ class API extends \Piwik\Plugin\API
 		Option::set('IP2Location.DatabaseCode', $value);
 	}
 
-	public static function getWebServiceCredit($apiKey = '')
+	public static function setScheduledTask($value)
 	{
-		if (!$apiKey) {
-			$apiKey = self::getWsApiKey();
-		}
+		Option::set('IP2Location.ScheduledTask', $value);
+	}
 
-		if (!$apiKey) {
-			return 0;
-		}
+	public static function getScheduledTask()
+	{
+		return Option::get('IP2Location.ScheduledTask');
+	}
 
-		if (($json = json_decode(Http::sendHttpRequest('https://api.ip2location.com/v2/?key=' . $apiKey . '&check=1', 30))) === null) {
-			return 0;
-		}
+	public static function getDownloadedDatabaseSize()
+	{
+		return Option::get('IP2Location.DownloadedDatabaseSize');
+	}
 
-		if (preg_match('/^[0-9]+$/', $json->response)) {
-			return (int) $json->response;
-		}
+	public static function setDownloadedDatabaseSize($value)
+	{
+		Option::set('IP2Location.DownloadedDatabaseSize', $value);
+	}
 
-		return 0;
+	public static function getLastScheduledTaskDate()
+	{
+		return Option::get('IP2Location.LastScheduledTaskDate');
+	}
+
+	public static function setLastScheduledTaskDate($value)
+	{
+		Option::set('IP2Location.LastScheduledTaskDate', $value);
 	}
 
 	private static function displayBytes($bytes)

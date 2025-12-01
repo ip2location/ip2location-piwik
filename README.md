@@ -21,9 +21,10 @@ https://lite.ip2location.com or https://www.ip2location.com for a commercial dat
 5. Install and activate the plugin.
 6. Upload a IP2Location BIN database to **misc** folder.
 7. Navigate to **System → IP2Location** page to make sure the BIN database is detected by the plugin.
-8. Insert your download token (You can get this in IP2Location Download section) and download code (DB1LITEBIN, DB1BIN, DB3LITEBIN, DB3, etc...) if you want Matomo to download the BIN database automatically every month.
-9. Go to System → Geolocation.
-10. Select **IP2Location** as provider and save.
+8. Insert your download token (You can get this in IP2Location Download section).
+9. Select your IP2Location Database if you want Matomo to download the BIN database automatically every month.
+10. Go to **System → Geolocation**.
+11. Select **IP2Location** as provider and save.
 
 
 

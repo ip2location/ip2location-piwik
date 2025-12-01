@@ -35,7 +35,7 @@ class Controller extends \Piwik\Plugin\Controller
 		parent::__construct();
 	}
 
-	public function config($errors = [])
+	public function config($textSuccess = '', $errors = [])
 	{
 		Piwik::checkUserHasSuperUserAccess();
 
@@ -45,107 +45,212 @@ class Controller extends \Piwik\Plugin\Controller
 
 		$lookupMode = $request->getStringParameter('lookupMode', IP2LocationPlugin::getLookupMode());
 		$databasePath = $request->getStringParameter('databasePath', IP2LocationPlugin::getDatabasePath());
-		$apiKey = $request->getStringParameter('apiKey', IP2LocationPlugin::getWsApiKey());
-		$ioApiKey = $request->getStringParameter('ioApiKey', IP2LocationPlugin::getIoApiKey());
+		$databasePath = (substr($databasePath, -3) == 'BIN') ? dirname($databasePath) : $databasePath;
+		$apiKey = $request->getStringParameter('apiKey', IP2LocationPlugin::getApiKey());
 		$downloadToken = $request->getStringParameter('downloadToken', IP2LocationPlugin::getDownloadToken());
 		$databaseCode = $request->getStringParameter('databaseCode', IP2LocationPlugin::getDatabaseCode());
+		$includeIPv6 = $request->getStringParameter('includeIPv6', preg_match('/IPV6/', $databaseCode));
+		$scheduledTask = $request->getStringParameter('scheduledTask', IP2LocationPlugin::getScheduledTask());
+		$lastScheduledTaskDate = IP2LocationPlugin::getLastScheduledTaskDate();
+		$lastScheduledTaskDate = (!$lastScheduledTaskDate) ? Piwik::translate('IP2Location_NeverExecuted') : $lastScheduledTaskDate;
 
-		$file = IP2LocationPlugin::getDatabaseFile();
+		$binFile = IP2LocationPlugin::getDatabaseFile();
 
-		$date = ($file) ? IP2LocationPlugin::getDatabaseDate($file) : '';
-		$size = ($file) ? IP2LocationPlugin::getDatabaseSize($file) : 0;
+		$date = ($binFile) ? IP2LocationPlugin::getDatabaseDate($binFile) : '';
+		$size = ($binFile) ? IP2LocationPlugin::getDatabaseSize($binFile) : 0;
 
-		if ($lookupMode == 'BIN') {
-			if (!$file) {
-				$errors[] = 'No IP2Location BIN found in "' . dirname(IP2LocationPlugin::getDatabasePath()) . '"';
-			}
-
-			if ($date && strtotime($date) < strtotime('-2 months')) {
-				$errors[] = 'Your IP2Location BIN file version is outdated. Please visit http://www.ip2location.com to download the latest BIN file."';
-			}
-		}
+		$binFileIsMissing = ($lookupMode == 'BIN' && !$binFile);
 
 		$view = new View('@IP2Location/config');
 		$view->language = LanguagesManager::getLanguageCodeForCurrentUser();
 
 		$this->setBasicVariablesView($view);
 		$view->assign('saved', $saved);
+		$view->assign('textSuccess', $textSuccess);
 		$view->assign('errors', $errors);
-
 		$view->assign('lookupMode', $lookupMode);
+		$view->assign('binFileIsMissing', $binFileIsMissing);
 		$view->assign('databasePath', $databasePath);
-		$view->assign('examplePath', PIWIK_DOCUMENT_ROOT . '/misc/IP-COUNTRY.BIN');
 		$view->assign('apiKey', $apiKey);
-		$view->assign('apiKey', $apiKey);
-		$view->assign('ioApiKey', $ioApiKey);
 		$view->assign('downloadToken', $downloadToken);
 		$view->assign('databaseCode', $databaseCode);
+		$view->assign('includeIPv6', $includeIPv6);
 
-		$view->assign('database', $file);
+		$view->assign('database', $binFile);
 		$view->assign('date', $date);
 		$view->assign('size', $size);
-		$view->assign('credit', number_format(IP2LocationPlugin::getWebServiceCredit(), 0, '', ','));
 
-		$view->nonce = Nonce::getNonce('IP2Location.saveConfig');
+		$view->assign('scheduledTask', $scheduledTask);
+		$view->assign('lastScheduledTaskDate', $lastScheduledTaskDate);
+
+		$view->nonceSaveLookupMode = Nonce::getNonce('IP2Location.saveLookupMode');
+		$view->nonceDownloadBinDatabase = Nonce::getNonce('IP2Location.downloadBinDatabase');
+		$view->nonceSaveBinDatabase = Nonce::getNonce('IP2Location.saveBinDatabase');
+		$view->nonceSaveScheduledTask = Nonce::getNonce('IP2Location.saveScheduledTask');
+		$view->nonceSaveGeolocationAPIService = Nonce::getNonce('IP2Location.saveGeolocationAPIService');
+
 		$view->adminMenu = MenuAdmin::getInstance()->getMenu();
 		$view->topMenu = MenuTop::getInstance()->getMenu();
 		$view->notifications = NotificationManager::getAllNotificationsToDisplay();
-		$view->phpVersion = PHP_VERSION;
-		$view->phpIsNewEnough = version_compare($view->phpVersion, '5.3.0', '>=');
 
 		echo $view->render();
 	}
 
-	public function saveConfig()
+	public function saveLookupMode()
 	{
 		Piwik::checkUserHasSuperUserAccess();
 		$request = \Piwik\Request::fromRequest();
 
-		$errors = [];
+		Nonce::checkNonce('IP2Location.saveLookupMode', $request->getStringParameter('nonce', ''));
 
 		$lookupMode = $request->getStringParameter('lookupMode', '');
-		$databasePath = $request->getStringParameter('databasePath', '');
-		$apiKey = $request->getStringParameter('apiKey', '');
-		$apiKey = $request->getStringParameter('apiKey', '');
-		$ioApiKey = $request->getStringParameter('ioApiKey', '');
+
+		if (in_array($lookupMode, ['BIN', 'WS'])) {
+			IP2LocationPlugin::setLookupMode($lookupMode);
+		}
+
+		$this->config(Piwik::translate('IP2Location_LookupModeHasBeenSaved'));
+	}
+
+	public function downloadBinDatabase()
+	{
+		Piwik::checkUserHasSuperUserAccess();
+		$request = \Piwik\Request::fromRequest();
+
+		Nonce::checkNonce('IP2Location.downloadBinDatabase', $request->getStringParameter('nonce', ''));
+
+		$downloadToken = $request->getStringParameter('downloadToken', '');
+
+		if (!$downloadToken) {
+			$this->config('', [
+				Piwik::translate('IP2Location_InvalidDownloadToken'),
+			]);
+			return;
+		}
+
+		// Check if can download DB3 commercial database
+		if (!IP2LocationPlugin::checkDownloadToken($downloadToken, 'DB1BIN')) {
+			// Check if can download DB3 LITE database
+			if (!IP2LocationPlugin::checkDownloadToken($downloadToken, 'DB1LITEBIN')) {
+				$this->config('', [
+					Piwik::translate('IP2Location_InvalidDownloadToken'),
+				]);
+				return;
+			}
+
+			IP2LocationPlugin::setDatabaseCode('DB3LITEBIN');
+		} else {
+			IP2LocationPlugin::setDatabaseCode('DB3BIN');
+		}
+
+		IP2LocationPlugin::setDownloadToken($downloadToken);
+
+		if (!IP2LocationPlugin::downloadBinDatabase()) {
+			$this->config('', [
+				Piwik::translate('IP2Location_InvalidDownloadToken'),
+			]);
+			return;
+		}
+
+		$this->config(Piwik::translate('IP2Location_DatabaseHasBeenDownloaded'));
+	}
+
+	public function saveBinDatabase()
+	{
+		Piwik::checkUserHasSuperUserAccess();
+		$request = \Piwik\Request::fromRequest();
+
+		Nonce::checkNonce('IP2Location.saveBinDatabase', $request->getStringParameter('nonce', ''));
+
 		$downloadToken = $request->getStringParameter('downloadToken', '');
 		$databaseCode = $request->getStringParameter('databaseCode', '');
+		$databasePath = $request->getStringParameter('databasePath', '');
+		$includeIPv6 = $request->getStringParameter('includeIPv6', '');
 
-		if ($lookupMode == 'BIN') {
-			if (!is_file($databasePath)) {
-				$errors[] = Piwik::translate('IP2Location_NoIP2LocationDatabaseFile');
-			}
+		if (!$downloadToken) {
+			$this->config('', [
+				Piwik::translate('IP2Location_InvalidDownloadToken'),
+			]);
+			return;
 		}
 
-		if (!empty($_POST)) {
-			if ($lookupMode == 'WS') {
-				if (!$apiKey) {
-					$errors[] = Piwik::translate('IP2Location_PleaseEnterAValidAPIKey');
-				} elseif (!IP2LocationPlugin::getWebServiceCredit($apiKey)) {
-					$errors[] = Piwik::translate('IP2Location_PleaseEnterAValidAPIKey');
-				}
-			}
-
-			if ($lookupMode == 'IO') {
-				if (!preg_match('/^[0-9A-Z]{32}$/', $ioApiKey)) {
-					$errors[] = Piwik::translate('IP2Location_PleaseEnterAValidAPIKey');
-				}
-			}
-
-			if (empty($errors)) {
-				IP2LocationPlugin::setLookupMode($lookupMode);
-				IP2LocationPlugin::setDatabasePath($databasePath);
-				IP2LocationPlugin::setDownloadToken($downloadToken);
-				IP2LocationPlugin::setDatabaseCode($databaseCode);
-
-				if ($lookupMode == 'WS') {
-					IP2LocationPlugin::setAPIKey($apiKey);
-				} elseif ($lookupMode == 'IO') {
-					IP2LocationPlugin::setAPIKey($ioApiKey, $lookupMode);
-				}
-			}
+		if (!$databasePath) {
+			$this->config('', [
+				Piwik::translate('IP2Location_InvalidDatabasePath'),
+			]);
+			return;
 		}
 
-		$this->config($errors);
+		// Check for download permission
+		if (!IP2LocationPlugin::checkDownloadToken($downloadToken, $databaseCode . ($includeIPv6 ? 'IPV6' : ''))) {
+			$this->config('', [
+				Piwik::translate('IP2Location_InvalidDownloadToken'),
+			]);
+			return;
+		}
+
+		if (!is_writable($databasePath)) {
+			$this->config('', [
+				Piwik::translate('IP2Location_InvalidDatabasePath'),
+			]);
+			return;
+		}
+
+		IP2LocationPlugin::setDownloadToken($downloadToken);
+		IP2LocationPlugin::setDatabaseCode($databaseCode . ($includeIPv6 ? 'IPV6' : ''));
+		IP2LocationPlugin::setDatabasePath($databasePath);
+
+		if (!IP2LocationPlugin::downloadBinDatabase()) {
+			$this->config('', [
+				Piwik::translate('IP2Location_InvalidDownloadToken'),
+			]);
+			return;
+		}
+
+		$this->config(Piwik::translate('IP2Location_DatabaseHasBeenDownloaded'));
+	}
+
+	public function saveScheduledTask()
+	{
+		Piwik::checkUserHasSuperUserAccess();
+		$request = \Piwik\Request::fromRequest();
+
+		Nonce::checkNonce('IP2Location.saveScheduledTask', $request->getStringParameter('nonce', ''));
+
+		$scheduledTask = $request->getStringParameter('scheduledTask', '');
+
+		if (in_array($scheduledTask, ['off', 'monthly'])) {
+			IP2LocationPlugin::setScheduledTask($scheduledTask);
+		}
+
+		$this->config(Piwik::translate('IP2Location_ScheduledTaskHasBeenSaved'));
+	}
+
+	public function saveGeolocationAPIService()
+	{
+		Piwik::checkUserHasSuperUserAccess();
+		$request = \Piwik\Request::fromRequest();
+
+		Nonce::checkNonce('IP2Location.saveGeolocationAPIService', $request->getStringParameter('nonce', ''));
+
+		$apiKey = $request->getStringParameter('apiKey', '');
+
+		if (!$apiKey) {
+			$this->config('', [
+				Piwik::translate('IP2Location_InvalidAPIKey'),
+			]);
+			return;
+		}
+
+		if (!IP2LocationPlugin::checkAPIKey($apiKey)) {
+			$this->config('', [
+				Piwik::translate('IP2Location_InvalidAPIKey'),
+			]);
+			return;
+		}
+
+		IP2LocationPlugin::setApiKey($apiKey);
+
+		$this->config(Piwik::translate('IP2Location_GeolocationAPIServiceHasBeenSaved'));
 	}
 }

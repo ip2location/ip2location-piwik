@@ -3,127 +3,211 @@
 {% set title %}{{'IP2Location_IP2Location'|translate}}{% endset %}
 
 {% block content %}
-{% import 'macros.twig' as piwik %}
-{% if isSuperUser %}
+	{% import 'macros.twig' as piwik %}
+	{% if isSuperUser %}
+		<h1>IP2Location</h1>
 
-	<h1>{{'IP2Location_IP2LocationSettings'|translate}}</h1>
+		{% if textSuccess %}
+		<div class="alert alert-success">
+			{{textSuccess}}
+		</div>
+		{% endif %}
+		{% for i, error in errors %}
+			<div class="alert alert-danger">
+				{{ error }}
+			</div>
+		{% endfor %}
 
-	{% if saved %}
-	<div class="alert alert-success">
-		{{'IP2Location_ChangesHasBeenSaved'|translate}}
-	</div>
-	{% endif %}
+		<div class="card">
+			<div class="card-content">
+				<h2 class="card-title">{{'IP2Location_LookupMode'|translate}}</h2>
 
-	{% for i, error in errors %}
-	<div class="alert alert-danger">
-		{{ error }}
-	</div>
-	{% endfor %}
+				{% if lookupMode == '' %}
+					<div class="alert alert-warning">
+						{{'IP2Location_LookupModeWarning'|translate}}
+					</div>
+				{% endif %}
 
-	<form method="POST" action="{{ linkTo({'module':'IP2Location','action':'saveConfig'}) }}" class="col s6">
-
-		<h2 class="card-title">{{'IP2Location_LookupMode'|translate}}</h2>
-
-		<div class="form-group row">
-			<div class="col s12">
-				<p>
-					<label for="lookupMode_BIN">
-						<input type="radio" value="BIN" id="lookupMode_BIN" name="lookupMode" {% if lookupMode == 'BIN' %} checked="checked"{% endif %}>
-
-						<span>{{ 'IP2Location_LocalBINDatabase'|translate }}</span>
-					</label>
-
-					<div style="margin-left:40px;">
-						<div class="form-group">
-							<div class="input-field">
-								<input type="text" value="{{databasePath}}" id="databasePath" name="databasePath" />
-								<label for="databasePath">{{'IP2Location_DatabasePath'|translate}}</label>
-								<span class="form-description">{{'IP2Location_AbsolutePath'|translate}} <em>{{examplePath}}</em></span><br>
-								<span class="form-description">{{'IP2Location_RegisterAccount'|translate}} <a href="https://lite.ip2location.com/" target="_blank">https://lite.ip2location.com/</a></span><br>
-								<span class="form-description">{{'IP2Location_CommercialDatabase'|translate}} <a href="https://www.ip2location.com/database/ip2location" target="_blank">https://www.ip2location.com/</a></span><br>
+				<form action="{{ linkTo({'module':'IP2Location','action':'saveLookupMode'}) }}" method="post">
+					<div class="radio">
+						<label>
+							<input type="radio" value="BIN" name="lookupMode" {% if lookupMode == 'BIN' %} checked="checked" {% endif %}>
+							<span>
+								{{ 'IP2Location_IP2LocationBINDatabase'|translate }}
+							</span>
+							<div class="radio-description">
+								{{'IP2Location_IP2LocationBINDatabaseDescription'|translate('<a href="https://lite.ip2location.com/ip2location-lite?utm_source=matomo" target="_blank">', '</a>')|raw}}
 							</div>
-						</div>
+							<div class="radio-description">
+								{{'IP2Location_IP2LocationBINDatabaseDescriptionCommercial'|translate('<a href="https://www.ip2location.com/database/ip2location?utm_source=matomo" target="_blank">', '</a>')|raw}}
+							</div>
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" value="WS" name="lookupMode" {% if lookupMode == 'WS' %} checked="checked" {% endif %}>
+							<span>{{ 'IP2Location_GeolocationAPIService'|translate }}</span>
+							<div class="radio-description">
+								{{'IP2Location_GeolocationAPIServiceDescription'|translate('<a href="https://www.ip2location.io/pricing?utm_source=matomo" target="_blank">', '</a>')|raw}}
+							</div>
+						</label>
+					</div>
 
-						<div class="form-group">
+					<div class="mt-5">
+						<input class="btn" type="submit" value="{{'IP2Location_SaveLookupMode'|translate}}">
+					</div>
+					<input type="hidden" name="nonce" value="{{ nonceSaveLookupMode|e('html_attr') }}"/>
+				</form>
+			</div>
+		</div>
+
+		{% if lookupMode == 'BIN' %}
+		<div class="card">
+			<div class="card-content">
+				<h2 class="card-title">{{'IP2Location_IP2LocationBINDatabase'|translate}}</h2>
+
+				{% if binFileIsMissing %}
+					<div class="alert alert-danger">
+						{{'IP2Location_NoIP2LocationDatabaseFile'|translate('<strong>', '</strong>')|raw}}
+					</div>
+
+					<form action="{{ linkTo({'module':'IP2Location','action':'downloadBinDatabase'}) }}" method="post">
+						<div class="mb-3">
 							<div class="input-field">
-								<input type="text" value="{{downloadToken}}" id="downloadToken" name="downloadToken" />
+								<input type="text" value="{{downloadToken}}" id="downloadToken" name="downloadToken"/>
 								<label for="downloadToken">{{'IP2Location_DownloadToken'|translate}}</label>
-								<span class="form-description">{{'IP2Location_DownloadTokenDescription'|translate}}</span><br>
-								<span class="form-description">{{'IP2Location_Tasks'|translate}}<code>./console core:run-scheduled-tasks --force "Piwik\Plugins\IP2Location\Tasks.downloadBinDatabase"</code>.</span><br>
+								<span class="form-description">{{'IP2Location_DownloadTokenDescription'|translate('<a href="https://lite.ip2location.com/database-download" target="_blank">', '</a>', '<a href="https://www.ip2location.com/file-download" target="_blank">', '</a>')|raw}}</span>
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="mt-5">
+							<input class="btn" type="submit" value="{{'IP2Location_DownloadBinDatabase'|translate}}">
+						</div>
+						<input type="hidden" name="nonce" value="{{ nonceDownloadBinDatabase|e('html_attr') }}"/>
+					</form>
+				{% else %}
+					<form action="{{ linkTo({'module':'IP2Location','action':'saveBinDatabase'}) }}" method="post">
+						<div class="mb-3">
+							<div class="input-field">
+								<input type="text" value="{{downloadToken}}" id="downloadToken" name="downloadToken"/>
+								<label for="downloadToken">{{'IP2Location_DownloadToken'|translate}}</label>
+								<span class="form-description">{{'IP2Location_DownloadTokenDescription'|translate('<a href="https://lite.ip2location.com/database-download" target="_blank">', '</a>', '<a href="https://www.ip2location.com/file-download" target="_blank">', '</a>')|raw}}</span>
+							</div>
+						</div>
+						<div>
 							<div class="input-field">
 								<select name="databaseCode">
-									<option value="DB1LITEBIN" {% if databaseCode == 'DB1LITEBIN' %}selected{% endif %}>IP2Location LITE DB1 {{'IP2Location_Database'|translate}}</option>
-									<option value="DB1BIN" {% if databaseCode == 'DB1BIN' %}selected{% endif %}>IP2Location DB1 {{'IP2Location_Database'|translate}}</option>
-									<option value="DB3LITEBIN" {% if databaseCode == 'DB3LITEBIN' %}selected{% endif %}>IP2Location LITE DB3 {{'IP2Location_Database'|translate}}</option>
-									<option value="DB3BIN" {% if databaseCode == 'DB3BIN' %}selected{% endif %}>IP2Location DB3 {{'IP2Location_Database'|translate}}</option>
+									<option value="DB1LITEBIN" {% if databaseCode == 'DB1LITEBIN' %} selected {% endif %}>IP2Location LITE DB1 {{'IP2Location_Database'|translate}}</option>
+									<option value="DB1BIN" {% if databaseCode == 'DB1BIN' %} selected {% endif %}>IP2Location DB1 {{'IP2Location_Database'|translate}}</option>
+									<option value="DB3LITEBIN" {% if databaseCode == 'DB3LITEBIN' %} selected {% endif %}>IP2Location LITE DB3 {{'IP2Location_Database'|translate}}</option>
+									<option value="DB3BIN" {% if databaseCode == 'DB3BIN' %} selected {% endif %}>IP2Location DB3 {{'IP2Location_Database'|translate}}</option>
 								</select>
 								<label for="databaseCode">{{'IP2Location_DatabaseCode'|translate}}</label>
 							</div>
 						</div>
-						{% if size != 0 %}
-						<h5 class="card-title">{{'IP2Location_DatabaseInformation'|translate}}</h5>
-
-						<div class="form-group">
+						<div class="mb-3">
+							<label>
+								<input name="includeIPv6" type="checkbox" id="includeIPv6" value="1" {% if includeIPv6 %}checked="checked" {% endif %}/>
+								<span>{{ 'IP2Location_IncludeIPv6'|translate }}</span>
+							</label>
+						</div>
+						<div class="mb-3">
 							<div class="input-field">
-								<input type="text" value="{{database}}" id="databaseFile" disabled>
-								<label for="databaseFile">{{'IP2Location_IP2LocationDatabaseFile'|translate}}</label>
+								<input type="text" value="{{databasePath}}" id="databasePath" name="databasePath"/>
+								<label for="databasePath">{{'IP2Location_DatabasePath'|translate}}</label>
+								<span class="form-description">{{'IP2Location_DatabasePathDescription'|translate}}</span>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="input-field">
-								<input type="text" value="{{date}}" id="databaseDate" disabled>
-								<label for="databaseDate">{{'IP2Location_DatabaseDate'|translate}}</label>
-							</div>
+						<div class="mt-5">
+							<input class="btn" type="submit" value="{{'IP2Location_DownloadBinDatabase'|translate}}">
 						</div>
-						<div class="form-group">
-							<div class="input-field">
-								<input type="text" value="{{size}}" id="databaseSize" disabled>
-								<label for="databaseSize">{{'IP2Location_DatabaseSize'|translate}}</label>
-
-								<small class="form-text text-muted">
-									{{'IP2Location_AutomatedUpdate'|translate}}
-									<a href="{{'IP2Location_AutomatedUpdateURL'|translate}}" target="_blank">{{'IP2Location_LearnMore'|translate}}</a>
-								</small>
-							</div>
-						</div>
-
-						{% else %}
-						<ul>
-							<li><a href="https://lite.ip2location.com" target="_blank">{{ 'IP2Location_DownloadLITEDatabase'|translate }}</a></li>
-							<li><a href="https://www.ip2location.com" target="_blank">{{ 'IP2Location_DownloadCommercialDatabase'|translate }}</a></li>
-						</ul>
-						{% endif %}
-					</div>
-				</p>
-				<p>
-					<label for="lookupMode_IO">
-						<input type="radio" value="IO" id="lookupMode_IO" name="lookupMode" {% if lookupMode == 'IO' %} checked="checked"{% endif %}>
-						<span>{{ 'IP2Location_WebServiceIO'|translate }}</span>
-						<span class="form-description"><a href="https://www.ip2location.io/pricing" target="_blank">{{ 'IP2Location_WebServiceIODescription'|translate }}</a></span>
-					</label>
-
-					<div style="margin-left:40px;">
-						<div class="form-group">
-							<div class="input-field">
-								<input type="text" value="{{ioApiKey}}" id="ioApiKey" name="ioApiKey" />
-								<label for="ioApiKey">{{'IP2Location_IOAPIKey'|translate}}</label>
-								<span class="form-description">{{ 'IP2Location_PleaseGetYourAPIKeyFrom'|translate }} <a href="https://www.ip2location.io/pricing" target="_blank">https://www.ip2location.io/</a></span>
-							</div>
-						</div>
-					</div>
-				</p>
+						<input type="hidden" name="nonce" value="{{ nonceSaveBinDatabase|e('html_attr') }}"/>
+					</form>
+				{% endif %}
 			</div>
 		</div>
 
-		<div class="form-group row">
-			<button class="waves-effect waves-light btn">{{'IP2Location_SaveChanges'|translate}}</button>
+		{% if size != 0 %}
+		<div class="card">
+			<div class="card-content">
+				<h5 class="card-title">{{'IP2Location_DatabaseInformation'|translate}}</h5>
+				<div class="mb-3">
+					<div class="input-field">
+						<input type="text" value="{{database}}" id="databaseFile" disabled>
+						<label for="databaseFile">{{'IP2Location_IP2LocationDatabaseFile'|translate}}</label>
+					</div>
+				</div>
+				<div class="mb-3">
+					<div class="input-field">
+						<input type="text" value="{{date}}" id="databaseDate" disabled>
+						<label for="databaseDate">{{'IP2Location_DatabaseDate'|translate}}</label>
+					</div>
+				</div>
+				<div class="mb-3">
+					<div class="input-field">
+						<input type="text" value="{{size}}" id="databaseSize" disabled>
+						<label for="databaseSize">{{'IP2Location_DatabaseSize'|translate}}</label>
+					</div>
+				</div>
+			</div>
 		</div>
+		{% endif %}
+		{% if binFileIsMissing == false and downloadToken != '' %}
+		<div class="card">
+			<div class="card-content">
+				<h5 class="card-title">{{'IP2Location_ScheduledTask'|translate}}</h5>
 
-		<input type="hidden" name="submit" value="true" />
-	</form>
-{% endif %}
+				<form action="{{ linkTo({'module':'IP2Location','action':'saveScheduledTask'}) }}" method="post">
+					<div class="radio">
+						<label>
+							<input type="radio" value="off" name="scheduledTask" {% if scheduledTask == 'off' %} checked="checked" {% endif %}>
+							<span>
+								{{ 'IP2Location_Off'|translate }}
+							</span>
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" value="monthly" name="scheduledTask" {% if scheduledTask == 'monthly' %} checked="checked" {% endif %}>
+							<span>
+								{{ 'IP2Location_Monthly'|translate }}
+							</span>
+						</label>
+					</div>
+					<div class="mt-3 mb-3">
+						<div class="input-field">
+							<input type="text" value="{{lastScheduledTaskDate}}" id="lastScheduledTaskDate" disabled>
+							<label for="lastScheduledTaskDate">{{'IP2Location_LastScheduledTaskDate'|translate}}</label>
+							<span class="form-description">{{'IP2Location_ScheduledTaskDescription'|translate}} <code>./console core:run-scheduled-tasks --force "Piwik\Plugins\IP2Location\Tasks.downloadBinDatabase"</code>.</span>
+						</div>
+					</div>
+					<div class="mt-5">
+						<input class="btn" type="submit" value="{{'IP2Location_SaveScheduledTask'|translate}}">
+					</div>
+					<input type="hidden" name="nonce" value="{{ nonceSaveScheduledTask|e('html_attr') }}"/>
+				</form>
+			</div>
+		</div>
+		{% endif %}
+		{% elseif lookupMode == 'WS' %}
+		<div class="card">
+			<div class="card-content">
+				<h2 class="card-title">{{'IP2Location_GeolocationAPIService'|translate}}</h2>
+
+				<form action="{{ linkTo({'module':'IP2Location','action':'saveGeolocationAPIService'}) }}" method="post">
+					<div class="mb-3">
+						<div class="input-field">
+							<input type="text" value="{{apiKey}}" id="apiKey" name="apiKey"/>
+							<label for="apiKey">{{'IP2Location_APIKey'|translate}}</label>
+						</div>
+					</div>
+					<div class="mt-5">
+						<input class="btn" type="submit" value="{{'IP2Location_SaveGeolocationAPIService'|translate}}">
+					</div>
+					<input type="hidden" name="nonce" value="{{ nonceSaveGeolocationAPIService|e('html_attr') }}"/>
+				</form>
+			</div>
+		</div>
+		{% endif %}
+	{% endif %}
 
 {% endblock %}
