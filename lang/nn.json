@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API-nøkkel",
         "Database": "Database",
         "DatabaseCode": "Databasekode",
         "DatabaseDate": "Database dato",
+        "DatabaseFile": "Databasefil",
         "DatabaseHasBeenDownloaded": "Databasen er lastet ned.",
         "DatabaseInformation": "Databaseinformasjon",
         "DatabasePath": "Databasebane",
@@ -29,7 +31,7 @@
         "LookupModeWarning": "Velg en av oppslagsmodusene for å komme i gang.",
         "Monthly": "Månedlig",
         "NeverExecuted": "Aldri henrettet",
-        "NoIP2LocationDatabaseFile": "Det er ingen IP2Location BIN-databasefil funnet. Vennligst sett inn %1$sLast ned token%2$s nedenfor for å laste ned BIN-databasen.",
+        "NoIP2LocationDatabaseFile": "Det er ingen IP2Location BIN-databasefil funnet. Vennligst sett inn %1$snedlastingstokenet%2$s nedenfor for å laste ned BIN-databasen.",
         "Off": "Av",
         "SaveGeolocationAPIService": "Lagre Geolocation API-tjeneste",
         "SaveLookupMode": "Lagre oppslagsmodus",

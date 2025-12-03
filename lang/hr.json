@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API ključ",
         "Database": "Baza podataka",
         "DatabaseCode": "Kod baze podataka",
         "DatabaseDate": "Datum baze podataka",
+        "DatabaseFile": "Datoteka baze podataka",
         "DatabaseHasBeenDownloaded": "Baza podataka je preuzeta.",
         "DatabaseInformation": "Podaci baze podataka",
         "DatabasePath": "Put do baze podataka",
@@ -23,7 +25,7 @@
         "IP2LocationBINDatabaseDescriptionCommercial": "Komercijalna baza podataka visoke točnosti dostupna na %1$shttps://www.ip2location.com/%2$s.",
         "LastScheduledTaskDate": "Datum posljednjeg planiranog zadatka",
         "LocationProviderDescription": "Ovaj pružatelj lokacije koristi %1$sIP2Location%2$s BIN bazu podataka ili %3$sIP2Location.io%4$s Geolocation API Service za traženje geolokacije.",
-        "LocationProviderInstallDocs": "Idite na %1$sSustav &#8594; IP2Location%2$s za konfiguriranje ovog davatelja lokacije.",
+        "LocationProviderInstallDocs": "Molimo idite na %1$sSustav &#8594; IP2Location%2$s za konfiguriranje ovog davatelja lokacije.",
         "LookupMode": "Način traženja",
         "LookupModeHasBeenSaved": "Način traženja je spremljen.",
         "LookupModeWarning": "Odaberite jedan od načina traženja za početak.",
@@ -31,7 +33,7 @@
         "NeverExecuted": "Nikada izvršeno",
         "NoIP2LocationDatabaseFile": "Nije pronađena datoteka baze podataka IP2Location BIN. Molimo umetnite svoj %1$sToken za preuzimanje%2$s ispod kako biste preuzeli svoju BIN bazu podataka.",
         "Off": "Isključeno",
-        "SaveGeolocationAPIService": "Spremi Geolocation API uslugu",
+        "SaveGeolocationAPIService": "Save Geolocation API Service",
         "SaveLookupMode": "Spremi način pretraživanja",
         "SaveScheduledTask": "Spremi planirani zadatak",
         "ScheduledTask": "Planirani zadatak",

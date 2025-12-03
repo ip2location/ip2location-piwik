@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API võti",
         "Database": "Andmebaas",
         "DatabaseCode": "Andmebaasi kood",
         "DatabaseDate": "Andmebaasi kuupäev",
+        "DatabaseFile": "Andmebaasi fail",
         "DatabaseHasBeenDownloaded": "Andmebaas on alla laaditud.",
         "DatabaseInformation": "Andmebaasi teave",
         "DatabasePath": "Andmebaasi tee",

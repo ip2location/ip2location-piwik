@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "एपीआई कुंजी",
         "Database": "डेटाबेस",
         "DatabaseCode": "डेटाबेस कोड",
         "DatabaseDate": "डेटाबेस दिनांक",
+        "DatabaseFile": "डेटाबेस फ़ाइल",
         "DatabaseHasBeenDownloaded": "डेटाबेस डाउनलोड कर लिया गया है.",
         "DatabaseInformation": "डेटाबेस सूचना",
         "DatabasePath": "डेटाबेस पथ",

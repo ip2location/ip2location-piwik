@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "АПИ кључ",
         "Database": "База података",
         "DatabaseCode": "Код базе података",
         "DatabaseDate": "Датабасе Дате",
+        "DatabaseFile": "Датотека базе података",
         "DatabaseHasBeenDownloaded": "База података је преузета.",
         "DatabaseInformation": "Информације о бази података",
         "DatabasePath": "Путања до базе података",
@@ -13,7 +15,7 @@
         "DownloadTokenDescription": "Токен за преузимање можете добити у „Одељку за преузимање“ након што се пријавите на веб локацију %1$сИП2Лоцатион ЛИТЕ%2$с или %3$сИП2Лоцатион Цоммерциал%4$с.",
         "GeolocationAPIService": "ИП2Лоцатион.ио Геолоцатион АПИ Сервице",
         "GeolocationAPIServiceDescription": "Региструјте се да бисте добили бесплатни АПИ кључ на %1$схттпс://ввв.ип2лоцатион.ио/%2$с. 50.000 бесплатних упита сваког месеца",
-        "GeolocationAPIServiceHasBeenSaved": "Услуга Геолоцатион АПИ је сачувана.",
+        "GeolocationAPIServiceHasBeenSaved": "Геолоцатион АПИ услуга је сачувана.",
         "IncludeIPv6": "Укључи ИПв6",
         "InvalidAPIKey": "Неважећи АПИ кључ.",
         "InvalidDatabasePath": "Неважећа путања базе података.",

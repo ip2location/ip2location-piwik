@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "Eochair API",
         "Database": "Bunachar Sonraí",
         "DatabaseCode": "Cód bunachar sonraí",
         "DatabaseDate": "Dáta Bunachar Sonraí",
+        "DatabaseFile": "Comhad Bunachar Sonraí",
         "DatabaseHasBeenDownloaded": "Íoslódáladh an bunachar sonraí.",
         "DatabaseInformation": "Eolas Bunachar Sonraí",
         "DatabasePath": "Conair Bunachar Sonraí",

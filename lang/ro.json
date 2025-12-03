@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "Cheia API",
         "Database": "Baza de date",
         "DatabaseCode": "Codul bazei de date",
         "DatabaseDate": "Data bazei de date",
+        "DatabaseFile": "Fișierul bazei de date",
         "DatabaseHasBeenDownloaded": "Baza de date a fost descărcată.",
         "DatabaseInformation": "Informații baza de date",
         "DatabasePath": "Calea bazei de date",
@@ -22,7 +24,7 @@
         "IP2LocationBINDatabaseDescription": "Înregistrați-vă pentru a descărca baza de date gratuită la %1$shttps://lite.ip2location.com/%2$s.",
         "IP2LocationBINDatabaseDescriptionCommercial": "Baza de date comercială cu precizie ridicată disponibilă la %1$shttps://www.ip2location.com/%2$s.",
         "LastScheduledTaskDate": "Data ultimei sarcini programate",
-        "LocationProviderDescription": "Acest furnizor de locații folosește %1$sIP2Location%2$s baza de date BIN sau %3$sIP2Location.io%4$s Serviciul API de geolocație pentru căutarea geolocalizării.",
+        "LocationProviderDescription": "Acest furnizor de locații folosește %1$sIP2Location%2$s baza de date BIN sau %3$sIP2Location.io%4$s Serviciul API de geolocalizare pentru căutarea geolocalizării.",
         "LocationProviderInstallDocs": "Vă rugăm să accesați %1$sSistemul &#8594; IP2Location%2$s pentru a configura acest furnizor de locație.",
         "LookupMode": "Modul de căutare",
         "LookupModeHasBeenSaved": "Modul de căutare a fost salvat.",

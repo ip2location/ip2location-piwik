@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API-Schlüssel",
         "Database": "Datenbank",
         "DatabaseCode": "Datenbankcode",
         "DatabaseDate": "Datenbankdatum",
+        "DatabaseFile": "Datenbankdatei",
         "DatabaseHasBeenDownloaded": "Die Datenbank wurde heruntergeladen.",
         "DatabaseInformation": "Datenbankinformationen",
         "DatabasePath": "Datenbankpfad",

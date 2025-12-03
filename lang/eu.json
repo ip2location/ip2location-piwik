@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API gakoa",
         "Database": "Datu-basea",
         "DatabaseCode": "Datu-basearen kodea",
         "DatabaseDate": "Datu-basearen data",
+        "DatabaseFile": "Datu-basearen fitxategia",
         "DatabaseHasBeenDownloaded": "Datu-basea deskargatu da.",
         "DatabaseInformation": "Datu-basearen informazioa",
         "DatabasePath": "Datu-basearen bidea",

@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API nøgle",
         "Database": "Database",
         "DatabaseCode": "Database kode",
         "DatabaseDate": "Database dato",
+        "DatabaseFile": "Database fil",
         "DatabaseHasBeenDownloaded": "Databasen er blevet downloadet.",
         "DatabaseInformation": "Databaseoplysninger",
         "DatabasePath": "Databasesti",
@@ -31,7 +33,7 @@
         "NeverExecuted": "Aldrig henrettet",
         "NoIP2LocationDatabaseFile": "Der er ingen IP2Location BIN-databasefil fundet. Indsæt venligst dit %1$sDownload-token%2$s nedenfor for at downloade din BIN-database.",
         "Off": "Slukket",
-        "SaveGeolocationAPIService": "Gem Geolocation API Service",
+        "SaveGeolocationAPIService": "Gem Geolocation API-tjeneste",
         "SaveLookupMode": "Gem opslagstilstand",
         "SaveScheduledTask": "Gem planlagt opgave",
         "ScheduledTask": "Planlagt opgave",

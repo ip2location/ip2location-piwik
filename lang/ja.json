@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "APIキー",
         "Database": "データベース",
         "DatabaseCode": "データベースコード",
         "DatabaseDate": "データベースの日付",
+        "DatabaseFile": "データベースファイル",
         "DatabaseHasBeenDownloaded": "データベースがダウンロードされました。",
         "DatabaseInformation": "データベース情報",
         "DatabasePath": "データベースのパス",

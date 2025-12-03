@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "Klucz API",
         "Database": "Baza danych",
         "DatabaseCode": "Kod bazy danych",
         "DatabaseDate": "Data bazy danych",
+        "DatabaseFile": "Plik bazy danych",
         "DatabaseHasBeenDownloaded": "Baza danych została pobrana.",
         "DatabaseInformation": "Informacje o bazie danych",
         "DatabasePath": "Ścieżka bazy danych",

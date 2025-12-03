@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "Allwedd API",
         "Database": "Cronfa Ddata",
         "DatabaseCode": "Cod Cronfa Ddata",
         "DatabaseDate": "Dyddiad Cronfa Ddata",
+        "DatabaseFile": "Ffeil Cronfa Ddata",
         "DatabaseHasBeenDownloaded": "Mae'r gronfa ddata wedi'i lawrlwytho.",
         "DatabaseInformation": "Gwybodaeth Cronfa Ddata",
         "DatabasePath": "Llwybr Cronfa Ddata",

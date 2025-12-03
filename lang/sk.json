@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API kľúč",
         "Database": "Databáza",
         "DatabaseCode": "Kód databázy",
         "DatabaseDate": "Dátum databázy",
+        "DatabaseFile": "Databázový súbor",
         "DatabaseHasBeenDownloaded": "Databáza bola stiahnutá.",
         "DatabaseInformation": "Informácie o databáze",
         "DatabasePath": "Cesta k databáze",
@@ -10,7 +12,7 @@
         "DatabaseSize": "Veľkosť databázy",
         "DownloadBinDatabase": "Stiahnite si databázu BIN",
         "DownloadToken": "Stiahnite si token",
-        "DownloadTokenDescription": "Po prihlásení na webovú stránku %1$sIP2Location LITE%2$s alebo %3$sIP2Location Commercial%4$s môžete získať token na stiahnutie v časti „Sťahovanie“.",
+        "DownloadTokenDescription": "Token na stiahnutie môžete získať v časti „Preberanie“ po prihlásení na webovú lokalitu %1$sIP2Location LITE%2$s alebo %3$sIP2Location Commercial%4$s.",
         "GeolocationAPIService": "Služba geolokačného API IP2Location.io",
         "GeolocationAPIServiceDescription": "Zaregistrujte sa a získajte bezplatný kľúč API na adrese %1$shttps://www.ip2location.io/%2$s. 50 000 bezplatných dopytov každý mesiac",
         "GeolocationAPIServiceHasBeenSaved": "Služba Geolocation API bola uložená.",

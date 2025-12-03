@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "Khóa API",
         "Database": "Cơ sở dữ liệu",
         "DatabaseCode": "Mã cơ sở dữ liệu",
         "DatabaseDate": "Ngày cơ sở dữ liệu",
+        "DatabaseFile": "Tệp cơ sở dữ liệu",
         "DatabaseHasBeenDownloaded": "Cơ sở dữ liệu đã được tải xuống.",
         "DatabaseInformation": "Thông tin cơ sở dữ liệu",
         "DatabasePath": "Đường dẫn cơ sở dữ liệu",

@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "مفتاح واجهة برمجة التطبيقات",
         "Database": "قاعدة البيانات",
         "DatabaseCode": "كود قاعدة البيانات",
         "DatabaseDate": "تاريخ قاعدة البيانات",
+        "DatabaseFile": "ملف قاعدة البيانات",
         "DatabaseHasBeenDownloaded": "تم تنزيل قاعدة البيانات.",
         "DatabaseInformation": "معلومات قاعدة البيانات",
         "DatabasePath": "مسار قاعدة البيانات",

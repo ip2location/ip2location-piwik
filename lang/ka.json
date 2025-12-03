@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API გასაღები",
         "Database": "მონაცემთა ბაზა",
         "DatabaseCode": "მონაცემთა ბაზის კოდი",
         "DatabaseDate": "მონაცემთა ბაზის თარიღი",
+        "DatabaseFile": "მონაცემთა ბაზის ფაილი",
         "DatabaseHasBeenDownloaded": "მონაცემთა ბაზა ჩამოტვირთულია.",
         "DatabaseInformation": "მონაცემთა ბაზის ინფორმაცია",
         "DatabasePath": "მონაცემთა ბაზის გზა",
@@ -35,7 +37,7 @@
         "SaveLookupMode": "ძიების რეჟიმის შენახვა",
         "SaveScheduledTask": "დაგეგმილი დავალების შენახვა",
         "ScheduledTask": "დაგეგმილი დავალება",
-        "ScheduledTaskDescription": "თქვენ ასევე შეგიძლიათ ამოცანების შესრულება ხელით გამოყენებით:",
+        "ScheduledTaskDescription": "თქვენ ასევე შეგიძლიათ ამოცანის ხელით შესრულება:",
         "ScheduledTaskHasBeenSaved": "დაგეგმილი დავალება შენახულია."
     }
 }

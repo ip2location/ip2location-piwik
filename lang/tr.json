@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API Anahtarı",
         "Database": "Veritabanı",
         "DatabaseCode": "Veritabanı Kodu",
         "DatabaseDate": "Veritabanı Tarihi",
+        "DatabaseFile": "Veritabanı Dosyası",
         "DatabaseHasBeenDownloaded": "Veritabanı indirildi.",
         "DatabaseInformation": "Veritabanı Bilgileri",
         "DatabasePath": "Veritabanı Yolu",

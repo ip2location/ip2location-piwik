@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "کلید API",
         "Database": "پایگاه داده",
         "DatabaseCode": "کد پایگاه داده",
         "DatabaseDate": "تاریخ پایگاه داده",
+        "DatabaseFile": "فایل پایگاه داده",
         "DatabaseHasBeenDownloaded": "پایگاه داده دانلود شده است.",
         "DatabaseInformation": "اطلاعات پایگاه داده",
         "DatabasePath": "مسیر پایگاه داده",
@@ -13,7 +15,7 @@
         "DownloadTokenDescription": "پس از ورود به وب‌سایت %1$sIP2Location LITE%2$s یا %3$sIP2Location Commercial%4$s، می‌توانید رمز دانلود خود را در «بخش دانلود» دریافت کنید.",
         "GeolocationAPIService": "سرویس API جغرافیایی IP2Location.io",
         "GeolocationAPIServiceDescription": "برای دریافت کلید API رایگان در %1$shttps://www.ip2location.io/%2$s ثبت نام کنید. 50000 درخواست رایگان هر ماه",
-        "GeolocationAPIServiceHasBeenSaved": "سرویس API جغرافیایی ذخیره شده است.",
+        "GeolocationAPIServiceHasBeenSaved": "Geolocation API Service ذخیره شده است.",
         "IncludeIPv6": "شامل IPv6",
         "InvalidAPIKey": "کلید API نامعتبر است.",
         "InvalidDatabasePath": "مسیر پایگاه داده نامعتبر است.",

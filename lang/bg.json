@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API ключ",
         "Database": "База данни",
         "DatabaseCode": "Код на база данни",
         "DatabaseDate": "Дата на базата данни",
+        "DatabaseFile": "Файл с база данни",
         "DatabaseHasBeenDownloaded": "Базата данни е изтеглена.",
         "DatabaseInformation": "Информация за база данни",
         "DatabasePath": "Път на базата данни",
@@ -11,7 +13,7 @@
         "DownloadBinDatabase": "Изтеглете BIN база данни",
         "DownloadToken": "Изтегляне на токен",
         "DownloadTokenDescription": "Можете да получите своя маркер за изтегляне в „Секция за изтегляне“, след като влезете в %1$sIP2Location LITE%2$s или %3$sIP2Location Commercial%4$s уебсайт.",
-        "GeolocationAPIService": "IP2Location.io Geolocation API услуга",
+        "GeolocationAPIService": "IP2Location.io услуга API за геолокация",
         "GeolocationAPIServiceDescription": "Регистрирайте се, за да получите безплатен API ключ на %1$shttps://www.ip2location.io/%2$s. 50 000 безплатни заявки всеки месец",
         "GeolocationAPIServiceHasBeenSaved": "API услугата за геолокация е запазена.",
         "IncludeIPv6": "Включете IPv6",
@@ -36,6 +38,6 @@
         "SaveScheduledTask": "Запазване на планираната задача",
         "ScheduledTask": "Планирана задача",
         "ScheduledTaskDescription": "Можете също така да стартирате задача ръчно, като използвате:",
-        "ScheduledTaskHasBeenSaved": "Насрочената задача е запазена."
+        "ScheduledTaskHasBeenSaved": "Планираната задача е запазена."
     }
 }

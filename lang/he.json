@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "מפתח API",
         "Database": "מסד נתונים",
         "DatabaseCode": "קוד מסד נתונים",
-        "DatabaseDate": "תאריך מסד נתונים",
+        "DatabaseDate": "תאריך מסד הנתונים",
+        "DatabaseFile": "קובץ מסד נתונים",
         "DatabaseHasBeenDownloaded": "מסד הנתונים הורד.",
         "DatabaseInformation": "מידע על מסד נתונים",
         "DatabasePath": "נתיב מסד נתונים",
@@ -35,7 +37,7 @@
         "SaveLookupMode": "שמור מצב חיפוש",
         "SaveScheduledTask": "שמור משימה מתוזמנת",
         "ScheduledTask": "משימה מתוזמנת",
-        "ScheduledTaskDescription": "אתה גם יכול להריץ משימה באופן ידני באמצעות:",
+        "ScheduledTaskDescription": "אתה גם יכול להפעיל משימה באופן ידני באמצעות:",
         "ScheduledTaskHasBeenSaved": "המשימה המתוזמנת נשמרה."
     }
 }

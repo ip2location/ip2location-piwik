@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API密鑰",
         "Database": "資料庫",
         "DatabaseCode": "數據庫代碼",
         "DatabaseDate": "數據庫日期",
+        "DatabaseFile": "數據庫文件",
         "DatabaseHasBeenDownloaded": "數據庫已下載。",
         "DatabaseInformation": "數據庫信息",
         "DatabasePath": "數據庫路徑",

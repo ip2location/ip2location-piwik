@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "Kunci API",
         "Database": "Basis data",
         "DatabaseCode": "Kode Basis Data",
         "DatabaseDate": "Tanggal Basis Data",
+        "DatabaseFile": "Berkas Basis Data",
         "DatabaseHasBeenDownloaded": "Basis data telah diunduh.",
         "DatabaseInformation": "Informasi Basis Data",
         "DatabasePath": "Jalur Basis Data",

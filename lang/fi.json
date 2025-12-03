@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API-avain",
         "Database": "Tietokanta",
         "DatabaseCode": "Tietokannan koodi",
         "DatabaseDate": "Tietokannan päivämäärä",
+        "DatabaseFile": "Tietokantatiedosto",
         "DatabaseHasBeenDownloaded": "Tietokanta on ladattu.",
         "DatabaseInformation": "Tietokannan tiedot",
         "DatabasePath": "Tietokannan polku",

@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API ključ",
         "Database": "Baza podataka",
         "DatabaseCode": "Kod baze podataka",
         "DatabaseDate": "Database Date",
+        "DatabaseFile": "Datoteka baze podataka",
         "DatabaseHasBeenDownloaded": "Baza podataka je preuzeta.",
         "DatabaseInformation": "Informacije iz baze podataka",
         "DatabasePath": "Putanja baze podataka",
@@ -29,7 +31,7 @@
         "LookupModeWarning": "Odaberite jedan od načina pretraživanja da započnete.",
         "Monthly": "Mjesečno",
         "NeverExecuted": "Nikada pogubljena",
-        "NoIP2LocationDatabaseFile": "Nije pronađena nijedna IP2Location BIN datoteka baze podataka. Molimo unesite svoj %1$sDownload Token%2$s ispod da preuzmete svoju BIN bazu podataka.",
+        "NoIP2LocationDatabaseFile": "Nije pronađena nijedna IP2Location BIN datoteka baze podataka. Unesite svoj %1$s Token za preuzimanje%2$s ispod da preuzmete svoju BIN bazu podataka.",
         "Off": "Isključeno",
         "SaveGeolocationAPIService": "Save Geolocation API Service",
         "SaveLookupMode": "Save Lookup Mode",

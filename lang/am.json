@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "ኤ.ፒ.አይ. ቁልፍ",
         "Database": "የውሂብ ጎታ",
         "DatabaseCode": "የውሂብ ጎታ ኮድ",
         "DatabaseDate": "የውሂብ ጎታ ቀን",
+        "DatabaseFile": "የውሂብ ጎታ ፋይል",
         "DatabaseHasBeenDownloaded": "የመረጃ ቋት ወርቅ ሆኗል.",
         "DatabaseInformation": "የውሂብ ጎታ መረጃ",
         "DatabasePath": "የመረጃ ቋት መንገድ",

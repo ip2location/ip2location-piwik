@@ -191,20 +191,42 @@ class API extends \Piwik\Plugin\API
 
 	public static function checkAPIKey($apiKey)
 	{
-		$response = Http::sendHttpRequest('https://api.ip2location.io/?' . http_build_query([
-			'key' => $apiKey,
-			'ip'  => '8.8.8.8',
-		]), 30);
+		if (preg_match('/^[0-9A-Z]{10}$/', $apiKey)) {
+			// Legacy API key format
+			$response = Http::sendHttpRequest('https://api.ip2location.com/v2/?' . http_build_query([
+				'key' => $apiKey,
+				'check'  => '1',
+			]), 30);
 
-		if (($json = json_decode((string) $response)) === null) {
-			return false;
-		}
+			if (($json = json_decode((string) $response)) === null) {
+				return false;
+			}
 
-		if (!isset($json->country_code)) {
-			return false;
-		}
+			if (!isset($json->response)) {
+				return false;
+			}
 
-		if ($json->country_code != 'US') {
+			if (!preg_match('/^[0-9]+$/', $json->response)) {
+				return false;
+			}
+		} elseif (preg_match('/^[0-9A-F]{32}$/', $apiKey)) {
+			$response = Http::sendHttpRequest('https://api.ip2location.io/?' . http_build_query([
+				'key' => $apiKey,
+				'ip'  => '8.8.8.8',
+			]), 30);
+
+			if (($json = json_decode((string) $response)) === null) {
+				return false;
+			}
+
+			if (!isset($json->country_code)) {
+				return false;
+			}
+
+			if ($json->country_code != 'US') {
+				return false;
+			}
+		} else {
 			return false;
 		}
 

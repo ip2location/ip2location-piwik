@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "Clave API",
         "Database": "Base de datos",
         "DatabaseCode": "Código de base de datos",
         "DatabaseDate": "Data base de datos",
+        "DatabaseFile": "Arquivo de base de datos",
         "DatabaseHasBeenDownloaded": "Descargouse a base de datos.",
         "DatabaseInformation": "Información da base de datos",
         "DatabasePath": "Ruta da base de datos",
@@ -18,7 +20,7 @@
         "InvalidAPIKey": "Chave API non válida.",
         "InvalidDatabasePath": "Ruta da base de datos non válida.",
         "InvalidDownloadToken": "O token de descarga non é válido.",
-        "IP2LocationBINDatabase": "Base de datos BIN de localización IP2",
+        "IP2LocationBINDatabase": "Base de datos BIN IP2Location",
         "IP2LocationBINDatabaseDescription": "Rexístrese para descargar a base de datos gratuíta en %1$shttps://lite.ip2location.com/%2$s.",
         "IP2LocationBINDatabaseDescriptionCommercial": "Base de datos comercial con alta precisión dispoñible en %1$shttps://www.ip2location.com/%2$s.",
         "LastScheduledTaskDate": "Data da última tarefa programada",

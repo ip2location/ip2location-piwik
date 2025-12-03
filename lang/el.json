@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "Κλειδί API",
         "Database": "Βάση δεδομένων",
         "DatabaseCode": "Κωδικός βάσης δεδομένων",
         "DatabaseDate": "Ημερομηνία βάσης δεδομένων",
+        "DatabaseFile": "Αρχείο Βάσης Δεδομένων",
         "DatabaseHasBeenDownloaded": "Έγινε λήψη της βάσης δεδομένων.",
         "DatabaseInformation": "Πληροφορίες βάσης δεδομένων",
         "DatabasePath": "Διαδρομή βάσης δεδομένων",

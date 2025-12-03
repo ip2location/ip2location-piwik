@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API lykill",
         "Database": "Gagnagrunnur",
         "DatabaseCode": "Gagnagrunnskóði",
         "DatabaseDate": "Dagsetning gagnagrunns",
+        "DatabaseFile": "Gagnagrunnsskrá",
         "DatabaseHasBeenDownloaded": "Gagnagrunni hefur verið hlaðið niður.",
         "DatabaseInformation": "Gagnagrunnsupplýsingar",
         "DatabasePath": "Gagnagrunnsslóð",

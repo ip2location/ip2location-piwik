@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "Klíč API",
         "Database": "Databáze",
         "DatabaseCode": "Kód databáze",
         "DatabaseDate": "Datum databáze",
+        "DatabaseFile": "Soubor databáze",
         "DatabaseHasBeenDownloaded": "Databáze byla stažena.",
         "DatabaseInformation": "Informace o databázi",
         "DatabasePath": "Cesta k databázi",

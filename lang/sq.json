@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "Çelësi API",
         "Database": "Baza e të dhënave",
         "DatabaseCode": "Kodi i bazës së të dhënave",
         "DatabaseDate": "Data e bazës së të dhënave",
+        "DatabaseFile": "Skedari i bazës së të dhënave",
         "DatabaseHasBeenDownloaded": "Baza e të dhënave është shkarkuar.",
         "DatabaseInformation": "Informacion mbi bazën e të dhënave",
         "DatabasePath": "Rruga e bazës së të dhënave",

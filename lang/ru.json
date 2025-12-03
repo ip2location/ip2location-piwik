@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API-ключ",
         "Database": "База данных",
         "DatabaseCode": "Код базы данных",
         "DatabaseDate": "Дата базы данных",
+        "DatabaseFile": "Файл базы данных",
         "DatabaseHasBeenDownloaded": "База данных загружена.",
         "DatabaseInformation": "Информация о базе данных",
         "DatabasePath": "Путь к базе данных",

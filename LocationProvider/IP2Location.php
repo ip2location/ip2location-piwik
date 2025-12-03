@@ -26,14 +26,20 @@ class IP2Location extends LocationProvider
 		$extraMessage = '';
 
 		if (Option::get('IP2Location.LookupMode') == 'WS') {
-			$extraMessage = '
-				<strong>Lookup Mode: </strong><a href="https://www.ip2location.io/pricing?utm_source=matomo" target="_blank">IP2Location.io</a> IP Geolocation Web Service<br/>
-				<strong>API Key: </strong>' . Option::get('IP2Location.ApiKey');
+			if (preg_match('/^[0-9A-Z]{10}$/', Option::get('IP2Location.ApiKey'))) {
+				$extraMessage = '
+					<strong>' . Piwik::translate('IP2Location_LookupMode') . ': </strong>IP2Location Web Service (Legacy)<br/>
+					<strong>' . Piwik::translate('IP2Location_ApiKey') . ': </strong>' . Option::get('IP2Location.ApiKey');
+			} else {
+				$extraMessage = '
+					<strong>' . Piwik::translate('IP2Location_LookupMode') . ': </strong><a href="https://www.ip2location.io/pricing?utm_source=matomo" target="_blank">IP2Location.io</a> IP Geolocation Web Service<br/>
+					<strong>' . Piwik::translate('IP2Location_ApiKey') . ': </strong>' . Option::get('IP2Location.ApiKey');
+			}
 		} else {
 			if ($this->getDatabasePath()) {
 				$extraMessage = '
-				<strong>Lookup Mode: </strong>BIN Database<br/>
-				<strong>Database File: </strong>' . basename($this->getDatabasePath());
+				<strong>' . Piwik::translate('IP2Location_LookupMode') . ': </strong>BIN Database<br/>
+				<strong>' . Piwik::translate('IP2Location_DatabaseFile') . ': </strong>' . basename($this->getDatabasePath());
 			}
 		}
 
@@ -65,21 +71,41 @@ class IP2Location extends LocationProvider
 		$result = [];
 
 		if (Option::get('IP2Location.LookupMode') == 'WS' && Option::get('IP2Location.ApiKey')) {
-			$response = Http::sendHttpRequest('https://api.ip2location.io/?' . http_build_query([
-				'key'    => Option::get('IP2Location.ApiKey'),
-				'ip'     => $ip,
-				'source' => 'matomo',
-			]), 30);
+			if (preg_match('/^[0-9A-Z]{10}$/', Option::get('IP2Location.ApiKey'))) {
+				$response = Http::sendHttpRequest('https://api.ip2location.com/v2/?' . http_build_query([
+					'key'     => Option::get('IP2Location.ApiKey'),
+					'ip'      => $ip,
+					'package' => 'WS6',
+					'source'  => 'matomo',
+				]), 30);
 
-			if (($json = json_decode((string) $response)) !== null) {
-				$result[self::COUNTRY_CODE_KEY] = $json->country_code;
-				$result[self::COUNTRY_NAME_KEY] = $json->country_name;
-				$result[self::REGION_CODE_KEY] = $this->getRegionCode($json->country_code, $json->region_name);
-				$result[self::REGION_NAME_KEY] = $json->region_name;
-				$result[self::CITY_NAME_KEY] = $json->city_name;
-				$result[self::LATITUDE_KEY] = $json->latitude;
-				$result[self::LONGITUDE_KEY] = $json->longitude;
-				$result[self::ISP_KEY] = $json->as;
+				if (($json = json_decode((string) $response)) !== null) {
+					$result[self::COUNTRY_CODE_KEY] = $json->country_code;
+					$result[self::COUNTRY_NAME_KEY] = $json->country_name;
+					$result[self::REGION_CODE_KEY] = $this->getRegionCode($json->country_code, $json->region_name);
+					$result[self::REGION_NAME_KEY] = $json->region_name;
+					$result[self::CITY_NAME_KEY] = $json->city_name;
+					$result[self::LATITUDE_KEY] = $json->latitude;
+					$result[self::LONGITUDE_KEY] = $json->longitude;
+					$result[self::ISP_KEY] = $json->isp;
+				}
+			} else {
+				$response = Http::sendHttpRequest('https://api.ip2location.io/?' . http_build_query([
+					'key'    => Option::get('IP2Location.ApiKey'),
+					'ip'     => $ip,
+					'source' => 'matomo',
+				]), 30);
+
+				if (($json = json_decode((string) $response)) !== null) {
+					$result[self::COUNTRY_CODE_KEY] = $json->country_code;
+					$result[self::COUNTRY_NAME_KEY] = $json->country_name;
+					$result[self::REGION_CODE_KEY] = $this->getRegionCode($json->country_code, $json->region_name);
+					$result[self::REGION_NAME_KEY] = $json->region_name;
+					$result[self::CITY_NAME_KEY] = $json->city_name;
+					$result[self::LATITUDE_KEY] = $json->latitude;
+					$result[self::LONGITUDE_KEY] = $json->longitude;
+					$result[self::ISP_KEY] = $json->as;
+				}
 			}
 		} else {
 			require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
@@ -138,20 +164,8 @@ class IP2Location extends LocationProvider
 		$result[self::CONTINENT_CODE_KEY] = true;
 		$result[self::CONTINENT_NAME_KEY] = true;
 
-		// All fields are supported with IP2Location WS
-		if (Option::get('IP2Location.LookupMode') == 'WS' && Option::get('IP2Location.APIKey')) {
-			$result[self::REGION_CODE_KEY] = true;
-			$result[self::REGION_NAME_KEY] = true;
-			$result[self::CITY_NAME_KEY] = true;
-			$result[self::LATITUDE_KEY] = true;
-			$result[self::LONGITUDE_KEY] = true;
-			$result[self::ISP_KEY] = true;
-
-			return $result;
-		}
-
 		// All fields are supported with IP2Location.io Service
-		if (Option::get('IP2Location.LookupMode') == 'IO' && Option::get('IP2Location.ApiKey')) {
+		if (Option::get('IP2Location.LookupMode') == 'WS' && Option::get('IP2Location.ApiKey')) {
 			$result[self::REGION_CODE_KEY] = true;
 			$result[self::REGION_NAME_KEY] = true;
 			$result[self::CITY_NAME_KEY] = true;
@@ -200,7 +214,7 @@ class IP2Location extends LocationProvider
 				return self::getDatabasePath() !== false;
 
 			case 'WS':
-				return (bool) preg_match('/^[0-9A-Z]{32}$/', Option::get('IP2Location.ApiKey'));
+				return (bool) preg_match('/^[0-9A-F]{32}|[0-9A-Z]{10}$/', Option::get('IP2Location.ApiKey'));
 		}
 
 		return false;
@@ -236,7 +250,7 @@ class IP2Location extends LocationProvider
 				return true;
 
 			case 'WS':
-				return (bool) preg_match('/^[0-9A-Z]{32}$/', Option::get('IP2Location.ApiKey'));
+				return (bool) preg_match('/^[0-9A-F]{32}|[0-9A-Z]{10}$/', Option::get('IP2Location.ApiKey'));
 		}
 
 		return false;

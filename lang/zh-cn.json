@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API密钥",
         "Database": "数据库",
         "DatabaseCode": "数据库代码",
         "DatabaseDate": "数据库日期",
+        "DatabaseFile": "数据库文件",
         "DatabaseHasBeenDownloaded": "数据库已下载。",
         "DatabaseInformation": "数据库信息",
         "DatabasePath": "数据库路径",

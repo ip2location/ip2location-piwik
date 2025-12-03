@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API Key",
         "Database": "Database",
         "DatabaseCode": "Database Code",
         "DatabaseDate": "Database Date",
+        "DatabaseFile": "Database File",
         "DatabaseHasBeenDownloaded": "Database has been downloaded.",
         "DatabaseInformation": "Database Information",
         "DatabasePath": "Database Path",

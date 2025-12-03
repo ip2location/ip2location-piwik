@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "Susi ng API",
         "Database": "Database",
         "DatabaseCode": "Database code",
         "DatabaseDate": "Petsa ng database",
+        "DatabaseFile": "File ng database",
         "DatabaseHasBeenDownloaded": "Na -download ang database.",
         "DatabaseInformation": "Impormasyon sa Database",
         "DatabasePath": "Landas ng database",

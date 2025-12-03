@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "Ключ API",
         "Database": "База дадзеных",
         "DatabaseCode": "Код базы дадзеных",
         "DatabaseDate": "Дата базы даных",
+        "DatabaseFile": "Файл базы дадзеных",
         "DatabaseHasBeenDownloaded": "База даных спампавана.",
         "DatabaseInformation": "Інфармацыя базы даных",
         "DatabasePath": "Шлях да базы даных",

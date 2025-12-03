@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API కీ",
         "Database": "డేటాబేస్",
         "DatabaseCode": "డేటాబేస్ కోడ్",
         "DatabaseDate": "డేటాబేస్ తేదీ",
+        "DatabaseFile": "డేటాబేస్ ఫైల్",
         "DatabaseHasBeenDownloaded": "డేటాబేస్ డౌన్‌లోడ్ చేయబడింది.",
         "DatabaseInformation": "డేటాబేస్ సమాచారం",
         "DatabasePath": "డేటాబేస్ మార్గం",

@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API-nøkkel",
         "Database": "Database",
         "DatabaseCode": "Databasekode",
         "DatabaseDate": "Database Dato",
+        "DatabaseFile": "Databasefil",
         "DatabaseHasBeenDownloaded": "Databasen er lastet ned.",
         "DatabaseInformation": "Databaseinformasjon",
         "DatabasePath": "Databasebane",

@@ -1,8 +1,10 @@
 {
     "IP2Location": {
+        "ApiKey": "API کلید",
         "Database": "ڈیٹا بیس",
         "DatabaseCode": "ڈیٹا بیس کوڈ",
         "DatabaseDate": "ڈیٹا بیس کی تاریخ",
+        "DatabaseFile": "ڈیٹا بیس فائل",
         "DatabaseHasBeenDownloaded": "ڈیٹا بیس ڈاؤن لوڈ کیا گیا ہے۔",
         "DatabaseInformation": "ڈیٹا بیس کی معلومات",
         "DatabasePath": "ڈیٹا بیس کا راستہ",
@@ -10,7 +12,7 @@
         "DatabaseSize": "ڈیٹا بیس کا سائز",
         "DownloadBinDatabase": "بن ڈیٹا بیس ڈاؤن لوڈ کریں",
         "DownloadToken": "ٹوکن ڈاؤن لوڈ کریں",
-        "DownloadTokenDescription": "آپ لاگ ان کے بعد \"ڈاؤن لوڈ سیکشن\" پر اپنا ڈاؤن لوڈ ٹوکن حاصل کرسکتے ہیں ٪ 1 $ SIP2Location لائٹ ٪ 2 $ S یا ٪ 3 $ SIP2Location تجارتی ٪ 4 $ S ویب سائٹ میں لاگ ان کریں۔",
+        "DownloadTokenDescription": "آپ اپنے ڈاؤن لوڈ ٹوکن کو \"ڈاؤن لوڈ سیکشن\" پر ٪ 1 $ SIP2Location لائٹ ٪ 2 $ S یا ٪ 3 $ SIP2Location کمرشل ٪ 4 $ S ویب سائٹ میں حاصل کرسکتے ہیں۔",
         "GeolocationAPIService": "ip2location.io جغرافیائی مقام API سروس",
         "GeolocationAPIServiceDescription": "مفت API کلید کو ٪ 1 $ Shttps: //www.ip2location.io/٪2$s پر حاصل کرنے کے لئے رجسٹر ہوں۔ ہر ماہ 50،000 مفت سوالات",
         "GeolocationAPIServiceHasBeenSaved": "جیو لوکیشن API سروس کو بچایا گیا ہے۔",
