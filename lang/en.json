@@ -12,6 +12,7 @@
         "DatabaseSize": "Database Size",
         "DownloadBinDatabase": "Download BIN Database",
         "DownloadToken": "Download Token",
+        "DownloadTokenIsRemoved": "Download token is removed.",
         "DownloadTokenDescription": "You can get your download token at \"Download Section\" after login into %1$sIP2Location LITE%2$s or %3$sIP2Location Commercial%4$s website.",
         "GeolocationAPIService": "IP2Location.io Geolocation API Service",
         "GeolocationAPIServiceDescription": "Register to get free API key at %1$shttps://www.ip2location.io/%2$s. 50,000 free queries every month",

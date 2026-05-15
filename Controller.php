@@ -162,52 +162,56 @@ class Controller extends \Piwik\Plugin\Controller
 
 		Nonce::checkNonce('IP2Location.saveBinDatabase', $request->getStringParameter('nonce', ''));
 
-		$downloadToken = $request->getStringParameter('downloadToken', '');
-		$databaseCode = $request->getStringParameter('databaseCode', '');
-		$databasePath = $request->getStringParameter('databasePath', '');
-		$includeIPv6 = $request->getStringParameter('includeIPv6', '');
+		$downloadToken = trim($request->getStringParameter('downloadToken', ''));
+		$databaseCode = trim($request->getStringParameter('databaseCode', ''));
+		$databasePath = trim($request->getStringParameter('databasePath', ''));
+		$includeIPv6 = trim($request->getStringParameter('includeIPv6', ''));
 
-		if (!$downloadToken) {
-			$this->config('', [
-				Piwik::translate('IP2Location_InvalidDownloadToken'),
-			]);
-			return;
+		// Sanitize download token
+		if (!preg_match('/^[a-zA-Z0-9]{64}$/', $downloadToken)) {
+			$downloadToken = '';
 		}
 
-		if (!$databasePath) {
-			$this->config('', [
-				Piwik::translate('IP2Location_InvalidDatabasePath'),
-			]);
-			return;
-		}
-
-		// Check for download permission
-		if (!IP2LocationPlugin::checkDownloadToken($downloadToken, $databaseCode . ($includeIPv6 ? 'IPV6' : ''))) {
-			$this->config('', [
-				Piwik::translate('IP2Location_InvalidDownloadToken'),
-			]);
-			return;
-		}
-
-		if (!is_writable($databasePath)) {
-			$this->config('', [
-				Piwik::translate('IP2Location_InvalidDatabasePath'),
-			]);
-			return;
-		}
-
+		// Save the download token
 		IP2LocationPlugin::setDownloadToken($downloadToken);
-		IP2LocationPlugin::setDatabaseCode($databaseCode . ($includeIPv6 ? 'IPV6' : ''));
-		IP2LocationPlugin::setDatabasePath($databasePath);
 
-		if (!IP2LocationPlugin::downloadBinDatabase()) {
-			$this->config('', [
-				Piwik::translate('IP2Location_InvalidDownloadToken'),
-			]);
-			return;
+		if ($downloadToken) {
+			if (!$databasePath) {
+				$this->config('', [
+					Piwik::translate('IP2Location_InvalidDatabasePath'),
+				]);
+				return;
+			}
+
+			// Check for download permission
+			if (!IP2LocationPlugin::checkDownloadToken($downloadToken, $databaseCode . ($includeIPv6 ? 'IPV6' : ''))) {
+				$this->config('', [
+					Piwik::translate('IP2Location_InvalidDownloadToken'),
+				]);
+				return;
+			}
+
+			if (!is_writable($databasePath)) {
+				$this->config('', [
+					Piwik::translate('IP2Location_InvalidDatabasePath'),
+				]);
+				return;
+			}
+
+			IP2LocationPlugin::setDatabaseCode($databaseCode . ($includeIPv6 ? 'IPV6' : ''));
+			IP2LocationPlugin::setDatabasePath($databasePath);
+
+			if (!IP2LocationPlugin::downloadBinDatabase()) {
+				$this->config('', [
+					Piwik::translate('IP2Location_InvalidDownloadToken'),
+				]);
+				return;
+			}
+
+			$this->config(Piwik::translate('IP2Location_DatabaseHasBeenDownloaded'));
 		}
 
-		$this->config(Piwik::translate('IP2Location_DatabaseHasBeenDownloaded'));
+		$this->config(Piwik::translate('IP2Location_DownloadTokenIsRemoved'));
 	}
 
 	public function saveScheduledTask()

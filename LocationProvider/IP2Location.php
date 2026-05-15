@@ -110,15 +110,15 @@ class IP2Location extends LocationProvider
 		} else {
 			require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
 
-			if (self::getDatabasePath() === false) {
-				return;
+			try {
+				$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
+				$response = $db->lookup($ip, \IP2Location\Database::ALL);
+			} catch (\Exception $e) {
+				return $result;
 			}
 
-			$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
-			$response = $db->lookup($ip, \IP2Location\Database::ALL);
-
 			if (!$response) {
-				return;
+				return $result;
 			}
 
 			$result[self::COUNTRY_CODE_KEY] = $response['countryCode'];
@@ -178,8 +178,12 @@ class IP2Location extends LocationProvider
 
 		require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
 
-		$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
-		$response = $db->lookup('8.8.8.8', \IP2Location\Database::ALL);
+		try {
+			$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
+			$response = $db->lookup('8.8.8.8', \IP2Location\Database::ALL);
+		} catch (\Exception $e) {
+			return $result;
+		}
 
 		if (strpos($response['regionName'], 'unavailable') === false) {
 			$result[self::REGION_CODE_KEY] = true;
@@ -233,11 +237,15 @@ class IP2Location extends LocationProvider
 				require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
 
 				if (!file_exists(self::getDatabasePath())) {
-					return 'IP2Location BIN database not found.';
+					return 'IP2Location BIN database is missing.';
 				}
 
-				$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
-				$response = $db->lookup('8.8.8.8', \IP2Location\Database::ALL);
+				try {
+					$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
+					$response = $db->lookup('8.8.8.8', \IP2Location\Database::ALL);
+				} catch (\Exception $e) {
+					return 'IP2Location BIN database is corrupted.';
+				}
 
 				if (!isset($response['countryCode'])) {
 					return 'IP2Location BIN database is corrupted.';

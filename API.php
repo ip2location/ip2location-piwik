@@ -45,9 +45,9 @@ class API extends \Piwik\Plugin\API
 
 		require_once PIWIK_INCLUDE_PATH . '/plugins/IP2Location/lib/IP2Location.php';
 
-		$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
-
-		if (!$db) {
+		try {
+			$db = new \IP2Location\Database(self::getDatabasePath(), \IP2Location\Database::FILE_IO);
+		} catch (\Exception $e) {
 			return '';
 		}
 
