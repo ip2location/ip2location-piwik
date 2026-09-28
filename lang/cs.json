@@ -7,6 +7,23 @@
         "CreditAvailable": "Dostupný kredit",
         "DatabaseDate": "Datum databáze",
         "DatabaseInformation": "Informace o databázi",
-        "IP2Location_InfoDescription": "Tento zprostředkovatel polohy používá pro vyhledávání zeměpisné polohy databázi IP2Location BIN."
+        "DatabaseSize": "Velikost databáze",
+        "DownloadCommercialDatabase": "Stáhnout komerční databázi IP2Location",
+        "DownloadLITEDatabase": "Stáhnout bezplatnou databázi IP2Location LITE BIN",
+        "IP2Location": "IP2Location",
+        "IP2LocationDatabaseFile": "Soubor databáze IP2Location",
+        "IP2LocationSettings": "Nastavení IP2Location",
+        "IP2Location_InfoDescription": "Tento zprostředkovatel polohy používá pro vyhledávání zeměpisné polohy databázi IP2Location BIN.",
+        "IP2Location_NoIP2LocationDatabaseFile": "V adresáři matomo/misc nebyl nalezen soubor databáze IP2Location.",
+        "LearnMore": "Další informace…",
+        "LocalBINDatabase": "Databáze IP2Location BIN",
+        "LookupMode": "Režim vyhledávání",
+        "PleaseEnterAValidAPIKey": "Zadejte platný klíč API.",
+        "PleaseGetYourAPIKeyFrom": "Klíč API můžete získat na adrese",
+        "SaveChanges": "Uložit změny",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Nahrajte databázi IP2Location BIN do složky matomo/misc.",
+        "WebService": "Webová služba IP2Location",
+        "WebServiceInformation": "Informace o webové službě",
+        "WebServiceMisc": "Webová služba bude pro vyhledávací dotazy používat balíček WS6"
     }
 }

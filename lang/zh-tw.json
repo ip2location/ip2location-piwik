@@ -1,9 +1,9 @@
 {
     "IP2Location": {
-        "APIKey": "API 金鑰（用於透過 Web 服務檢索的模式）",
-        "AutomatedUpdate": "如何部署 BIN 資料庫每月自動更新以檢索最新資料。",
+        "APIKey": "API 金鑰（用於 Web 服務查詢模式）",
+        "AutomatedUpdate": "如何設定 BIN 資料庫每月自動更新，以查詢最新資料。",
         "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
-        "ChangesHasBeenSaved": "已儲存更改。",
+        "ChangesHasBeenSaved": "變更已儲存。",
         "CreditAvailable": "可用額度",
         "DatabaseDate": "資料庫日期",
         "DatabaseInformation": "資料庫資訊",
@@ -11,19 +11,19 @@
         "DownloadCommercialDatabase": "下載 IP2Location 商業資料庫",
         "DownloadLITEDatabase": "下載 IP2Location 免費 LITE BIN 資料庫",
         "IP2Location": "IP2Location",
-        "IP2LocationDatabaseFile": "IP2Location 資料庫文件",
+        "IP2LocationDatabaseFile": "IP2Location 資料庫檔案",
         "IP2LocationSettings": "IP2Location 設定",
-        "IP2Location_InfoDescription": "此地理位置供應商使用 IP2Location BIN 資料庫作地理位置檢索。",
+        "IP2Location_InfoDescription": "此地理位置供應商使用 IP2Location BIN 資料庫進行地理位置查詢。",
         "IP2Location_NoIP2LocationDatabaseFile": "在 matomo/misc 資料夾中找不到 IP2Location 資料庫檔案。",
         "LearnMore": "瞭解更多…",
         "LocalBINDatabase": "IP2Location BIN 資料庫",
-        "LookupMode": "檢索模式",
+        "LookupMode": "查詢模式",
         "PleaseEnterAValidAPIKey": "請輸入有效的 API 金鑰。",
         "PleaseGetYourAPIKeyFrom": "欲取得 API 金鑰，請至",
-        "SaveChanges": "儲存更改",
-        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "請將你的 IP2Location BIN 資料庫上載到 matomo/misc 資料夾。",
+        "SaveChanges": "儲存變更",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "請將你的 IP2Location BIN 資料庫上傳到 matomo/misc 資料夾。",
         "WebService": "IP2Location Web 服務",
         "WebServiceInformation": "Web 服務資訊",
-        "WebServiceMisc": "Web 服務將使用 WS6 套件進行檢索請求"
+        "WebServiceMisc": "Web 服務將使用 WS6 套件進行查詢請求"
     }
 }
