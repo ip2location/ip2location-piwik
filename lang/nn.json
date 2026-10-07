@@ -1,1 +1,29 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "API-nøkkel (for oppslag via vevteneste)",
+        "AutomatedUpdate": "Slik set du opp automatisk månadleg oppdatering av BIN-databasen for oppdaterte oppslag.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "Endringane er lagra.",
+        "CreditAvailable": "Tilgjengeleg kreditt",
+        "DatabaseDate": "Databasedato",
+        "DatabaseInformation": "Databaseinformasjon",
+        "DatabaseSize": "Databasestorleik",
+        "DownloadCommercialDatabase": "Last ned den kommersielle IP2Location-databasen",
+        "DownloadLITEDatabase": "Last ned den gratis IP2Location LITE BIN-databasen",
+        "IP2Location": "IP2Location",
+        "IP2LocationDatabaseFile": "IP2Location-databasefil",
+        "IP2LocationSettings": "IP2Location-innstillingar",
+        "IP2Location_InfoDescription": "Denne posisjonstilbydaren brukar IP2Location BIN-databasen til oppslag for geoposisjonering.",
+        "IP2Location_NoIP2LocationDatabaseFile": "Fann inga IP2Location-databasefil i mappa matomo/misc.",
+        "LearnMore": "Lær meir …",
+        "LocalBINDatabase": "IP2Location BIN-database",
+        "LookupMode": "Oppslagsmodus",
+        "PleaseEnterAValidAPIKey": "Skriv inn ein gyldig API-nøkkel.",
+        "PleaseGetYourAPIKeyFrom": "Du kan få API-nøkkelen din på",
+        "SaveChanges": "Lagre endringane",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Last opp IP2Location BIN-databasen din til mappa matomo/misc.",
+        "WebService": "IP2Location-vevteneste",
+        "WebServiceInformation": "Informasjon om vevtenesta",
+        "WebServiceMisc": "Vevtenesta brukar WS6-pakken for oppslaget"
+    }
+}
