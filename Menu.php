@@ -7,14 +7,19 @@ use Piwik\Piwik;
 
 class Menu extends \Piwik\Plugin\Menu
 {
-	public function configureAdminMenu(MenuAdmin $menu)
-	{
-		if (Piwik::isUserHasSomeAdminAccess()) {
-			$menu->addSystemItem(
-				'IP2Location',
-				['module' => 'IP2Location', 'action' => 'config'],
-				$orderId = 35
-			);
-		}
-	}
+    /**
+     * Adds the plugin to the administration menu.
+     *
+     * @param MenuAdmin $menu
+     */
+    public function configureAdminMenu(MenuAdmin $menu)
+    {
+        if (Piwik::isUserHasSomeAdminAccess()) {
+            $menu->addSystemItem(
+                'IP2Location',
+                ['module' => 'IP2Location', 'action' => 'config'],
+                35
+            );
+        }
+    }
 }
