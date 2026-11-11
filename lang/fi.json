@@ -1,1 +1,29 @@
-{}
+{
+    "IP2Location": {
+        "APIKey": "API-avain (verkkopalvelun hakutilaa varten)",
+        "AutomatedUpdate": "Näin otat käyttöön BIN-tietokannan automaattisen kuukausittaisen päivityksen ajantasaisia hakuja varten.",
+        "AutomatedUpdateURL": "https://www.ip2location.com/tutorials/how-to-automate-ip2location-bin-database-download",
+        "ChangesHasBeenSaved": "Muutokset on tallennettu.",
+        "CreditAvailable": "Käytettävissä olevat krediitit",
+        "DatabaseDate": "Tietokannan päivämäärä",
+        "DatabaseInformation": "Tietokannan tiedot",
+        "DatabaseSize": "Tietokannan koko",
+        "DownloadCommercialDatabase": "Lataa IP2Locationin kaupallinen tietokanta",
+        "DownloadLITEDatabase": "Lataa IP2Locationin ilmainen LITE BIN -tietokanta",
+        "IP2Location": "IP2Location",
+        "IP2LocationDatabaseFile": "IP2Location-tietokantatiedosto",
+        "IP2LocationSettings": "IP2Location-asetukset",
+        "IP2Location_InfoDescription": "Tämä sijainninmääritystoiminto käyttää maantieteellisen sijainnin hakuun IP2Location BIN -tietokantaa.",
+        "IP2Location_NoIP2LocationDatabaseFile": "Hakemistosta matomo/misc ei löytynyt IP2Location-tietokantatiedostoa.",
+        "LearnMore": "Lue lisää…",
+        "LocalBINDatabase": "IP2Location BIN -tietokanta",
+        "LookupMode": "Hakutila",
+        "PleaseEnterAValidAPIKey": "Syötä kelvollinen API-avain.",
+        "PleaseGetYourAPIKeyFrom": "Saat API-avaimesi osoitteesta",
+        "SaveChanges": "Tallenna muutokset",
+        "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Lataa IP2Location BIN -tietokantasi kansioon matomo/misc.",
+        "WebService": "IP2Location-verkkopalvelu",
+        "WebServiceInformation": "Verkkopalvelun tiedot",
+        "WebServiceMisc": "Verkkopalvelu käyttää hakukutsuun WS6-pakettia"
+    }
+}
