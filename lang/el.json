@@ -18,7 +18,7 @@
         "LearnMore": "Μάθετε περισσότερα…",
         "LocalBINDatabase": "Βάση Δεδομένων BIN IP2Location",
         "LookupMode": "Κατάσταση Αναζήτησης",
-        "PleaseEnterAValidAPIKey": "Εισάγετε ένα έγκυρο κλειδί API.",
+        "PleaseEnterAValidAPIKey": "Εισαγάγετε ένα έγκυρο κλειδί API.",
         "PleaseGetYourAPIKeyFrom": "Μπορείτε να λάβετε το κλειδί σας API στο",
         "SaveChanges": "Αποθήκευση Αλλαγών",
         "UploadYourIP2LocationBINDatabaseToPiwikMisc": "Ανεβάστε τη βάση δεδομένων BIN του IP2Location στον κατάλογο matomo/misc.",
