@@ -39,7 +39,7 @@ class API extends \Piwik\Plugin\API
             return basename(self::getDatabasePath());
         }
 
-        $files = @scandir(PIWIK_DOCUMENT_ROOT . '/misc');
+        $files = @scandir(IP2Location::getDefaultDatabaseDir());
 
         if (!is_array($files)) {
             return '';
@@ -163,7 +163,7 @@ class API extends \Piwik\Plugin\API
         $databasePath = (substr(self::getDatabasePath(), -3) == 'BIN') ? dirname(self::getDatabasePath()) : self::getDatabasePath();
 
         if (empty($databasePath)) {
-            $databasePath = str_replace('\\', '/', PIWIK_DOCUMENT_ROOT) . '/misc';
+            $databasePath = IP2Location::getDefaultDatabaseDir();
         }
 
         if (empty($token) || empty($code)) {

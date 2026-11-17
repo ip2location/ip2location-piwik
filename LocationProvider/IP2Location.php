@@ -274,7 +274,7 @@ class IP2Location extends LocationProvider
             $binFile = Option::get('IP2Location.BIN');
 
             if (!empty($binFile)) {
-                $databasePath = PIWIK_DOCUMENT_ROOT . '/misc/' . $binFile;
+                $databasePath = \Piwik\Plugins\IP2Location\IP2Location::getDefaultDatabaseDir() . '/' . $binFile;
             }
         }
 
