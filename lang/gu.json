@@ -1,1 +1,13 @@
-{}
+{
+    "IP2Location": {
+        "ApiKey": "API કી",
+        "DatabaseDate": "ડેટાબેઝ તારીખ",
+        "DatabaseInformation": "ડેટાબેઝ માહિતી",
+        "DatabaseSize": "ડેટાબેઝનું કદ",
+        "IP2Location": "IP2 લોકેશન",
+        "IP2LocationBINDatabase": "IP2 લોકેશન BIN ડેટાબેઝ",
+        "IP2LocationDatabaseFile": "IP2 લોકેશન ડેટાબેઝ ફાઇલ",
+        "LookupMode": "લુકઅપ મોડ",
+        "Monthly": "માસિક"
+    }
+}
