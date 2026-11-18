@@ -32,7 +32,7 @@
         "LookupMode": "Mënyrë Kërkimi",
         "LookupModeHasBeenSaved": "Mënyra e kërkimit u ruajt.",
         "LookupModeWarning": "Që t’ia fillohet, ju lutemi, përzgjidhni një mënyrë kërkimi.",
-        "Monthly": "",
+        "Monthly": "Përmuaj",
         "NeverExecuted": "Nuk është ekzekutuar kurrë",
         "NoIP2LocationDatabaseFile": "Nuk u gjet asnjë skedar i bazës së të dhënave IP2Location BIN. Fut %1$sTokenin tënd të Shkarkimit%2$s më poshtë për të shkarkuar bazën e të dhënave BIN.",
         "Off": "Joaktiv",
