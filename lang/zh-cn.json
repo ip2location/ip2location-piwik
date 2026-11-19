@@ -16,6 +16,7 @@
         "GeolocationAPIService": "IP2Location.io 地理定位 API 服务",
         "GeolocationAPIServiceDescription": "在 %1$shttps://www.ip2location.io/%2$s 注册以获取免费 API 密钥。每月 50,000 次免费查询",
         "GeolocationAPIServiceHasBeenSaved": "地理定位 API 服务已保存。",
+        "IP2Location": "IP2Location",
         "IP2LocationBINDatabase": "IP2位置BIN数据库",
         "IP2LocationBINDatabaseDescription": "请在 %1$shttps://lite.ip2location.com/%2$s 注册下载免费数据库。",
         "IP2LocationBINDatabaseDescriptionCommercial": "高精度商业数据库位于 %1$shttps://www.ip2location.com/%2$s。",
