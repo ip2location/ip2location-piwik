@@ -13,6 +13,7 @@
         "DownloadBinDatabase": "Last ned BIN-database",
         "DownloadToken": "Last ned token",
         "DownloadTokenDescription": "Du kan få nedlastingstokenet ditt på \"Nedlastingsseksjonen\" etter pålogging på %1$sIP2Location LITE%2$s eller %3$sIP2Location Commercial%4$s nettsted.",
+        "DownloadTokenIsRemoved": "Nedlastingstokenet er fjernet.",
         "GeolocationAPIService": "IP2Location.io Geolocation API-tjeneste",
         "GeolocationAPIServiceDescription": "Registrer deg for å få gratis API-nøkkel på %1$shttps://www.ip2location.io/%2$s. 50 000 gratis forespørsler hver måned",
         "GeolocationAPIServiceHasBeenSaved": "Geolocation API-tjenesten er lagret.",
