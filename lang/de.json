@@ -13,6 +13,7 @@
         "DownloadBinDatabase": "Laden Sie die BIN-Datenbank herunter",
         "DownloadToken": "Token herunterladen",
         "DownloadTokenDescription": "Sie können Ihr Download-Token im „Download-Bereich“ erhalten, nachdem Sie sich auf der Website %1$sIP2Location LITE%2$s oder %3$sIP2Location Commercial%4$s angemeldet haben.",
+        "DownloadTokenIsRemoved": "Das Download-Token wurde entfernt.",
         "GeolocationAPIService": "IP2Location.io Geolocation-API-Dienst",
         "GeolocationAPIServiceDescription": "Registrieren Sie sich, um einen kostenlosen API-Schlüssel unter %1$shttps://www.ip2location.io/%2$s zu erhalten. 50.000 kostenlose Abfragen jeden Monat",
         "GeolocationAPIServiceHasBeenSaved": "Der Geolocation-API-Dienst wurde gespeichert.",
